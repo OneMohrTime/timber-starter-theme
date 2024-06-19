@@ -1,0 +1,146 @@
+/* ==========================================================================
+	Buttons
+========================================================================== */
+
+#{$all-buttons} {
+	position: relative;
+	display: inline-block;
+	background-color: transparent;
+	background-image: none;
+	border-radius: 0;
+	color: inherit;
+	font-size: 100%; // Corrects font size not being inherited in all browsers
+	margin: 0;
+	vertical-align: baseline; // Improves appearance and consistency in all browsers
+	white-space: nowrap;
+	overflow: hidden;
+	appearance: none;
+}
+
+#{$all-buttons-focus} {
+	outline-color: fade-out($yellow, 0.4);
+}
+
+#{$all-buttons-hover} {
+	background-color: transparent;
+	color: inherit;
+}
+
+/**
+* === Bourbon Mixins ===
+*/
+
+@mixin btn-style {
+	@include btn-color();
+	padding: 1vw 2vw;
+	font-family: $font-header;
+	// font-size: 1.042vw;
+	// font-size: 5vmin;
+	font-size: 1em;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-align: center;
+	text-transform: uppercase;
+	border-radius: $base-border-radius;
+
+	&::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 0;
+		height: 10px;
+	}
+
+	@include media(">=screen960") {
+		padding: 0.25vw 1vw;
+		&::after {
+			transition: all $speed;
+		}
+	}
+
+	// hover, focus
+	@include hocus {
+		background-color: transparent;
+		color: inherit;
+
+		@include media(">=screen960") {
+			transition: all $speed;
+			&::after {
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+
+	&:active {
+		background-color: $black;
+		color: $white;
+	}
+
+	// disabled buttons
+	&:disabled {
+		opacity: 1;
+		border-color: $gray;
+		background-color: transparent;
+		color: $gray;
+		cursor: not-allowed !important;
+		// hover, focus
+		@include hocus {
+			background-color: $white--dark;
+			color: $gray;
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
+/**
+* === Button Class ===
+*/
+.c-button {
+	@include btn-style();
+	//	@include mask-texture();
+
+	.c-media__svg {
+		position: relative;
+		transition: $speed cubic-bezier(.455,.03,.515,.955);
+	}
+
+	&.c-gallery__banner--contact,
+	&.c-project__banner--contact,
+	&.c-posts__banner--contact {
+		display: flex;
+		align-items: center;
+
+		.c-media__svg {
+			margin-right: $small-spacing;
+
+			path {
+				fill: $white;
+				transition: fill $speed;
+			}
+		}
+
+		&:hover,
+		&:focus {
+			.c-media__svg {
+				transform: translateX(-#{$small-spacing});
+				path {
+					fill: $yellow;
+				}
+			}
+		}
+	}
+}
+
+.c-button--small {
+	padding: $small-spacing / 2 $small-spacing;
+	@include small-font-size();
+	border-width: 2px;
+
+	&::after {
+		height: 5px;
+	}
+}
