@@ -1,0 +1,56 @@
+{
+  "name": "simplified-destinations",
+  "version": "1.0.0",
+  "description": "",
+  "author": {
+    "name": "Derek Mohr",
+    "email": "derek@onemohrti.me",
+    "url": "https://onemohrti.me/"
+  },
+  "main": "index.php",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "npx mix",
+    "watch": "npx mix watch",
+    "watch-poll": "npx mix watch -- --watch-options-poll=1000",
+    "hot": "npx mix watch --hot",
+    "build": "npm run production",
+    "prod": "npm run production",
+    "production": "npx mix --production"
+  },
+  "browserslist": [
+    "last 5 versions",
+    "> 1%",
+    "IE 10-11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OneMohrTime/simplified-destinations.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OneMohrTime/simplified-destinations/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "18"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-imagemin": "^1.0.3",
+    "sass": "^1.77.6",
+    "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "bourbon": "^7.3.0",
+    "css-reset-and-normalize": "^2.3.6",
+    "include-media": "^2.0.0",
+    "modujs": "^1.4.2",
+    "modularload": "^1.2.8",
+    "modularscroll": "^1.0.7",
+    "swiper": "^11.1.4",
+    "tippy.js": "^6.3.7"
+  }
+}
