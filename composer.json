@@ -13,5 +13,13 @@
     ],
     "require-dev": {
         "timber/timber": "^2.2"
+    },
+    "require": {
+        "upstatement/routes": "^0.9.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }
