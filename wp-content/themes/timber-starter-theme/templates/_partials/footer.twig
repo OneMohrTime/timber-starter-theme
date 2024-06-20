@@ -1,1 +1,95 @@
-Copyright {{ 'now'|date('Y') }}
+{# -- Partial Variables -- #}
+
+{% set this = {
+    cta: params.cta|default(true),
+    headline: params.headline|default(null),
+    text: params.text|default(null),
+    btn1: params.btn1|default(null),
+    btn2: params.btn2|default(null),
+    logo: params.logo,
+    events: params.events,
+    about: params.about,
+    account: params.account,
+    social: params.social
+} %}
+
+{# -- Partial Template -- #}
+
+<footer class="o-site__footer">
+
+    {# Call to Action #}
+    {% if this.cta != 1 %}
+        {% include 'components/cta.twig' with {
+            params: {
+                headline: this.headline,
+                text: this.text,
+                btn1: params.btn1,
+                btn2: params.btn2,
+            }
+        } only %}
+    {% endif %}
+
+    {# Footer #}
+    <div class="c-footer">
+        <h2 class="u-invisible">Footer Info</h2>
+        <div class="c-footer__logo">
+            <a href="https://michiganciders.com" class="c-media">
+                <img src="{{ this.logo.url }}" alt="Michigan Cider Association logo" class="c-media__image" />
+            </a>
+        </div>
+        <div class="c-footer__events">
+            <h3 class="u-heading">Upcoming Events</h3>
+            <ul>
+                {% for item in this.events %}
+                    {% set item = Post(item) %}
+                    <li>
+                        <a href="{{ item.link }}" class="u-link">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="c-footer__about">
+            <h3 class="u-heading">About</h3>
+            <ul>
+                {% for item in this.about %}
+                    {% set item = Post(item) %}
+                    <li>
+                        <a href="{{ item.link }}" class="u-link">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="c-footer__account">
+            <h3 class="u-heading">My Account</h3>
+            <ul>
+                {% for item in this.account %}
+                    <li>
+                        {% include 'components/button.twig' with {
+                            params: {
+                                url: item.button.url,
+                                text: item.button.title,
+                                target: item.button.target,
+                                primary: loop.index == 1 ? true : false
+                            }
+                        } only %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="c-footer__utility">
+            <ul class="c-footer__social">
+                {% for profile in this.social %}
+                    {% set profile = profile.account %}
+                    <li class="c-footer__social-profile">
+                        <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                            {{ source('components/svg/social-' ~ profile.title ~ '.twig') }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="c-footer__legal">
+                <p>&copy; Michigan Cider Association {{ 'now'|date('Y') }} | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source=michiganciders" class="u-link" target="_blank" rel="noopener noreferrer nofollow">Derek Mohr</a></p>
+            </div>
+        </div>
+    </div>
+</footer>

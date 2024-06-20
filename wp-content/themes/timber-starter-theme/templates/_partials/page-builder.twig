@@ -1,0 +1,23 @@
+{# -- Partial Variables -- #}
+
+{% set this = {
+    sections: params.sections|default(null)
+} %}
+
+{# -- Partial Template -- #}
+
+{% if this.sections %}
+<section class="o-page__sections">
+
+    {% for row in this.sections %}
+        {# Use flexible content block based on section handle #}
+        {% set layout = row.acf_fc_layout %}
+        {% include 'components/section-' ~ layout ~ '.twig' with {
+            params: {
+                section: row
+            }
+        } only %}
+    {% endfor %}
+
+</section>
+{% endif %}
