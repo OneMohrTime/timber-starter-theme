@@ -1,46 +1,80 @@
+{# Site Meta Content #}
 {% block html_head_container %}
-
-{% include '_base/html-header.twig' %}
-	{% block head %}
-	{% endblock %}
-	</head>
+    {% include 'partials/html-header.twig' %}
+        {% block head %}
+        {% endblock %}
+    </head>
 {% endblock %}
 
-	<body class="{{ body_class }}">
-		{{ function('wp_body_open') }}
-		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
-		<header class="header" >
-			{% block header %}
-				<div class="wrapper">
-					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{ site.url }}" rel="home">{{ site.name }}</a>
-					</h1>
-					<nav id="nav-main" class="nav-main">
-						{% include '_components/menu.twig' with { 'items': menu.get_items } %}
-					</nav>
-				</div>
-			{% endblock %}
-		</header>
+{# Body Classes #}
+{% if term_page %}
+    {% set postTypeClass  = 'archive' %}
+    {% set postTitleClass = 'is-category' %}
+{% else %}
+    {% set postTypeClass  = post ? post.type.slug : 'default' %}
+    {% set postTitleClass = post ? 'is-' ~ post.slug : 'is-archive' %}
+{% endif %}
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{ title }}</h1>{% endif %}
-			<div class="wrapper">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{ sidebar }}
-				</aside>
-			{% endif %}
-		</section>
+{# Site Frame #}
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}">
+    <div id="page" class="o-site" data-load-container>
+        {{ function('wp_body_open') }}
 
-		{% block footer %}
-			<footer id="footer">
-				{% include '_objects/footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
-	</body>
+        {# Skip (Tab) Navigation #}
+        {% include 'components/skip-to-content.twig' %}
+
+        {# Global Site Alert #}
+        {% include 'components/alert.twig' with {
+            params: {
+                visible: globals.site_alert.show_alert|default(false),
+                text: globals.site_alert.alert_text|default(null),
+                link: globals.site_alert.alert_link|default(null)
+            }
+        } only %}
+
+        {# Primary Navigation #}
+        <header id="masthead" class="o-site__header" data-module-navigation>
+            {% block header %}
+                {# {% include 'partials/header.twig' with {
+                    params: {
+                        menu: primaryMenu,
+                        utility: utilityMenu,
+                        logo: globals.header_logo,
+                        buttons: globals.header_buttons
+                    }
+                } %} #}
+                {% include 'partials/header.twig' %}
+            {% endblock %}
+        </header>
+
+        {# Main Site Content Area #}
+        <main id="main" class="o-site__main">
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+        </main>
+
+        {# Site Footer #}
+        {% block footer %}
+            {% include 'partials/footer.twig' %}
+            {# {% include 'partials/footer.twig' with {
+                params: {
+                    cta: showCTA ?? post.cta_hide ?? true,
+                    headline: post.cta_headline|default(null),
+                    text: post.cta_body|default(null),
+                    btn1: post.cta_button_1|default(null),
+                    btn2: post.cta_button_2|default(null),
+                    logo: globals.footer_logo|default(null),
+                    events: globals.footer_events|default(null),
+                    about: globals.footer_about|default(null),
+                    account: globals.footer_account|default(null),
+                    social: globals.footer_profiles|default(null)
+                }
+            } only %} #}
+            <!-- Start WP Footer Function -->
+            {{ function('wp_footer') }}
+            <!-- End WP Footer Function -->
+        {% endblock %}
+
+    </body>
 </html>
