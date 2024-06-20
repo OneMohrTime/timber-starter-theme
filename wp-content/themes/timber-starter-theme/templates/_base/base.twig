@@ -1,4 +1,5 @@
-{# Site Meta Content #}
+{# -- Site Meta Content -- #}
+{# ----------------------------------------------------------------- #}
 {% block html_head_container %}
     {% include '_base/_header.twig' %}
         {% block head %}
@@ -6,7 +7,8 @@
     </head>
 {% endblock %}
 
-{# Body Classes #}
+{# -- Body Classes -- #}
+{# ----------------------------------------------------------------- #}
 {% if term_page %}
     {% set postTypeClass  = 'archive' %}
     {% set postTitleClass = 'is-category' %}
@@ -15,10 +17,13 @@
     {% set postTitleClass = post ? 'is-' ~ post.slug : 'is-archive' %}
 {% endif %}
 
-{# Site Frame #}
+{# -- Site Frame -- #}
+{# ----------------------------------------------------------------- #}
 <body class="t-{{ postTypeClass }} {{ postTitleClass }}">
     <div id="page" class="o-site" data-load-container>
+        <!-- Start `wp_body_open` Function -->
         {{ function('wp_body_open') }}
+        <!-- End `wp_body_open` Function -->
 
         {# Skip (Tab) Navigation #}
         {% include '_components/skip-to-content.twig' %}
@@ -71,9 +76,9 @@
                     social: globals.footer_profiles|default(null)
                 }
             } only %} #}
-            <!-- Start WP Footer Function -->
+            <!-- Start `wp_footer` Function -->
             {{ function('wp_footer') }}
-            <!-- End WP Footer Function -->
+            <!-- End `wp_footer` Function -->
         {% endblock %}
 
     </body>

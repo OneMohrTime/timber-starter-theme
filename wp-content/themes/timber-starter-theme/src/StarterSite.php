@@ -56,6 +56,7 @@ class StarterSite extends Site {
         $context['notes'] = 'These values are available everytime you call Timber::context();';
         $context['menu']  = Timber::get_menu();
         $context['site']  = $this;
+        $context['is_front_page'] = is_front_page();
 
         return $context;
     }

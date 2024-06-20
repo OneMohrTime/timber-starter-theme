@@ -10,8 +10,11 @@
  */
 
 $context         = Timber::context();
+
 $timber_post     = Timber::get_post();
+
 $context['post'] = $timber_post;
+// $context['sidebar'] = Timber::get_widgets('news_sidebar');
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( '_views/single-password.twig', $context );

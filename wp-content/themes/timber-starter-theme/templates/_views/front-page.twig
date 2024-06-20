@@ -1,0 +1,41 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/base.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+<article class="o-page">
+
+Front-Page.Twig
+
+    {% include '_components/banner.twig' with {
+        params: {
+            headline: headline,
+            text: subheadline,
+            style: bannerType,
+            image: bannerImage,
+            images: bannerImages,
+            video: bannerVideo,
+            button: button
+        }
+    } only %}
+
+    <section class="c-intro">
+        <div class="u-wysiwyg">
+            {{ post.content }}
+        </div>
+    </section>
+
+</article>
+{% endblock %}
