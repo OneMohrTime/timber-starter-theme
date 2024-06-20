@@ -1,12 +1,18 @@
-{# index.twig #}
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
 {% extends '_base/base.twig' %}
 
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
 {% block content %}
-	<h2>{{ foo }}</h2>
-	<p>{{ qux }}</p>
-	{% for post in posts %}
-		{% include ['_components/tease-' ~ post.post_type ~ '.twig', '_components/tease.twig'] %}
-	{% endfor %}
-	
-	{% include '_components/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+    <h2>{{ foo }}</h2>
+    <p>{{ qux }}</p>
+    {% for post in posts %}
+        {% include ['_components/tease-' ~ post.post_type ~ '.twig', '_components/tease.twig'] %}
+    {% endfor %}
+
+    {% include '_components/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
 {% endblock %}

@@ -1,5 +1,5 @@
 {# -- Partial Variables -- #}
-
+{# ----------------------------------------------------------------- #}
 {% set this = {
     cta: params.cta|default(true),
     headline: params.headline|default(null),
@@ -11,12 +11,12 @@
 } %}
 
 {# -- Partial Template -- #}
-
+{# ----------------------------------------------------------------- #}
 <footer class="o-site__footer">
 
-    {# Call to Action #}
+    {# -- Call to Action -- #}
     {% if this.cta != 1 %}
-        {% include 'components/cta.twig' with {
+        {% include '_components/cta.twig' with {
             params: {
                 headline: this.headline,
                 text: this.text,
@@ -26,7 +26,7 @@
         } only %}
     {% endif %}
 
-    {# Footer #}
+    {# -- Footer -- #}
     <div class="c-footer">
         <h2 class="u-invisible">Footer Info</h2>
         <div class="c-footer__logo">

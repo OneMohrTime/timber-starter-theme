@@ -1,44 +1,54 @@
-{# single.twig #}
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
 {% extends '_base/base.twig' %}
 
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set button = post.meta('banner_button')|default(null) %}
+{% set pageBuilder = post.meta('section_builder')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
 {% block content %}
-	<div class="content-wrapper">
 
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<a href="{{ post.link }}">{{ _e('edit') }}</a>
-				<p class="blog-author">
-					<span>By</span>
-					<a href="{{ post.author.path }}">
-						{{ post.author.name }}
-					</a>
-					<span>&bull;</span>
-					<time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time>
-				</p>
-				<div class="article-body">
-					{{ post.content }}
-				</div>
-			</section>
+    <article class="o-page">
 
-			<section class="comment-box">
-				<div class="comments">
-					{% if post.comments %}
-						<h3>comments</h3>
-						{% for cmt in post.comments %}
-							{% include '_components/comment.twig' with { comment:cmt } %}
-						{% endfor %}
-					{% endif %}
-				</div>
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: Image(bannerImage),
+                images: bannerImages,
+                video: bannerVideo,
+                button: button
+            }
+        } only %}
 
-				{% if post.comment_status == "closed" %}
-					<p>comments for this post are closed</p>
-				{% else %}
-					{% include '_components/comment-form.twig' %}
-				{% endif %}
-			</section>
-		</article>
+        <section class="c-article u-wysiwyg">
+            {{ post.content }}
+        </section>
 
-	</div>
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
+
+
+    </article>
+
+    {# Sidebar #}
+    {% include '_partials/sidebar.twig' with {
+        params: {
+            widgets: sidebar
+        }
+    } only %}
+
 {% endblock %}

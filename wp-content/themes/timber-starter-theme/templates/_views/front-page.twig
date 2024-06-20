@@ -15,27 +15,27 @@
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
 {% block content %}
-<article class="o-page">
 
-Front-Page.Twig
+    <article class="o-page">
 
-    {% include '_components/banner.twig' with {
-        params: {
-            headline: headline,
-            text: subheadline,
-            style: bannerType,
-            image: bannerImage,
-            images: bannerImages,
-            video: bannerVideo,
-            button: button
-        }
-    } only %}
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: bannerImage,
+                images: bannerImages,
+                video: bannerVideo,
+                button: button
+            }
+        } only %}
 
-    <section class="c-intro">
-        <div class="u-wysiwyg">
-            {{ post.content }}
-        </div>
-    </section>
+        <section class="c-intro">
+            <div class="u-wysiwyg">
+                {{ post.content }}
+            </div>
+        </section>
 
-</article>
+    </article>
+
 {% endblock %}

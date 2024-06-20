@@ -1,8 +1,14 @@
-{# page-plugin.twig #}
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
 {% extends '_base/base.twig' %}
 
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
 {% block content %}
-	<div class="container content-wrapper">
-		{{content}}
-	</div>
+    <div class="container content-wrapper">
+        {{content}}
+    </div>
 {% endblock %}

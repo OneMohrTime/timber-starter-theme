@@ -1,5 +1,5 @@
 {# -- Partial Variables -- #}
-
+{# ----------------------------------------------------------------- #}
 {% set this = {
     primary: primaryMenu|default(null),
     utility: utilityMenu|default(null),
@@ -8,15 +8,15 @@
 } %}
 
 {# -- Partial Template -- #}
-
+{# ----------------------------------------------------------------- #}
 {% if this.utility %}
-    {% include 'components/nav-utility.twig' with {
+    {% include '_components/nav-utility.twig' with {
         menu: this.utility.get_items
     } only %}
 {% endif %}
 
 {% if this.primary %}
-    {% include 'components/nav-primary.twig' with {
+    {% include '_components/nav-primary.twig' with {
         menu: this.primary.get_items,
         params: {
             logo: this.logo,

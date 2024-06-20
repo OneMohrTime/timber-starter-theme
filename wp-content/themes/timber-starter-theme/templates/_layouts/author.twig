@@ -1,8 +1,14 @@
-{# author.twig #}
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
 {% extends '_base/base.twig' %}
 
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
 {% block content %}
-	{% for post in posts %}
-		{% include ['tease-' ~ post.post_type ~ '.twig', 'tease.twig'] %}
-	{% endfor %}
+    {% for post in posts %}
+        {% include ['tease-' ~ post.post_type ~ '.twig', 'tease.twig'] %}
+    {% endfor %}
 {% endblock %}
