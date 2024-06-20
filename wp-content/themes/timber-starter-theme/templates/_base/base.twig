@@ -1,6 +1,6 @@
 {# Site Meta Content #}
 {% block html_head_container %}
-    {% include 'partials/html-header.twig' %}
+    {% include '_base/_header.twig' %}
         {% block head %}
         {% endblock %}
     </head>
@@ -21,10 +21,10 @@
         {{ function('wp_body_open') }}
 
         {# Skip (Tab) Navigation #}
-        {% include 'components/skip-to-content.twig' %}
+        {% include '_components/skip-to-content.twig' %}
 
         {# Global Site Alert #}
-        {% include 'components/alert.twig' with {
+        {% include '_components/alert.twig' with {
             params: {
                 visible: globals.site_alert.show_alert|default(false),
                 text: globals.site_alert.alert_text|default(null),
@@ -43,7 +43,7 @@
                         buttons: globals.header_buttons
                     }
                 } %} #}
-                {% include 'partials/header.twig' %}
+                {% include '_partials/header.twig' %}
             {% endblock %}
         </header>
 
@@ -56,7 +56,7 @@
 
         {# Site Footer #}
         {% block footer %}
-            {% include 'partials/footer.twig' %}
+            {% include '_partials/footer.twig' %}
             {# {% include 'partials/footer.twig' with {
                 params: {
                     cta: showCTA ?? post.cta_hide ?? true,
