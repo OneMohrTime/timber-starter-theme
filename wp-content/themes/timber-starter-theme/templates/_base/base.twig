@@ -40,15 +40,12 @@
         {# Primary Navigation #}
         <header id="masthead" class="o-site__header" data-module-navigation>
             {% block header %}
-                {# {% include 'partials/header.twig' with {
+                {% include '_partials/header.twig' with {
                     params: {
                         menu: primaryMenu,
                         utility: utilityMenu,
-                        logo: globals.header_logo,
-                        buttons: globals.header_buttons
                     }
-                } %} #}
-                {% include '_partials/header.twig' %}
+                } only %}
             {% endblock %}
         </header>
 

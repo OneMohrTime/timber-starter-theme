@@ -1,0 +1,78 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    menu: navMenu
+} %}
+
+{# -- Component Template -- #}
+
+<nav class="c-navigation">
+
+    <a href="https://michiganciders.com" id="logo" class="c-navigation__logo">
+        <img src="{{ this.logo.url }}" alt="Michigan Cider Association logo" class="c-media__image" />
+    </a>
+
+    <div class="c-navigation__toggle">
+        <button class="c-hamburger" data-toggle-menu>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+        </button>
+    </div>
+
+    {% if this.menu %}
+    <ul class="c-navigation__menu c-menu">
+
+        {% for item in this.menu.get_items %}
+        <li class="c-navigation__menuItem c-menuItem">
+
+            {% if item.children %}
+                <a href="{{ item.get_link }}" class="u-link">
+                    {{ item.title }}
+                </a>
+
+            {% else %}
+                <a href="{{ item.get_link }}" class="u-link">
+                    {{ item.title }}
+                </a>
+
+            {% endif %}
+
+            {% if item.children %}
+                <ul id="primary__sub-{{ item.id }}" class="c-submenu">
+
+                    {% for submenu in item.children %}
+                        <li class="c-submenu__item">
+                            <a href="{{ submenu.get_link }}" class="u-link">
+                                {{ submenu.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            {% endif %}
+
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+
+    {% if this.buttons %}
+        <ul class="c-navigation__buttons">
+            {% for button in this.buttons %}
+                <li>
+                    {% include '_elements/button.twig' with {
+                        params: {
+                            url: button.button.url,
+                            text: button.button.title,
+                            target: button.button.target,
+                            primary: loop.index == loop.length ? true : false
+                        }
+                    } only %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</nav>

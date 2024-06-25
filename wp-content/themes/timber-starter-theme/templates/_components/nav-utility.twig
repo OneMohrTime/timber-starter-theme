@@ -1,0 +1,25 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    menu: utilityMenu
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.menu %}
+<div class="c-utility">
+    <ul class="c-utility__menu c-menu">
+
+        {% for item in this.menu.get_items %}
+            <li class="c-utility__menuItem">
+
+                <a href="{{ item.get_link }}" class="u-link">
+                    {{ item.title }}
+                </a>
+
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>
+{% endif %}

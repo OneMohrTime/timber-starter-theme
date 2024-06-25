@@ -1,26 +1,24 @@
 {# -- Partial Variables -- #}
 {# ----------------------------------------------------------------- #}
 {% set this = {
-    primary: primaryMenu|default(null),
-    utility: utilityMenu|default(null),
-    logo: globals.header_logo|default(null),
-    buttons: globals.header_buttons|default(null)
+    primary: params.menu|default(null),
+    utility: params.utility|default(null)
 } %}
 
 {# -- Partial Template -- #}
 {# ----------------------------------------------------------------- #}
 {% if this.utility %}
     {% include '_components/nav-utility.twig' with {
-        menu: this.utility.get_items
+        navMenu: this.utility
     } only %}
 {% endif %}
 
 {% if this.primary %}
     {% include '_components/nav-primary.twig' with {
-        menu: this.primary.get_items,
-        params: {
-            logo: this.logo,
-            buttons: this.buttons
-        }
+        utilityMenu: this.primary
     } only %}
+    {# params: {
+        logo: this.logo,
+        buttons: this.buttons
+    } #}
 {% endif %}

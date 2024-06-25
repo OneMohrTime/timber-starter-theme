@@ -10,10 +10,14 @@ class StarterSite extends Site {
         add_action('after_setup_theme', array($this, 'theme_supports'));
         // add_action('init', array($this, 'register_post_types'));
         // add_action('init', array($this, 'register_taxonomies'));
+        add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
+        add_action('after_setup_theme', array($this, 'navigation_menus'));
+        add_action('widgets_init', array($this, 'create_sidebars'));
 
         add_filter('timber/context', array($this, 'add_to_context' ));
         add_filter('timber/twig', array($this, 'add_to_twig' ));
         add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
+        add_filter('wpseo_metabox_prio', array($this, 'move_yoast_seo_metabox'));
 
         parent::__construct();
     }
@@ -31,15 +35,45 @@ class StarterSite extends Site {
     // }
 
     /**
-     * Filters global context.
-     *
-     * @param array $context An array of existing context variables.
-     * @return mixed
+     * This is where you load the frontend CSS & JS files
      */
-    public function global_timber_context($context) {
-        $context['options'] = get_fields('option');
+    public function load_scripts() {
+        // Main "screen" stylesheet
+        wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/app.css', array(), null, 'screen' );
 
-        return $context;
+        // Main script file
+        wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true );
+    }
+
+    /**
+     * This is where you register & use WordPress menus
+     */
+    public function navigation_menus() {
+        register_nav_menus([
+            'primary' => 'Primary Menu',
+            'utility' => 'Utility Menu',
+        ]);
+    }
+
+    // /**
+    //  * This is where you move SEO fields to the bottom of the page
+    //  */
+    // public function create_sidebars() {
+    //     register_sidebar( array(
+    //         'name' => 'News Sidebar',
+    //         'id' => 'news_sidebar',
+    //         'before_widget' => '<div class="c-widget">',
+    //         'after_widget' => '</div>',
+    //         'before_title' => '<h3 class="u-heading">',
+    //         'after_title' => '</h3>',
+    //     ) );
+    // }
+
+    /**
+     * This is where you move SEO fields to the bottom of the page
+     */
+    public function move_yoast_seo_metabox() {
+        return 'low';
     }
 
     /**
@@ -48,12 +82,13 @@ class StarterSite extends Site {
      * @param string $context context['this'] Being the Twig's {{ this }}.
      */
     public function add_to_context( $context ) {
-        $context['foo']   = 'bar';
-        $context['stuff'] = 'I am a value set in your functions.php file';
-        $context['notes'] = 'These values are available everytime you call Timber::context();';
-        $context['menu']  = Timber::get_menu();
-        $context['site']  = $this;
+        $context['site']          = $this;
         $context['is_front_page'] = is_front_page();
+        $context['options']       = get_fields('option');
+
+        $context['primaryMenu'] = Timber::get_menu('primary');
+        $context['utilityMenu'] = Timber::get_menu('utility');
+        $context['footerMenu']  = Timber::get_menu('footer');
 
         return $context;
     }
