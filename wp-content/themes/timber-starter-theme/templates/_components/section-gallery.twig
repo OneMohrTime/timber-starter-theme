@@ -1,0 +1,27 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    images: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.images %}
+<div class="c-gallery" data-module-fancybox>
+
+    {% for image in this.images.images %}
+        <div class="c-gallery__image">
+            {% set image = get_image(image) %}
+            <a href="{{ image.src('large') }}" class="c-gallery__image-link" data-fancybox="gallery-{{ this.images.images|length }}">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: image,
+                        ratio: '1:1'
+                    }
+                } only %}
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+{% endif %}

@@ -1,0 +1,75 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline|default(''),
+    subheadline: params.text|default(null),
+    type: params.style|default('default'),
+    image: params.image|default(null),
+    images: params.images|default(null),
+    video: params.video|default(null),
+    button: params.button|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}">
+
+    <div class="c-banner__text">
+
+        <h1 class="u-title">{{ this.headline }}</h1>
+
+        {% if this.subheadline %}
+            <strong class="u-subheadline">{{ this.subheadline }}</strong>
+        {% endif %}
+
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.button.url,
+                    text: this.button.title,
+                    target: this.button.target
+                }
+            } only %}
+        {% endif %}
+    </div>
+
+    <figure class="c-banner__media">
+        {% if this.type == 'video' %}
+            {% include '_elements/video.twig' with {
+                params: {
+                    video: this.video
+                }
+            } only %}
+
+        {% elseif this.type == 'slides' %}
+            <div class="swiper is-cards" data-module-swiper>
+                <div class="swiper-wrapper">
+                    {% for image in this.images %}
+                        <div class="swiper-slide">
+                            {% set image = get_image(image) %}
+                            {% include '_elements/picture.twig' with {
+                                params: {
+                                    src: image,
+                                    ratio: '4:3'
+                                }
+                            } only %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% else %}
+            {% if this.image is not empty %}
+                {% set renderedImage = get_image(this.image) %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: renderedImage,
+                        ratio: (this.address or this.logo) ? '16:9' : '4:3'
+                    }
+                } only %}
+            {% endif %}
+
+        {% endif %}
+    </figure>
+
+</section>
