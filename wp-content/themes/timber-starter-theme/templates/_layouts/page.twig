@@ -58,7 +58,7 @@
 
                             {% include '_components/card.twig' with {
                                 params: {
-                                    thumbnail: Image(child.banner_image),
+                                    thumbnail: get_image(child.banner_image),
                                     title: child.title,
                                     text: content,
                                     link: child.link

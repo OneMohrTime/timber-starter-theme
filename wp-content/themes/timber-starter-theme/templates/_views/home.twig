@@ -39,7 +39,7 @@
                     {% if post.thumbnail %}
                         {% include '_elements/picture.twig' with {
                             params: {
-                                src: Image(post.thumbnail),
+                                src: get_image(post.thumbnail),
                                 ratio: '4:3',
                                 classes: 'c-member__logo'
                             }
