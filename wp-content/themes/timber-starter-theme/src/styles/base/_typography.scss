@@ -20,7 +20,7 @@
 		font-family: $font-header;
 		font-weight: 800;
 		text-transform: uppercase;
-		line-height: $heading-line-height;
+		line-height: $heading-height;
 		color: inherit;
 
 		@include first(1) {
@@ -72,11 +72,11 @@ h6 {
 
 		// headers in a wysiwyg section only...hopefully
 		&:not([class]) {
-			margin-bottom: ($base-line-height / 3);
+			margin-bottom: ($line-height / 3);
 		}
 		// remove top margin for first heading in sections
 		&:not([class]):not(:first-child) {
-			margin-top: ($base-line-height / 2);
+			margin-top: ($line-height / 2);
 		}
 	}
 }
@@ -124,8 +124,8 @@ ul, ol, dl {
 	._wysiwyg &,
 	.-wysiwyg & {
 		@include type();
-		margin: 0 0 $base-line-height;
-		padding-left: $base-line-height;
+		margin: 0 0 $line-height;
+		padding-left: $line-height;
 
 		// yellow dots
 		li::marker {
@@ -217,7 +217,7 @@ abbr {
 		font-size: 0;
 		line-height: initial;
 		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
+		outline-offset: $focus-offset;
 		border-bottom: 0;
 		background-color: transparent;
 

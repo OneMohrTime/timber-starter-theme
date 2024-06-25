@@ -13,27 +13,23 @@
 
 /* CSS Reset + Normalize */
 @import "../../../../../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
-/* Full vendor mixins + variables */
-// @import "../../node_modules/normalize-scss/sass/normalize";
-@import "../../../../../node_modules/bourbon/core/bourbon";
-@import "vendor/base/base";
-// @import "../../node_modules/font-awesome/scss/font-awesome";
-// @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
-// @import "../../node_modules/swiper/swiper";
-/* Needs variables */
-@import "../../../../../node_modules/include-media/dist/include-media";
-// @import "vendor/modularscale";
-// @import "vendor/texture-mixin";
+
 /* Custom tools like family, functions, and mixins are included here for reuse throughout the theme. */
 @import "tools/family";
 @import "tools/functions";
 @import "tools/mixins";
 
+@import "../../../../../node_modules/bourbon/core/bourbon";
 @import "helpers/variables";
 @import "helpers/mixins";
 @import "helpers/helpers";
 @import "helpers/ratio";
 @import "helpers/animations";
+
+/* Full vendor mixins + variables */
+@import "../../../../../node_modules/include-media/dist/include-media";
+// @import "../../node_modules/swiper/swiper";
+
 /* The 'base' styles provide the fundamental styling for the theme, such as typography and media rules. */
 @import "base/base";
 @import "base/typography";
@@ -50,7 +46,6 @@
 @import "layout/forms";
 @import "layout/header";
 @import "layout/post";
-@import "layout/project";
 @import "layout/sidebar";
 
 /*--------------------------------------------------------------
@@ -64,19 +59,11 @@
 @import "components/blockquote";
 @import "components/buttons";
 @import "components/card";
-@import "components/case-studies";
 @import "components/contact";
-@import "components/css-design-award";
-@import "components/embed";
 @import "components/footer";
-@import "components/forms";
 @import "components/gallery";
-@import "components/logo";
 @import "components/nav";
 @import "components/pagination";
-@import "components/parallax";
-@import "components/prism";
-@import "components/related-posts";
 @import "components/repeater";
 @import "components/text-image";
 
@@ -91,7 +78,3 @@
 @import "pages/blog";
 @import "pages/contact";
 @import "pages/home";
-@import "pages/instagram";
-@import "pages/logos";
-@import "pages/top-10s";
-@import "pages/work";

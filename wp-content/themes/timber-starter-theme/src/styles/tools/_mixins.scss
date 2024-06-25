@@ -33,13 +33,13 @@
 // @param  {List} $supports The type of clearfix to generate.
 // @output Injects `:::after` pseudo-element.
 //
-// @mixin u-clearfix($supports...) {
-//     &::after {
-//         display: if(list-contains($supports, table), table, block);
-//         clear: both;
-//         content: if(list-contains($supports, opera), " ", "");
-//     }
-// }
+@mixin clearfix($supports...) {
+    &::after {
+        display: if(list-contains($supports, table), table, block);
+        clear: both;
+        content: if(list-contains($supports, opera), " ", "");
+    }
+}
 
 //
 // Generate `:hover` and `:focus` styles in one go.

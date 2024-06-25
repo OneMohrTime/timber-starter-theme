@@ -1,10 +1,9 @@
 /* ==========================================================================
-	Variables
+    Variables
 ========================================================================== */
 
-/**
- * === COLORS ===
- */
+// Colors
+// =============================================================================
 
 $black: #171409;
 $black--light: tint($black, 5%);
@@ -17,8 +16,7 @@ $white--darker: shade($white, 10%);
 $white--darkest: shade($white, 15%);
 
 $yellow: #ffc300;
-$yellow--light: #fef7e3;
-$yellow--transparent: fade-out($yellow--light, 0.75);
+$yellow--light: tint($yellow, 10%);
 $yellow--dark: shade($yellow, 10%);
 
 $gray: #9b9a95;
@@ -27,18 +25,19 @@ $gray--dark: shade($gray, 15%);
 $gray--darker: shade($gray, 15%);
 $gray--darkest: #51514d;
 
-$red: #9c0000;
-$green: #61ef61;
+$red: #e60026;
+$green: #4caf50;
+$blue: #2196f3;
 
-//$color--notice: #9c0000 !important;
+$color--notice: $blue;
 $color--success: $green;
 $color--warning: $yellow;
 $color--error: $red;
 
-/**
- * === SOCIAL COLORS ===
- */
+$focus-outline: 2px solid fade-out($blue, 0.6);
+$focus-offset: 2px;
 
+// Social Networks
 $facebook-color:  #4267b2;
 $instagram-color: #e1306c;
 $linkedin-color:  #0e76a8;
@@ -51,17 +50,15 @@ $youtube-color:   #f00;
 $dribbble-color:  #ea4c89;
 $github-color:    #4078c0;
 
-/**
- * === TYPOGRAPHY ===
- */
+// Typography
+// =============================================================================
 
-$font-main     : "Barlow", $font-stack-system;
-$font-secondary: "Barlow Condensed", $font-stack-helvetica;
-$font-header   : $font-secondary;
-$font-code     : "Inconsolata", $font-stack-monaco;
+// Font Families
+$font-body:   system-ui, -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+$font-header: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$font-code:   "Monaco", "Consolas", "Lucida Console", monospace;
 
-$copy-width: 840px;
-
+// Font Sizes
 $font-h1: 7.083vw;
 $font-h2: 4.445vw;
 $font-h3: 3.542vw;
@@ -69,21 +66,55 @@ $font-h4: 2.5vw;
 $font-h5: 1.736vw;
 $font-h6: 1.458vw;
 
-/**
- * === ANIMATIONS ===
- */
+// Font Weights
+$font-hairline: 100;
+$font-thin:     200;
+$font-light:    300;
+$font-book:     400;
+$font-regular:  400;
+$font-medium:   500;
+$font-semibold: 600;
+$font-demibold: 600;
+$font-bold:     700;
+$font-heavy:    800;
+$font-ultra:    800;
+$font-black:    900;
 
-$speed        : 200ms;
-$speed-fast   : $speed / 2;
-$speed-slow   : $speed * 2;
+// Line Heights
+$line-height:    1.5em;
+$heading-height: 1.2em;
+
+// Animation Defaults
+// =============================================================================
+
+// Speeds
+$speed: 200ms;
+$speed-fast: $speed / 2;
+$speed-slow: $speed * 2;
 $base-duration: $speed;
 
-$cubic-bezier: cubic-bezier(0.17, 0.04, 0.03, 0.94);
+// Cubic Bezier Styles
+$easing:       cubic-bezier(0.645, 0.045, 0.355, 1);
+$bezier-sine:  cubic-bezier(0.39, 0.575, 0.565, 1);
+$bezier-quad:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$bezier-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$bezier-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$bezier-quint: cubic-bezier(0.23, 1, 0.32, 1);
+$bezier-expo:  cubic-bezier(0.19, 1, 0.22, 1);
+$bezier-circ:  cubic-bezier(0.075, 0.82, 0.165, 1);
+$bezier-back:  cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$bezier-slide: cubic-bezier(0, 0, 0.2, 1);
 
-/**
- * === SIZING ===
- */
+// Sizing Defaults
+// =============================================================================
 
+// Widths
+$container-width: 1280px;
+$inner-width: 1000px;
+$copy-width: 840px;
+$padding: math.div($container-width - $inner-width, 2);
+
+// Gutter Spacing
 $gutter: 36px;
 $gutter-xs: $gutter / 3;
 $gutter-sm: $gutter / 2;
@@ -92,35 +123,35 @@ $gutter-lg: $gutter * 2;
 $gutter-xl: $gutter * 3;
 $gutter-xxl: $gutter * 4;
 
-$breakpoints : (
-	'screen320' : 320px,
-	'screen375' : 375px,
-	'screen400' : 400px,
-	'screen480' : 480px,
-	'screen540' : 540px,
-	'screen600' : 600px,
-	'screen768' : 768px,
-	'screen840' : 840px,
-	'screen960' : 960px,
-	'screen1024': 1024px,
-	'screen1170': 1170px,
-	'screen1280': 1280px,
-	'screen1440': 1440px,
-	'screen1600': 1600px,
-	'screen1920': 1920px,
-	'screen2560': 2560px
-);
+// Relative Spacing
+$base-spacing: 1.5em;
+$large-spacing: $base-spacing * 2;
+$small-spacing: $base-spacing / 2;
 
-/**
- * === CSS VARS ===
- */
+// Borders
+$border-radius: 3px;
+
+// Media Queries (@include-media)
+// =============================================================================
+
+$breakpoints: (
+    tiny: 300px,
+    small: 600px,
+    medium: 900px,
+    large: 1200px,
+    big: 1500px,
+    huge: 1800px
+) !default;
+
+// CSS Vars
+// =============================================================================
 
 :root {
-	// Fancybox
-	--fancybox-bg: fade-out($black, 0.33) !important;
-	--f-button-color: $yellow !important;
-	// Swiper
-	--swiper-theme-color: #{$yellow} !important;
-	--swiper-navigation-color: $black !important;
-	--swiper-navigation-size: #{$gutter-xs} !important;
+    // Fancybox
+    --fancybox-bg: fade-out($black, 0.33) !important;
+    --f-button-color: $yellow !important;
+    // Swiper
+    --swiper-theme-color: #{$yellow} !important;
+    --swiper-navigation-color: $black !important;
+    --swiper-navigation-size: #{$gutter-xs} !important;
 }

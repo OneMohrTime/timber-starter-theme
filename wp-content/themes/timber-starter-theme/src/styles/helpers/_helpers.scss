@@ -1,5 +1,5 @@
 /* ==========================================================================
-	Helpers
+    Helpers
 ========================================================================== */
 
 // // fade in sections
@@ -20,20 +20,10 @@
 // 	}
 // }
 
-// animate titles in with shifting blocks
-.title--animated {
-	@include animateTitle();
-}
-
-// text meant only for screen readers
-.u-invisible {
-	@include visually-hidden(true);
-}
-
 // devices that require no motion or animations
 @media (prefers-reduced-motion: reduce) {
-	* {
-		animation: none !important;
-		transition: none !important;
-	}
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
