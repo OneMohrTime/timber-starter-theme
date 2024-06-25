@@ -20,9 +20,6 @@ const app = new modular({
 
 // Init our app
 // =========================================================================
-// Take the above 'Mighty Modular' instance, place it into our apps init and
-// start up our app!
-
 window.addEventListener('load', (event) => {
   const $style = document.getElementById('main-css');
 

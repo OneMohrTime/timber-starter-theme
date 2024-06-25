@@ -29,7 +29,7 @@ export default class extends es6Module {
     // Vars
     this.header     = this.el;
     this.navigation = this.header.querySelector('.c-navigation');
-    this.toggleMenu = this.header.querySelector('.toggle__menu');
+    this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
 
     // Function to handle scroll events
     this.handleScroll();
@@ -38,11 +38,8 @@ export default class extends es6Module {
     this.handleNavbarTransparency();
 
     // Attach click event listener to the toggle button
-    const toggleButton = this.header.querySelector('.toggle__menu');
+    const toggleButton = this.toggleMenu;
     toggleButton.addEventListener('click', () => {
-
-      // Change MENU to EXIT
-      this.changeMenuToExit(toggleButton);
 
       // Open primary navigation
       this.togglePrimaryNav();
@@ -113,29 +110,6 @@ export default class extends es6Module {
         nav.classList.remove('transparent');
       }
     });
-  }
-
-  // Change "Menu" to "Exit"
-  // =========================================================================
-  changeMenuToExit(btn) {
-    const m = this.toggleMenu.querySelector('.m');
-    const e = this.toggleMenu.querySelector('.e');
-    const n = this.toggleMenu.querySelector('.n');
-    const u = this.toggleMenu.querySelector('.u');
-
-    // Switch E to X
-    e.classList.toggle('toggle__close');
-
-    // Click detection is 1 click slow
-    if (!btn.classList.contains('open')) {
-      m.innerHTML = 'E';
-      n.innerHTML = 'I';
-      u.innerHTML = 'T';
-    } else {
-      m.innerHTML = 'M';
-      n.innerHTML = 'N';
-      u.innerHTML = 'U';
-    }
   }
 
   // Toggle Primary Nav
