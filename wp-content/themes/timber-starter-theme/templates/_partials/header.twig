@@ -9,13 +9,13 @@
 {# ----------------------------------------------------------------- #}
 {% if this.utility %}
     {% include '_components/nav-utility.twig' with {
-        navMenu: this.utility
+        utilityMenu: this.utility
     } only %}
 {% endif %}
 
 {% if this.primary %}
     {% include '_components/nav-primary.twig' with {
-        utilityMenu: this.primary
+        navMenu: this.primary
     } only %}
     {# params: {
         logo: this.logo,
