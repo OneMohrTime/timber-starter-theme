@@ -11,7 +11,6 @@ class StarterSite extends Site {
         // add_action('init', array($this, 'register_post_types'));
         // add_action('init', array($this, 'register_taxonomies'));
 
-        add_filter('timber/context', array($this, 'global_timber_context'));
         add_filter('timber/context', array($this, 'add_to_context' ));
         add_filter('timber/twig', array($this, 'add_to_twig' ));
         add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
@@ -23,14 +22,12 @@ class StarterSite extends Site {
     //  * This is where you can register custom post types.
     //  */
     // public function register_post_types() {
-
     // }
 
     // /**
     //  * This is where you can register custom taxonomies.
     //  */
     // public function register_taxonomies() {
-
     // }
 
     /**
@@ -116,16 +113,6 @@ class StarterSite extends Site {
     }
 
     /**
-     * his would return 'foo bar!'.
-     *
-     * @param string $text being 'foo', then returned 'foo bar!'.
-     */
-    public function myfoo( $text ) {
-        $text .= ' bar!';
-        return $text;
-    }
-
-    /**
      * This is where you can add your own functions to twig.
      *
      * @param Twig\Environment $twig get extension.
@@ -136,8 +123,7 @@ class StarterSite extends Site {
          * @link https://twig.symfony.com/doc/3.x/functions/template_from_string.html
          */
         // $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-
-        $twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
+        // $twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
 
         return $twig;
     }
