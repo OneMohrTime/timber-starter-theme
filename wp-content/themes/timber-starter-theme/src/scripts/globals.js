@@ -12,19 +12,23 @@
 export default function() {
 
   /**
-   * Footer scroll-to-top
+   * Smooth scroll all anchor links with an `href` starting with `#`
    */
 
-  const scrollToTop = document.querySelector('#scroll_to_top');
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-  if (scrollToTop) {
-    scrollToTop.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+  anchorLinks.forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent default anchor click behavior
+
+      const targetId = this.getAttribute('href').substring(1); // Get the target ID
+      const targetElement = document.getElementById(targetId); // Find the target element
+
+      if (targetElement) {
+        // Smooth scroll to the target element
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     });
-  }
+  });
 
 }
