@@ -63,7 +63,7 @@
         </header>
 
         {# Main Site Content Area #}
-        <main id="main" class="o-site__main">
+        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}">
             {% block content %}
                 Sorry, no content
             {% endblock %}
@@ -71,8 +71,7 @@
 
         {# Site Footer #}
         {% block footer %}
-            {% include '_partials/footer.twig' %}
-            {# {% include 'partials/footer.twig' with {
+            {% include '_partials/footer.twig' with {
                 params: {
                     cta: showCTA ?? post.cta_hide ?? true,
                     headline: post.cta_headline|default(null),
@@ -80,16 +79,20 @@
                     btn1: post.cta_button_1|default(null),
                     btn2: post.cta_button_2|default(null),
                     logo: globals.footer_logo|default(null),
-                    events: globals.footer_events|default(null),
                     about: globals.footer_about|default(null),
-                    account: globals.footer_account|default(null),
-                    social: globals.footer_profiles|default(null)
+                    social: globals.footer_profiles|default(null),
+                    siteName: websiteName,
+                    siteUrl: websiteUrl
                 }
-            } only %} #}
-            <!-- Start `wp_footer` Function -->
-            {{ function('wp_footer') }}
-            <!-- End `wp_footer` Function -->
+            } only %}
         {% endblock %}
 
-    </body>
+    </div>
+
+    <!-- Start `wp_footer` Function -->
+    {{ function('wp_footer') }}
+    <!-- End `wp_footer` Function -->
+
+</body>
+
 </html>
