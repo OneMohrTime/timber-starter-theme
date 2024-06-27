@@ -6,7 +6,7 @@ let PATHS = {
     node: './node_modules',
     src: './wp-content/themes/timber-starter-theme/src',
     dist: './wp-content/themes/timber-starter-theme/assets',
-    proxy: 'https://onemohrti.ddev.site'
+    proxy: 'https://simplified-destinations.ddev.site'
 };
 
 // var themename = "website";
@@ -64,7 +64,7 @@ mix
     //     }
     // )
     // .copyDirectory(`${PATHS.node}/@fortawesome/fontawesome-free/webfonts`, `${PATHS.dist}/fonts`)
-    // .copyDirectory(`${PATHS.src}/images`, `${PATHS.dist}/img`)
+    .copyDirectory(`${PATHS.src}/images`, `${PATHS.dist}/img`)
     // .copy(`${PATHS.src}/fonts/*`, `${PATHS.dist}/fonts`)
     // .copy(`${PATHS.node}/swiper/dist/js/swiper.js`, `${PATHS.dist}/js`)
     .js(`${PATHS.src}/scripts/app.js`, `${PATHS.dist}/js/`)
