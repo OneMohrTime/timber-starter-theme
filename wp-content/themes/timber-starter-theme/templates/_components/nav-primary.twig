@@ -1,15 +1,22 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    menu: navMenu
+    menu: navMenu,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl,
+    logo: params.logo
 } %}
 
 {# -- Component Template -- #}
 
 <nav class="c-navigation">
 
-    <a href="https://michiganciders.com" id="logo" class="c-navigation__logo">
-        <img src="{{ this.logo.url }}" alt="Michigan Cider Association logo" class="c-media__image" />
+    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
+        {% if this.logo is defined and this.logo is not empty %}
+        <img src="{{ this.logo }}" alt="{{ this.siteName }} logo" class="c-media__image" />
+        {% else %}
+        <strong>{{ this.siteName }}</strong>
+        {% endif %}
     </a>
 
     <div class="c-navigation__toggle">
@@ -27,12 +34,12 @@
         <li class="c-navigation__menuItem c-menuItem">
 
             {% if item.children %}
-                <a href="{{ item.get_link }}" class="u-link">
+                <a href="{{ item.link }}" class="u-link">
                     {{ item.title }}
                 </a>
 
             {% else %}
-                <a href="{{ item.get_link }}" class="u-link">
+                <a href="{{ item.link }}" class="u-link">
                     {{ item.title }}
                 </a>
 
@@ -43,7 +50,7 @@
 
                     {% for submenu in item.children %}
                         <li class="c-submenu__item">
-                            <a href="{{ submenu.get_link }}" class="u-link">
+                            <a href="{{ submenu.link }}" class="u-link">
                                 {{ submenu.title }}
                             </a>
                         </li>

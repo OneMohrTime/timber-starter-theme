@@ -1,0 +1,50 @@
+/* ==========================================================================
+    Primary Navigation
+========================================================================== */
+
+.c-navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $gutter-sm $gutter;
+    background-color: $black;
+    color: $white;
+
+    // &.is-visible {}
+}
+
+/**
+ * === MENU ===
+ */
+
+.c-navigation__menu {
+    display: flex;
+}
+
+/**
+ * === LOGO ===
+ */
+
+.c-navigation__logo {
+    margin-right: auto;
+
+    .c-media__image {
+        max-height: 44px;
+        max-width: 220px;
+    }
+}
+
+/**
+ * === TOGGLE ===
+ */
+
+.c-navigation__toggle {
+    position: relative;
+    flex: 0 1 auto;
+
+    @include media(">=medium") {
+        display: none;
+    }
+}

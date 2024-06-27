@@ -1,0 +1,26 @@
+/* ==========================================================================
+    Utility Navigation
+========================================================================== */
+
+.c-utility {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: $gutter-xs $gutter;
+    background-color: $gray--darkest;
+    color: $white;
+}
+
+/**
+ * === MENU ===
+ */
+
+.c-utility__menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    // &.c-menu {}
+}
+
+.c-utility__menuItem {}

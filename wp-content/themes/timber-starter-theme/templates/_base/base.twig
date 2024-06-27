@@ -1,3 +1,11 @@
+{# -- "Global" Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set websiteName = site.name %}
+{% set websiteLogo = siteLogo|default(null) %}
+{% set websiteUrl = site.url %}
+{% set websiteTheme = theme.link %}
+{% set hasSidebar = post.slug in ['news','about'] %}
+
 {# -- Site Meta Content -- #}
 {# ----------------------------------------------------------------- #}
 {% block html_head_container %}
@@ -20,13 +28,15 @@
 {# -- Site Frame -- #}
 {# ----------------------------------------------------------------- #}
 <body class="t-{{ postTypeClass }} {{ postTitleClass }}">
+
+    <!-- Start `wp_body_open` Function -->
+    {{ function('wp_body_open') }}
+    <!-- End `wp_body_open` Function -->
+
     <div id="page" class="o-site" data-load-container>
-        <!-- Start `wp_body_open` Function -->
-        {{ function('wp_body_open') }}
-        <!-- End `wp_body_open` Function -->
 
         {# Skip (Tab) Navigation #}
-        {% include '_components/skip-to-content.twig' %}
+        {% include '_components/nav-keyboard.twig' only %}
 
         {# Global Site Alert #}
         {% include '_components/alert.twig' with {
@@ -44,6 +54,9 @@
                     params: {
                         menu: primaryMenu,
                         utility: utilityMenu,
+                        siteName: websiteName,
+                        siteLogo: siteLogo,
+                        siteUrl: websiteUrl
                     }
                 } only %}
             {% endblock %}

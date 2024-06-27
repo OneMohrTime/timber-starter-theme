@@ -2,7 +2,10 @@
 {# ----------------------------------------------------------------- #}
 {% set this = {
     primary: params.menu|default(null),
-    utility: params.utility|default(null)
+    utility: params.utility|default(null),
+    siteName: params.siteName|default(null),
+    siteLogo: params.siteLogo|default(null),
+    siteUrl: params.siteUrl|default(null),
 } %}
 
 {# -- Partial Template -- #}
@@ -15,10 +18,11 @@
 
 {% if this.primary %}
     {% include '_components/nav-primary.twig' with {
-        navMenu: this.primary
+        navMenu: this.primary,
+        params: {
+            siteName: this.siteName,
+            siteUrl: this.siteUrl,
+            logo: this.siteLogo
+        }
     } only %}
-    {# params: {
-        logo: this.logo,
-        buttons: this.buttons
-    } #}
 {% endif %}
