@@ -86,6 +86,9 @@ class StarterSite extends Site {
         $context['is_front_page'] = is_front_page();
         $context['options']       = get_fields('option');
 
+        $custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
+        $context['siteLogo'] = $custom_logo_url;
+
         $context['primaryMenu'] = Timber::get_menu('primary');
         $context['utilityMenu'] = Timber::get_menu('utility');
         $context['footerMenu']  = Timber::get_menu('footer');
@@ -145,6 +148,8 @@ class StarterSite extends Site {
         );
 
         add_theme_support( 'menus' );
+
+        add_theme_support( 'custom-logo' );
     }
 
     /**
