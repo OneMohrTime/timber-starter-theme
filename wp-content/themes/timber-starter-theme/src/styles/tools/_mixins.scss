@@ -109,7 +109,11 @@
 //
 @mixin accessibly-hidden($important: true) {
     $important: important($important);
-    position: absolute $important;
+    @if $important == true {
+        position: absolute !important
+    } @else {
+        position: absolute;
+    }
     overflow: hidden;
     clip: rect(0 0 0 0);
     margin: 0;

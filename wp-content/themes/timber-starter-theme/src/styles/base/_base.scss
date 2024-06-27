@@ -32,14 +32,6 @@ body {
     &.no-scrollingPlz {
         overflow: hidden;
     }
-
-    // "Overflow" scrolling on large monitors
-    @include media(">=big") {
-        padding-bottom: 100px;
-    }
-    @include media(">=huge") {
-        padding-bottom: 150px;
-    }
 }
 
 /**
@@ -48,22 +40,23 @@ body {
 
 .o-site {
     position: relative;
+    display: block;
     max-width: 100%;
     min-height: 100vh;
-    padding-top: 0;
-    padding-bottom: 72px;
+    margin: 0;
+    padding: 0;
     transition: $speed linear;
 
     @include media(">=small") {
-        padding-bottom: 0;
-
-        &.-activeNavigationAreaUpTopButNotWhenScrolling {
-            padding-top: 100px;
-        }
+        &.-activeNavigationAreaUpTopButNotWhenScrolling {}
     }
 
     @include media(">=big") {
+        display: flex;
+        flex-direction: column;
         max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     @include media(">=huge") {
@@ -75,4 +68,8 @@ body {
     position: relative;
     background-color: $white;
     color: $black;
+
+    @include media(">=big") {
+        flex: 1 0 auto;
+    }
 }
