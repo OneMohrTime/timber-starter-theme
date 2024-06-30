@@ -1,7 +1,6 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    isVisible: params.visible|default(true),
     headline: params.headline|default('Stay up-to-date with the latest and greatest!'),
     body: params.text|default('Here&rsquo;s how to be the first to find out the MCA&rsquo;s events or news.'),
     button1: params.btn1|default(null),
@@ -10,13 +9,7 @@
 
 {# -- Component Template -- #}
 
-<div class="c-callToAction--wave" aria-hidden="true">
-    <svg class="c-media__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-    </svg>
-</div>
-
-<div class="c-callToAction{% if not this.isVisible %} is-hidden{% endif %}">
+<div class="c-callToAction">
 
     <div class="c-callToAction__text">
         <h2 class="u-headline">{{ this.headline }}</h2>
@@ -29,12 +22,12 @@
 
     <div class="c-callToAction__button">
 
-        {% if not this.button1 and not this.button2 %}
+        {# {% if not this.button1 and not this.button2 %}
             {% filter shortcodes %}
                 [mc4wp_form id=264]
             {% endfilter %}
 
-        {% else %}
+        {% else %} #}
             {% if this.button1 %}
                 {% include '_elements/button.twig' with {
                     params: {
@@ -56,7 +49,7 @@
                 } only %}
             {% endif %}
 
-        {% endif %}
+        {# {% endif %} #}
 
     </div>
 

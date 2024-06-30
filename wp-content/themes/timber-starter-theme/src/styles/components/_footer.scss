@@ -4,7 +4,9 @@
 
 .c-footer {
     position: relative;
-    padding: $gutter-xs $gutter;
+    padding: $gutter;
+    background-color: $black;
+    color: $white;
 }
 
 .c-footer--col {
@@ -24,7 +26,11 @@
 
 .c-footer__logo {
 
-    .c-media__svg {}
+    .c-media__svg,
+    .c-media__image {
+        max-height: 44px;
+        max-width: 220px;
+    }
 }
 
 .c-footer__legal {
@@ -76,15 +82,6 @@
 
     @include media(">=large") {
         grid-area: nav;
-        margin-bottom: 0;
-    }
-}
-
-.c-footer__about {
-    margin-bottom: 2em;
-
-    @include media(">=large") {
-        grid-area: about;
         margin-bottom: 0;
     }
 }

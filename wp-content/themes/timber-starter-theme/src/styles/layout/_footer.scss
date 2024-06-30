@@ -3,9 +3,7 @@
 ========================================================================== */
 
 .o-site__footer {
-    // @include padding();
-    background-color: $black;
-    color: $white;
+    position: relative;
 
     @include media(">=small") {}
     @include media(">=medium") {}

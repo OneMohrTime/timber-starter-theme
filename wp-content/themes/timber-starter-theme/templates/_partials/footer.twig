@@ -1,13 +1,16 @@
 {# -- Partial Variables -- #}
 {# ----------------------------------------------------------------- #}
 {% set this = {
-    cta: params.cta|default(true),
+    hideCTA: params.cta,
     headline: params.headline|default(null),
     text: params.text|default(null),
     btn1: params.btn1|default(null),
     btn2: params.btn2|default(null),
-    logo: params.logo,
-    social: params.social
+    siteLogo: params.siteLogo,
+    social: params.social,
+    navigation: params.menu,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl
 } %}
 
 {# -- Partial Template -- #}
@@ -15,7 +18,7 @@
 <footer class="o-site__footer">
 
     {# -- Call to Action -- #}
-    {% if this.cta != 1 %}
+    {% if this.hideCTA != true %}
         {% include '_components/cta.twig' with {
             params: {
                 headline: this.headline,
@@ -27,12 +30,23 @@
     {% endif %}
 
     {# -- Footer -- #}
-    <div class="c-footer">
-        <h2 class="u-invisible">Footer Info</h2>
+    <div id="colophon" class="c-footer">
+        <h2 class="u-screen-reader-text">Footer Info</h2>
         <div class="c-footer__logo">
-            <a href="/" class="c-media">
-                <img src="{{ this.logo.url }}" alt="Website Logo" class="c-media__image" />
-            </a>
+            {% if this.siteLogo %}
+                <a href="{{ this.siteUrl }}" class="c-media">
+                    <img src="{{ this.siteLogo }}" alt="{{ this.siteName }}" class="c-media__image" />
+                </a>
+            {% endif %}
+        </div>
+        <div class="c-footer__nav">
+            <ul class="c-menu">
+                {% for item in this.navigation %}
+                    <li class="c-menuItem">
+                        {{ item }}
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
         <div class="c-footer__utility">
             <ul class="c-footer__social">
@@ -46,7 +60,7 @@
                 {% endfor %}
             </ul>
             <div class="c-footer__legal">
-                <p>&copy; Website Title {{ 'now'|date('Y') }} | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source=[website]" class="u-link" target="_blank" rel="noopener noreferrer nofollow">Derek Mohr</a></p>
+                <p>&copy; {{ this.siteName }} {{ 'now'|date('Y') }} | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source={{ this.siteName|replace({' ':'+'}) }}" class="u-link" target="_blank" rel="noopener noreferrer nofollow">Derek Mohr</a></p>
             </div>
         </div>
     </div>
