@@ -1,0 +1,35 @@
+/* ==========================================================================
+    Tease
+========================================================================== */
+
+.c-tease {
+
+    // Media
+    .c-media {
+        margin-bottom: $base-spacing;
+    }
+}
+
+.c-tease__headline {
+    font-size: $font-h4;
+    margin-bottom: 0.2em;
+}
+
+.c-tease__meta {
+    display: block;
+    margin-bottom: $base-spacing;
+    font-size: $font-meta;
+}
+
+.c-tease__text {
+    font-size: $font-body-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        font-size: $font-body-md;
+    }
+}
+
+.c-tease__button {
+    margin-top: 1em;
+}
