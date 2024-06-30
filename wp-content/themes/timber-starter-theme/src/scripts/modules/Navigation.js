@@ -20,6 +20,7 @@ export default class extends es6Module {
     this.classes = [];
     this.header = null;
     this.navigation = null;
+    this.menu = null;
     this.toggleMenu = null;
   }
 
@@ -29,6 +30,7 @@ export default class extends es6Module {
     // Vars
     this.header     = this.el;
     this.navigation = this.header.querySelector('.c-navigation');
+    this.menu       = this.header.querySelector('.c-navigation__menu');
     this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
 
     // Function to handle scroll events
@@ -105,9 +107,9 @@ export default class extends es6Module {
       const nav = this.header.querySelector('nav');
 
       if (50 < window.scrollY) {
-        nav.classList.add('transparent');
+        nav.classList.add('is-transparent');
       } else {
-        nav.classList.remove('transparent');
+        nav.classList.remove('is-transparent');
       }
     });
   }
@@ -121,6 +123,7 @@ export default class extends es6Module {
     // Set classes to "open"
     this.header.classList.toggle('is-active');
     this.navigation.classList.toggle('is-visible');
+    this.menu.classList.toggle('is-hidden');
     this.toggleMenu.classList.toggle('open');
     siteContainer.classList.toggle('-activeNavigationAreaUpTopButNotWhenScrolling');
   }

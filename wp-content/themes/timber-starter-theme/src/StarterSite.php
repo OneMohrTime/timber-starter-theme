@@ -50,8 +50,9 @@ class StarterSite extends Site {
      */
     public function navigation_menus() {
         register_nav_menus([
-            'primary' => 'Primary Menu',
-            'utility' => 'Utility Menu',
+            'primary' => 'Primary Navigation',
+            'utility' => 'Utility Navigation',
+            'footer' => 'Footer Navigation',
         ]);
     }
 
