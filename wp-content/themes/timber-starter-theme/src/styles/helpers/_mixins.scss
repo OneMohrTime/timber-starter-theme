@@ -31,9 +31,7 @@
 @mixin content-width() {
     @include media(">=medium") {
         // cap line lengths
-        & > p,
-        & > ul,
-        & > ol {
+        *:not([picture]):not([img]):not([iframe]):not(.u-wysiwyg) {
             max-width: $copy-width;
         }
     }

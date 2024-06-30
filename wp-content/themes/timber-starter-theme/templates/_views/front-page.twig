@@ -11,6 +11,7 @@
 {% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
 {% set button = post.meta('banner_button')|default(null) %}
+{% set pageBuilder = post.meta('section_builder')|default(null) %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
@@ -30,11 +31,19 @@
             }
         } only %}
 
-        <section class="c-intro">
-            <div class="u-wysiwyg">
-                {{ post.content }}
-            </div>
-        </section>
+        {% if post.content is not empty %}
+            <section class="c-intro">
+                <div class="u-wysiwyg">
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
+
+        {% include '_partials/page-builder.twig' with {
+            params: {
+                sections: pageBuilder
+            }
+        } only %}
 
     </article>
 

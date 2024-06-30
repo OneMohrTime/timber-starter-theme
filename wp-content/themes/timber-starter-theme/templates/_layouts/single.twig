@@ -31,9 +31,13 @@
             }
         } only %}
 
-        <section class="c-article u-wysiwyg">
-            {{ post.content }}
-        </section>
+        {% if post.content is not empty %}
+            <section class="c-article">
+                <div class="u-wysiwyg">
+                    {{ post.content }}
+                </div>
+            </section>
+        {% endif %}
 
         {% include '_partials/page-builder.twig' with {
             params: {
