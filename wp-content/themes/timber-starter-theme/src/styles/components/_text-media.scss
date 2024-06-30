@@ -1,0 +1,40 @@
+/* ==========================================================================
+    Section: Text & Media
+========================================================================== */
+
+.c-textMedia {
+    position: relative;
+    display: block;
+    padding-left: $gutter;
+    padding-right: $gutter;
+
+    @include media(">=medium") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // Even/Odd pattern
+        &.is-reversed {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.c-textMedia__text {
+
+    @include media(">=medium") {
+        flex: 1 1 50%;
+        max-width: calc(50% - $gutter-sm);
+    }
+
+    .c-button {
+        margin-top: 1em;
+    }
+}
+
+.c-textMedia__media {
+    @include media(">=medium") {
+        flex: 1 1 50%;
+        max-width: calc(50% - $gutter-sm);
+    }
+}

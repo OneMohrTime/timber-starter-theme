@@ -14,7 +14,8 @@
             {% set layout = row.acf_fc_layout %}
             {% include '_components/section-' ~ layout ~ '.twig' with {
                 params: {
-                    section: row
+                    section: row,
+                    alignment: loop.index is even ? ' is-reversed' : ''
                 }
             } only %}
         {% endfor %}
