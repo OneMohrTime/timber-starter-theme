@@ -6,7 +6,7 @@
     display: block;
     width: 30px;
     height: 18px;
-    transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
     border: none;
     color: $white;
     cursor: pointer;
@@ -16,7 +16,8 @@
 // .c-hamburger.not-active {}
 .is-active {
     .c-hamburger {
-        transform: translate(-50%, -50%) scale(0.9);
+        transform: scale(0.9);
+        // transform: translate(-50%, -50%) scale(0.9);
     }
 }
 

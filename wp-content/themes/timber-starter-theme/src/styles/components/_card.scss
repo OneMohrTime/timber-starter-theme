@@ -76,7 +76,7 @@ $lgImage: 200px;
         //
         .-verticalDeck & {
 
-            // no less than 768px
+            // screen at or above 900px
             @include media(">=medium") {
                 position: relative;
                 width: auto;
@@ -150,6 +150,7 @@ $lgImage: 200px;
         .-verticalDeck & {
 
             // no less than 768px
+            // screen at or above 900px
             @include media(">=medium") {
                 width: 100%;
                 margin: 0;
@@ -220,6 +221,7 @@ $lgImage: 200px;
         }
 
         // no less than 768px
+        // screen at or above 900px
         @include media(">=medium") {
             flex-grow: 0;
             flex-shrink: 0;
@@ -279,12 +281,12 @@ $lgImage: 200px;
 //
 .-verticalDeck {
 
-    // no greater than 768px, no less than 600px
+    // screen below 900px, at or above 600px
     @include media("<medium", ">=small") {
         @include clearfix();
     }
 
-    // no less than 600px
+    // screen at or above 600px
     @include media(">=small") {
         display: flex;
         flex-wrap: wrap;
@@ -292,12 +294,12 @@ $lgImage: 200px;
         align-items: center;
     }
 
-    // no less than 768px
+    // screen at or above 900px
     @include media(">=medium") {
         align-items: flex-start;
     }
 
-    // no greater than 1170px, no less than 768px
+    // screen below 1200px, at or above 900px
     @include media("<large", ">=medium") {
         .c-card {
             // hide the last card between these sizes

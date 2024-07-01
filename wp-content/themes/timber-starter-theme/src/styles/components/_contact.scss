@@ -22,6 +22,7 @@
     .o-site__contact-close {
         display: none;
 
+        // screen at or above 900px
         @include media(">=medium") {
             position: absolute;
             top: 0;

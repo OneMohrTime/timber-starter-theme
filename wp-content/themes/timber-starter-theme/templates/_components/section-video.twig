@@ -7,7 +7,7 @@
 {# -- Component Template -- #}
 
 {% if this.video %}
-<div class="c-video">
+<figure class="c-video">
 
     {% include '_elements/video.twig' with {
         params: {
@@ -15,5 +15,5 @@
         }
     } only %}
 
-</div>
+</figure>
 {% endif %}

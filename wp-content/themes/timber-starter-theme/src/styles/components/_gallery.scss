@@ -3,69 +3,20 @@
 ========================================================================== */
 
 .c-gallery {
+    position: relative;
     padding-left: $gutter;
     padding-right: $gutter;
 
-    // // screen at or above 600px
-    // @include media(">=small") {
-    //     display: flex;
-    //     flex-flow: row wrap;
-    // }
-
-    .c-media {
-        position: relative;
-        overflow: hidden;
-
-        // screen at or above 600px
-        @include media(">=small") {
-            flex: auto;
-        }
+    .swiper.is-gallery {
+        width: 100%;
+        height: 100%;
     }
 
-    // .c-media__image {
-    //     max-height: 300px;
-    //     max-width: 100%;
-    //     opacity: 1;
-    //     transition: $speed;
-
-    //     // screen at or above 600px
-    //     @include media(">=small") {
-    //         width: 100%;
-    //         object-fit: cover;
-    //     }
+    // // screen at or above 600px
+    // @include media(">=small") {
     // }
+}
 
-    // .c-media__caption {
-    //     position: absolute;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     display: flex;
-    //     align-items: flex-end;
-    //     height: 100%;
-    //     opacity: 0;
-    //     padding: 0.5em;
-    //     transition: opacity $speed $bezier-slide;
-    //     background-color: fade-out($white, 0.15);
-    //     color: $black;
-    //     pointer-events: none;
-
-    //     // screen at or above 900px
-    //     @include media(">=medium") {
-    //     }
-    // }
-
-    // .c-media__link {
-    //     @include block-link();
-    //     z-index: 2;
-
-    //     @include hocus {
-    //         // & + .c-media__image {
-    //         // 	opacity: 0;
-    //         // }
-    //         & + .c-media__caption {
-    //             opacity: 1;
-    //         }
-    //     }
-    // }
+.c-gallery__image-link {
+    display: block;
 }

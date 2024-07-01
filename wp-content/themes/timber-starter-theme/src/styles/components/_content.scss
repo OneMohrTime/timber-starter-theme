@@ -1,17 +1,14 @@
 /* ==========================================================================
-    Article
+    Section: Text Content
 ========================================================================== */
 
-.c-article {
+.c-content {
     // @include padding();
     @include content-width();
     position: relative;
-    padding: $gutter;
+    padding-left: $gutter;
+    padding-right: $gutter;
 
     // screen at or above 900px
-    @include media(">=medium") {
-        width: auto;
-        margin-left: 0;
-        margin-right: 0;
-    }
+    @include media(">=medium") {}
 }
