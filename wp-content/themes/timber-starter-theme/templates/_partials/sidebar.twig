@@ -6,7 +6,16 @@
 
 {# -- Partial Template -- #}
 {# ----------------------------------------------------------------- #}
+
+{# <pre>
+    {{ dump('globalSidebar.twig') }}
+    {{ dump(globalSidebar) }}
+    {{ dump('dynamic_sidebar.twig') }}
+    {{ dump(dynamic_sidebar) }}
+</pre> #}
+
 <aside class="o-sidebar">
-    <h2 class="u-invisible">Archives</h2>
-    {{ this.sidebar }}
+    <h2 class="u-screen-reader-text">Sidebar Navigation</h2>
+    {# {{ this.sidebar }} #}
+    {{ globalSidebar }}
 </aside>

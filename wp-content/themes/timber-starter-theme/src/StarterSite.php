@@ -56,19 +56,19 @@ class StarterSite extends Site {
         ]);
     }
 
-    // /**
-    //  * This is where you move SEO fields to the bottom of the page
-    //  */
-    // public function create_sidebars() {
-    //     register_sidebar( array(
-    //         'name' => 'News Sidebar',
-    //         'id' => 'news_sidebar',
-    //         'before_widget' => '<div class="c-widget">',
-    //         'after_widget' => '</div>',
-    //         'before_title' => '<h3 class="u-heading">',
-    //         'after_title' => '</h3>',
-    //     ) );
-    // }
+    /**
+     * Create a global site sidebar
+     */
+    public function create_sidebars() {
+        register_sidebar( array(
+            'name' => 'Global Sidebar',
+            'id' => 'globalSidebar',
+            'before_widget' => '<div class="c-widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="u-heading">',
+            'after_title' => '</h3>',
+        ) );
+    }
 
     /**
      * This is where you move SEO fields to the bottom of the page
@@ -86,6 +86,7 @@ class StarterSite extends Site {
         $context['site']          = $this;
         $context['is_front_page'] = is_front_page();
         $context['options']       = get_fields('option');
+        $context['globalSidebar'] = dynamic_sidebar('globalSidebar');
 
         $custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
         $context['siteLogo'] = $custom_logo_url;

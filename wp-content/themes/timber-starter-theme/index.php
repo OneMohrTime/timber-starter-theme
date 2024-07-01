@@ -13,7 +13,14 @@
  * @since   Timber 0.1
  */
 
-$context          = Timber::context();
+$post = Timber::get_post();
+
+$context = Timber::context([
+    'post' => $post,
+    'dynamic_sidebar' => Timber::get_sidebar(
+        '_partials/sidebar.twig',
+    ),
+]);
 
 $context['posts'] = Timber::get_posts();
 
