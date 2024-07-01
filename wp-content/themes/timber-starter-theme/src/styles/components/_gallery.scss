@@ -2,115 +2,70 @@
     Gallery (Masonry)
 ========================================================================== */
 
-$image-gap: $gutter-sm;
-$image-height: 250px;
-$image-width: 150px;
-
 .c-gallery {
+    padding-left: $gutter;
+    padding-right: $gutter;
 
-    @include media(">=small") {
-        display: flex;
-        flex-flow: row wrap;
-        width: calc(100% + $image-gap);
-    }
+    // // screen at or above 600px
+    // @include media(">=small") {
+    //     display: flex;
+    //     flex-flow: row wrap;
+    // }
 
     .c-media {
         position: relative;
         overflow: hidden;
 
+        // screen at or above 600px
         @include media(">=small") {
             flex: auto;
-            height: $image-height;
-            min-width: $image-width;
-            margin: 0 $image-gap $image-gap 0;
-
-            &:nth-child(4n+1) {
-                width: 250px;
-            }
-
-            &:nth-child(4n+1):nth-child(4n+2) {
-                width: 325px;
-            }
-
-            &:nth-child(4n+1):nth-child(4n+3) {
-                width: 180px;
-            }
-
-            &:nth-child(4n+1):nth-child(4n+4) {
-                width: 380px;
-            }
         }
     }
 
-    .c-media__image {
-        max-width: 100%;
-        opacity: 1;
-        transition: $speed;
+    // .c-media__image {
+    //     max-height: 300px;
+    //     max-width: 100%;
+    //     opacity: 1;
+    //     transition: $speed;
 
-        @include media(">=small") {
-            width: 100%;
-            height: $image-height;
-            object-fit: cover;
-        }
-    }
+    //     // screen at or above 600px
+    //     @include media(">=small") {
+    //         width: 100%;
+    //         object-fit: cover;
+    //     }
+    // }
 
-    .c-media__caption {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        align-items: flex-end;
-        height: 100%;
-        opacity: 0;
-        padding: 0.5em;
-        transition: opacity $speed $bezier-slide;
-        background-color: fade-out($white, 0.15);
-        color: $black;
-        pointer-events: none;
+    // .c-media__caption {
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     display: flex;
+    //     align-items: flex-end;
+    //     height: 100%;
+    //     opacity: 0;
+    //     padding: 0.5em;
+    //     transition: opacity $speed $bezier-slide;
+    //     background-color: fade-out($white, 0.15);
+    //     color: $black;
+    //     pointer-events: none;
 
-        @include media(">=medium") {
-            padding: $image-gap;
-        }
+    //     // screen at or above 900px
+    //     @include media(">=medium") {
+    //     }
+    // }
 
-        &.is-text {
-            line-height: $heading-height;
+    // .c-media__link {
+    //     @include block-link();
+    //     z-index: 2;
 
-            @include media(">=medium") {
-                @include small-font-size();
-            }
-        }
-
-        &.is-zoom {
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            line-height: 1em;
-
-            @include media(">=medium") {
-                font-size: $font-h4;
-            }
-        }
-
-        // Zoom in icon
-        .c-media__svg {
-            max-width: 72px;
-            max-height: 72px;
-            margin: 0;
-        }
-    }
-
-    .c-media__link {
-        @include block-link();
-        z-index: 2;
-
-        @include hocus {
-            // & + .c-media__image {
-            // 	opacity: 0;
-            // }
-            & + .c-media__caption {
-                opacity: 1;
-            }
-        }
-    }
+    //     @include hocus {
+    //         // & + .c-media__image {
+    //         // 	opacity: 0;
+    //         // }
+    //         & + .c-media__caption {
+    //             opacity: 1;
+    //         }
+    //     }
+    // }
 }
