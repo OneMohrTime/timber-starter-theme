@@ -1,0 +1,35 @@
+/* ==========================================================================
+    Links
+========================================================================== */
+
+a {
+    position: relative;
+    display: inline-block;
+    // outline: none;
+    text-decoration: none;
+    color: inherit;
+    vertical-align: baseline;
+    cursor: pointer;
+
+    &:hover {
+        color: inherit;
+    }
+
+    &:focus {
+        outline-color: fade-out($blue, 0.4);
+    }
+
+    // if link is not a button
+    &:not(.btn):not([data-fancybox]) {
+        // but is a child of .-wysiwyg
+        ._wysiwyg &,
+        .-wysiwyg &,
+        .c-wysiwyg & {
+            // stylize as inline link
+            @include inline-block();
+        }
+    }
+}
+
+// specific styles for external links
+//a[href*="https://"]:not([href*="onemohrti.me"]) {}

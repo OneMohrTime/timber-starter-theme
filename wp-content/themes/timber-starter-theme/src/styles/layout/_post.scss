@@ -1,0 +1,16 @@
+/* ==========================================================================
+    Posts, Pages, Archives, and Entry Layouts
+========================================================================== */
+
+.o-page__header,
+.o-posts__header,
+.o-archives__header,
+.o-entry__header {}
+
+.o-page__content,
+.o-posts__content,
+.o-archives__content,
+.o-entry__content {
+    // @include block-width();
+    // @include content-width();
+}

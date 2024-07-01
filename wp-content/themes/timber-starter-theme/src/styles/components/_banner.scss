@@ -1,0 +1,148 @@
+/* ==========================================================================
+    Banner
+========================================================================== */
+
+.c-banner {
+    position: relative;
+    margin-bottom: $gutter;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    background-color: $white--dark;
+
+    // screen at or above 600px
+    @include media(">=small") {}
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        margin-bottom: 0;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {}
+
+    // Elements
+    .u-title {
+        margin-bottom: 0;
+    }
+    .c-button {
+        margin-top: 1em;
+    }
+}
+
+/**
+ * === DEFAULT ===
+ */
+.c-banner.is-default {
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    // No media of any kind, just text
+    &.no-image {
+        padding-top: $gutter-xs;
+        padding-bottom: $gutter-xs;
+        background-color: transparent;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-sm;
+            padding-bottom: $gutter-xs;
+        }
+    }
+}
+
+/**
+ * === SWIPER SLIDES ===
+ */
+.c-banner.is-slides {
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        align-items: center;
+        column-gap: $gutter;
+    }
+}
+
+/**
+ * === CONTENT ===
+ */
+
+.c-banner__text {
+    position: relative;
+    margin-bottom: $gutter;
+    z-index: 1;
+
+    // screen at or above 900px
+        @include media(">=medium") {
+            margin-bottom: 0;
+        }
+
+    // Default Banner
+    .c-banner.is-default & {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    // Video Banner
+    .c-banner.is-video & {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        padding: $gutter;
+        z-index: 1;
+    }
+
+    // Slideshow Banner
+    .c-banner.is-slides & {
+        flex: 0 1 50%;
+        max-width: calc(50% - $gutter-sm);
+        padding-top: $gutter;
+    }
+
+    // Elements
+    .u-title,
+    .u-headline,
+    .u-subheadline {
+        display: block;
+    }
+}
+
+/**
+ * === IMAGE / VIDEO ===
+ */
+
+.c-banner__media {
+    position: relative;
+
+    // Default Banner
+    .c-banner.is-default &,
+    // Video Banner
+    .c-banner.is-video & {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    // Slideshow Banner
+    .c-banner.is-slides & {
+        flex: 0 1 50%;
+        max-width: calc(50% - $gutter-sm);
+    }
+
+    .c-media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

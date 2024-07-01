@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------
+=== 1.0 Base ===
+--------------------------------------------------------------*/
+@use "sass:color";
+@use "sass:list";
+// @use "sass:map";
+@use "sass:math";
+// @use "sass:meta";
+@use "sass:selector";
+@use "sass:string";
+
+/* CSS Reset + Normalize */
+@import "../../../../../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
+
+/* Custom tools like family, functions, and mixins are included here for reuse throughout the theme. */
+@import "tools/family";
+@import "tools/functions";
+@import "tools/mixins";
+
+@import "../../../../../node_modules/bourbon/core/bourbon";
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/helpers";
+@import "helpers/ratio";
+@import "helpers/animations";
+
+/* Full vendor mixins + variables */
+@import "../../../../../node_modules/include-media/dist/include-media";
+// @import "../../node_modules/swiper/swiper";
+
+/* The 'base' styles provide the fundamental styling for the theme, such as typography and media rules. */
+@import "base/base";
+@import "base/typography";
+@import "base/links";
+@import "base/media";
+
+/*--------------------------------------------------------------
+=== 2.0 Layout ===
+--------------------------------------------------------------*/
+/* This section includes styles for building layout components like the header, footer, sidebar, and post layout. */
+
+@import "layout/builder";
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/header";
+@import "layout/page";
+@import "layout/post";
+@import "layout/sidebar";
+
+/*--------------------------------------------------------------
+=== 3.0 Components ===
+--------------------------------------------------------------*/
+/* This section contains styles for various reusable components like articles, banners, buttons, cards, and more. */
+
+@import "components/alert";
+@import "components/article";
+@import "components/banner";
+@import "components/blockquote";
+@import "components/blog";
+@import "components/buttons";
+@import "components/call-to-action";
+@import "components/card";
+@import "components/contact";
+@import "components/content";
+@import "components/embed";
+@import "components/footer";
+@import "components/gallery";
+@import "components/grid";
+@import "components/hamburger";
+@import "components/image";
+@import "components/intro";
+@import "components/menu";
+@import "components/nav-keyboard";
+@import "components/nav-primary";
+@import "components/nav-utility";
+@import "components/pagination";
+@import "components/repeater";
+@import "components/tease";
+// @import "components/text-image";
+@import "components/text-media";
+@import "components/video";
+
+/*--------------------------------------------------------------
+=== 4.0 Pages ===
+--------------------------------------------------------------*/
+/* This section includes styles specific to different pages of the website, such as about, blog, home, work, etc. */
+
+@import "pages/about";
+@import "pages/archives";
+@import "pages/errors";
+@import "pages/blog";
+@import "pages/contact";
+@import "pages/home";
