@@ -59,12 +59,17 @@ $font-header: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $font-code:   "Monaco", "Consolas", "Lucida Console", monospace;
 
 // Font Sizes
-$font-h1: 7.083vw;
-$font-h2: 4.445vw;
-$font-h3: 3.542vw;
-$font-h4: 2.5vw;
-$font-h5: 1.736vw;
-$font-h6: 1.458vw;
+$font-h1:      6.375em;    // 102px
+$font-h2:      4em;        // 64px
+$font-h3:      3.1875em;   // 51px
+$font-h4:      2.25em;     // 36px
+$font-h5:      1.5625em;   // 25px
+$font-h6:      1.25em;     // 20px
+$font-body:    1.125em;    // 18px
+$font-body-lg: 1.375em;    // 22px
+$font-body-md: $font-body; // 18px
+$font-body-sm: 0.8125em;   // 13px
+$font-meta:    0.9375em;   // 15px
 
 // Font Weights
 $font-hairline: 100;
@@ -94,7 +99,6 @@ $speed-slow: $speed * 2;
 $base-duration: $speed;
 
 // Cubic Bezier Styles
-$easing:       cubic-bezier(0.645, 0.045, 0.355, 1);
 $bezier-sine:  cubic-bezier(0.39, 0.575, 0.565, 1);
 $bezier-quad:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $bezier-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -111,7 +115,7 @@ $bezier-slide: cubic-bezier(0, 0, 0.2, 1);
 // Widths
 $container-width: 1280px;
 $inner-width: 1000px;
-$copy-width: 840px;
+$copy-width: 80ch;
 $padding: math.div($container-width - $inner-width, 2);
 
 // Gutter Spacing
@@ -151,7 +155,7 @@ $breakpoints: (
     --fancybox-bg: fade-out($black, 0.33) !important;
     --f-button-color: $yellow !important;
     // Swiper
-    --swiper-theme-color: #{$yellow} !important;
+    --swiper-theme-color: #{$blue} !important;
     --swiper-navigation-color: $black !important;
-    --swiper-navigation-size: #{$gutter-xs} !important;
+    --swiper-navigation-size: #{$gutter} !important;
 }
