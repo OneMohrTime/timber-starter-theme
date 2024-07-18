@@ -8,19 +8,20 @@ This WordPress starter theme is built on top of Timber and DDEV to provide a rob
 - **DDEV Environment:** Easily set up your local development environment with DDEV for a seamless and containerized development experience.
 - **Semantic HTML:** Ensures semantic and accessible HTML markup.
 - **Responsive Design:** Includes a responsive and mobile-friendly design out-of-the-box.
-- **Customizable:** Fully customizable to fit your project needs, with a modular structure for easy extension and maintenance.
 
 ## Requirements
 This project assumes that you have:
 - PHP 8.1
 - WordPress 6.x
-- Composer 2.x
-- DDEV
-- Node 22.x (NPM 10.x)
+- [Timber 2.x](https://timber.github.io/docs/v2/installation/installation/)
+- [Composer 2.x](https://getcomposer.org/doc/00-intro.md)
+- [DDEV](https://ddev.com/get-started/)
+- [Node 22.x](https://nodejs.org/en/download/package-manager) ([NPM 10.x](https://www.npmjs.com/))
+
 It's also recommended that you have:
-- Git Flow
-- WP-CLI
-- n or NVM
+- [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/)
+- [WP-CLI](https://wp-cli.org/)
+- [n](https://github.com/tj/n) or [NVM](https://github.com/nvm-sh/nvm)
 
 ## Installation
 
@@ -30,7 +31,7 @@ git clone git@github.com:OneMohrTime/timber-starter-theme.git
 cd timber-starter-theme
 ```
 
-I would highly suggest having [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) installed as well. There's also a little [cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/) to explain it.
+I would highly suggest having **Git Flow** installed as well. There's also a little [cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/) to explain it.
 ```bash
 brew install git-flow # optional
 git flow init -d # add the `-d` flag for 'defaults'
@@ -81,7 +82,8 @@ Some developers prefer to have Timber installed as a theme dependency, so they w
 ```bash
 cd wp-content/themes/timber-starter-theme
 composer install
-cd ../../.. # go back to root directory
+# go back to root directory for next commands
+cd ../../..
 ```
 
 ### 6. Install the required WordPress plugins
@@ -91,7 +93,7 @@ To install ACF Pro, first, download the ZIP file from your [ACF account](https:/
 #### Classic Editor & Widgets
 [Classic Editor](https://wordpress.org/plugins/classic-editor/) is an official plugin maintained by the WordPress team that restores the previous (“classic”) WordPress editor and the “Edit Post” screen. It makes it possible to use plugins that extend that screen, add old-style meta boxes, or otherwise depend on the previous editor.
 
-[Classic Widgets](https://wordpress.org/plugins/classic-widgets/) is an official plugin maintained by the WordPress team that restores the previous ("classic") WordPress widgets settings screens. It will be supported and maintained to 2024, or as long as is necessary.
+[Classic Widgets](https://wordpress.org/plugins/classic-widgets/) is an official plugin maintained by the WordPress team that restores the previous ("classic") WordPress widgets settings screens.
 
 #### Yoast SEO
 Automate technical SEO and make optimizing content a breeze with the most popular WordPress [SEO plugin](https://yoast.com/wordpress/plugins/seo/).
