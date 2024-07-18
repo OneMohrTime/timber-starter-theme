@@ -1,5 +1,5 @@
 {
-  "name": "simplified-destinations",
+  "name": "timber-wordpress-webpack",
   "version": "1.0.0",
   "description": "",
   "author": {
@@ -25,10 +25,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OneMohrTime/simplified-destinations.git"
+    "url": "git@github.com:OneMohrTime/timber-starter-theme.git"
   },
   "bugs": {
-    "url": "https://github.com/OneMohrTime/simplified-destinations/issues"
+    "url": "https://github.com/OneMohrTime/timber-starter-theme/issues"
   },
   "license": "MIT",
   "engines": {
