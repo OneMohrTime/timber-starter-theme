@@ -554,42 +554,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_655682341c0f8": {
-                    "key": "layout_655682341c0f8",
-                    "name": "form_embed",
-                    "label": "Form Embed",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_655682371c0fa",
-                            "label": "Form",
-                            "name": "form",
-                            "aria-label": "",
-                            "type": "post_object",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "wpforms"
-                            ],
-                            "post_status": "",
-                            "taxonomy": "",
-                            "return_format": "id",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "bidirectional": 0,
-                            "ui": 1,
-                            "bidirectional_target": []
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_6556612f78fa4": {
                     "key": "layout_6556612f78fa4",
                     "name": "script_embed",
