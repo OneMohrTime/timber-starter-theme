@@ -5,5 +5,5 @@
 .c-intro {
     @include content-width();
     padding: $gutter;
-    font-size: $font-body-lg;
+    font-size: $font-base-lg;
 }
