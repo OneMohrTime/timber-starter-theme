@@ -1,0 +1,47 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    testimonials: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.testimonials %}
+<div class="c-testimonials">
+
+    {% if this.testimonials.headline or this.testimonials.body %}
+    <div class="u-wysiwyg">
+        <h2 class="u-headline">{{ this.testimonials.headline }}</h2>
+        {% if this.testimonials.body %}
+            <div class="u-wysiwyg">
+                {{ this.testimonials.body }}
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if this.testimonials.testimonials|length > 1 %}
+        <div class="c-testimonial__testimonials swiper swiper is-testimonials" data-module-swiper>
+            <ul class="swiper-wrapper">
+                {% for testimonial in this.testimonials.testimonials %}
+                    {% set quote = testimonial.quote %}
+                    {% set name = testimonial.name %}
+                    {% set website = testimonial.website|default(null) %}
+                    <li class="swiper-slide">
+                        <blockquote class="c-testimonial"{% if website %} cite="{{ website }}"{% endif %}>
+                            <p>{{ quote }}</p>
+                            {% if website %}
+                                <cite>&ndash; <a href="{{ website }}" target="_blank" rel="noopener noreferrer nofollow" class="u-link" title="Visit website">{{ name }}</a></cite>
+                            {% else %}
+                                <cite>&ndash; {{ name }}</cite>
+                            {% endif %}
+                        </blockquote>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+    {% endif %}
+
+</div>
+{% endif %}
