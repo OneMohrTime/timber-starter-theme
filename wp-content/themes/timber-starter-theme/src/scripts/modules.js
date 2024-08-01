@@ -8,6 +8,7 @@
 // =============================================================================
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
+export { default as FitText } from './modules/FitText';
 // export { default as Load } from './modules/Load';
 export { default as Navigation } from './modules/Navigation';
 // export { default as Scroll } from './modules/Scroll';
