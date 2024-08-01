@@ -72,7 +72,7 @@ export default class extends es6Module {
   // =========================================================================
   init() {
     // this.fitText(this.el);
-    this.fitText(this.el, 0.8, { minFontSize: '24px', maxFontSize: '150px' });
+    this.fitText(this.el, 0.8, { minFontSize: '24px', maxFontSize: '240px' });
   }
 
   // Destroy
