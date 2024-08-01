@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.1
+`2024/07/31`
+- Update DDEV configs
+- Change some theme baseline styles
+
 ## 1.0.0
 `2024/06/30`
 - Create initial codebase
