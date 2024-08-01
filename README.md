@@ -1,30 +1,139 @@
-# The Timber Starter Theme
+# OneMohrTime Timber Starter Theme
 
-The "_s" for Timber: a dead-simple theme that you can build from. The primary purpose of this theme is to provide a file structure rather than a framework for markup or styles. Configure your SASS files, scripts, and task runners however you would like!
+## Overview
+This WordPress starter theme is built on top of Timber and DDEV to provide a robust and flexible foundation for creating modern, maintainable, and performant WordPress websites. It was written by [@onemohrtime](https://github.com/OneMohrTime), with a _**LOT**_ of inspiration and education from [@bgrrtt](https://github.com/bgrrtt).
 
-## Installing the theme
-Follow the guide on how to Install Timber using the Starter Theme.
+## Features
+- **Timber Integration:** Leverages the power of the Timber library to separate PHP and HTML, allowing for clean and readable templating using the Twig language.
+- **DDEV Environment:** Easily set up your local development environment with DDEV for a seamless and containerized development experience.
+- **Semantic HTML:** Ensures semantic and accessible HTML markup.
+- **Responsive Design:** Includes a responsive and mobile-friendly design out-of-the-box.
 
-Then,
+## Requirements
+This project assumes that you have:
+- [PHP 8.1](https://www.php.net/manual/en/install.php)
+- [WordPress 6.x](https://wordpress.org/download/)
+- [Timber 2.x](https://timber.github.io/docs/v2/installation/installation/)
+- [Composer 2.x](https://getcomposer.org/doc/00-intro.md)
+- [DDEV](https://ddev.com/get-started/)
+- [Node 22.x](https://nodejs.org/en/download/package-manager) ([NPM 10.x](https://www.npmjs.com/))
 
-1. Rename the theme folder to something that makes sense for your website. You could keep the name timber-starter-theme but the point of a starter theme is to make it your own!
-2. Activate the theme in the WordPress Dashboard under Appearance → Themes.
-3. Do your thing! And read the docs.
+It's also recommended that you have:
+- [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/)
+- [WP-CLI](https://wp-cli.org/)
+- [n](https://github.com/tj/n) or [NVM](https://github.com/nvm-sh/nvm)
 
-## The `StarterSite` class
-In functions.php, we call new StarterSite();. The StarterSite class sits in the src folder. You can update this class to add functionality to your theme. This approach is just one example for how you could do it.
+## Installation
 
-The src folder would be the right place to put your classes that extend Timber’s functionality.
+### 1. Git the Repository
+```bash
+git clone git@github.com:OneMohrTime/timber-starter-theme.git
+cd timber-starter-theme
+```
 
-Small tip: You can make use of Composer’s autoloading functionality to automatically load your PHP classes when they are requested instead of requiring one by one in functions.php.
+I would highly suggest having **Git Flow** installed as well. There's also a little [cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/) to explain it.
+```bash
+brew install git-flow # optional
+git flow init -d # add the `-d` flag for 'defaults'
+```
 
-## What else is there?
+### 2. Install WordPress
 
-- assets/ is where you can keep your front-end scripts, styles, or images. In other words, your Sass files, JS files, fonts, and SVGs would live here.
-- views/ contains all of your Twig templates. These pretty much correspond 1 to 1 with the PHP files that respond to the WordPress template hierarchy. At the end of each PHP template, you’ll notice a Timber::render() function whose first parameter is the Twig file where that data (or $context) will be used. Just an FYI.
-- tests/ ... basically don’t worry about (or remove) this unless you know what it is and want to.
+#### ZIP Install
+Download the latest version of WordPress from the official website. Extract the ZIP file and move the contents into the root of your project directory. We will deal with the `wp-config.php` in the **DDEV** step.
 
-### Other Resources
-- Twig for Timber Cheatsheet
-- Timber and Twig Reignited My Love for WordPress on CSS-Tricks
-- A real live Timber theme.
+#### WP-CLI Install
+If you have **WP-CLI** installed, you can quickly download and configure WordPress by running the following commands:
+```bash
+wp core download
+
+# we'll be configuring the environment in DDEV, otherwise you could continue on...
+
+# wp config create --dbname=your_db_name --dbuser=your_db_user --dbpass=your_db_password --dbhost=your_db_host
+# wp db create
+# wp core install --url="your_site_url" --title="Your Site Title" --admin_user="admin" --admin_password="admin_password" --admin_email="admin_email"
+```
+
+### 3. Set Up DDEV
+Ensure you have [DDEV installed](https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/) (mine is set up through [Docker](https://docs.docker.com/desktop/install/mac-install/)). Then, run:
+```bash
+ddev start
+```
+Your site (with the default WordPress theme) should now be viewable at `https://timber-wordpress.ddev.site`. You should also see a `wp-config-ddev.php` in the root folder. You can now continue with the WordPress installation.
+
+### 4. Install Node.js Dependencies
+
+Make sure you are using the version of Node.js specified in the `.n-node-version` or `.nvmrc`.
+```bash
+npm install --legacy-peer-deps
+```
+_*Note: the flag `--legacy-peer-deps` is necessary for `npm run watch` packages. If you'd like to install without the flag, remove the two **browser-sync** packages._
+```bash
+"devDependencies": {
+    "browser-sync": "^X.X.X", # remove
+    "browser-sync-webpack-plugin": "^X.X.X", # remove
+    ...
+}
+```
+
+### 5. Install Composer Dependencies
+Some developers prefer to have Timber installed as a theme dependency, so they would run this command from the theme root (ex: /wp-content/themes/my-theme/). I'm one of those developers, so run:
+
+```bash
+cd wp-content/themes/timber-starter-theme
+composer install
+# go back to root directory for next commands
+cd ../../..
+```
+
+### 6. Install the required WordPress plugins
+#### Advanced Custom Fields Pro
+To install ACF Pro, first, download the ZIP file from your [ACF account](https://www.advancedcustomfields.com/my-account/view-licenses/) and install it by uploading it on the Plugins page.
+
+#### Classic Editor & Widgets
+[Classic Editor](https://wordpress.org/plugins/classic-editor/) is an official plugin maintained by the WordPress team that restores the previous (“classic”) WordPress editor and the “Edit Post” screen. It makes it possible to use plugins that extend that screen, add old-style meta boxes, or otherwise depend on the previous editor.
+
+[Classic Widgets](https://wordpress.org/plugins/classic-widgets/) is an official plugin maintained by the WordPress team that restores the previous ("classic") WordPress widgets settings screens.
+
+#### Yoast SEO
+Automate technical SEO and make optimizing content a breeze with the most popular WordPress [SEO plugin](https://yoast.com/wordpress/plugins/seo/).
+
+#### Additional (highly recommended)
+- [WordPress Importer](https://wordpress.org/plugins/wordpress-importer/)
+- [Site Kit by Google](https://sitekit.withgoogle.com/)
+- [Redirection](https://redirection.me/)
+
+### 7. Build!
+From here, you can compile your assets with:
+```bash
+# Compile, watch for any changes, immediately recompile
+npm run watch
+# Compile for local environments. Can also be `npm run dev`
+npm run development
+# Compile for prodcution environments. Can also be `npm run prod` or `npm run build`
+npm run production
+```
+
+### 8. Admin
+First, activate the necessary plugins on the [Plugins](https://timber-wordpress.ddev.site/wp-admin/plugins.php) tab.
+- **Required:** Advacnced Custom Fields PRO
+- **Required:** Classic Editor
+- **Required:** Classic Widgets
+- **Required:** Yoast SEO
+- **Recommended:** Site Kit
+- **Recommended:** Redirection
+- **Recommended:** WordPress Updater
+
+Second, you're going to want to sync the Advanced Custom Fields, from our theme root directory `acf-json/`. This can be found within the [ACF tab](https://timber-wordpress.ddev.site/wp-admin/edit.php?post_type=acf-field-group&post_status=sync).
+
+Update some of the website's main settings. These are not required, but are recommended—especially if you're going to be uploading this database to _production_.
+- Add a favicon and choose your timezone [here](https://timber-wordpress.ddev.site/wp-admin/options-general.php)
+- Set a home page and news/blog page [here](https://timber-wordpress.ddev.site/wp-admin/options-reading.php)
+- Set thumbnails to _320&times;320_, uncheck _crop thumbnails ..._, set medium to _768&times;768_, uncheck _organize media..._ [here](https://timber-wordpress.ddev.site/wp-admin/options-media.php)
+- Set permalinks to _Post Name_, or your own custom configuration [here](https://timber-wordpress.ddev.site/wp-admin/options-permalink.php)
+
+Activate your new theme in [Appearances > Themes](https://timber-wordpress.ddev.site/wp-admin/themes.php).
+
+## Additional Credits
+
+The missing image placeholder is from the [Mackinaw Bridge](https://unsplash.com/photos/white-truck-on-gray-road-during-daytime-99HLgU4IHLY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) by fellow NMU Wildcat [Riley Crawford](https://unsplash.com/@ricrawfo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
