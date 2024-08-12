@@ -9,7 +9,7 @@
 {% if this.grid %}
     <div class="c-grid">
 
-        {% for item in this.grid.grid %}
+        {% for item in this.grid.cards %}
             {% set image = get_image(item.card_image)|default(null) %}
             {% set headline = item.card_headline|default(null) %}
             {% set text = item.card_body|default(null) %}

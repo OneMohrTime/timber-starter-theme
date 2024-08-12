@@ -22,11 +22,11 @@
 }
 
 .c-tease__text {
-    font-size: $font-body-sm;
+    font-size: $font-base-sm;
 
     // screen at or above 900px
     @include media(">=medium") {
-        font-size: $font-body-md;
+        font-size: $font-base-md;
     }
 }
 

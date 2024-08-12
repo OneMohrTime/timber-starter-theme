@@ -1,9 +1,12 @@
 /* ==========================================================================
-    Intro Content
+    Section: Large Title
 ========================================================================== */
 
-.c-intro {
-    @include content-width();
-    padding: $gutter;
-    font-size: $font-base-lg;
+.c-fittext {
+    @include padding();
+    position: relative;
+}
+
+.c-fittext__headline {
+    margin: 0;
 }

@@ -10,15 +10,17 @@ This WordPress starter theme is built on top of Timber and DDEV to provide a rob
 - **Responsive Design:** Includes a responsive and mobile-friendly design out-of-the-box.
 
 ## Requirements
-This project assumes that you have:
-- [PHP 8.1](https://www.php.net/manual/en/install.php)
+We'll be working with the latest and greatest WordPress templating system, make sure you have:
 - [WordPress 6.x](https://wordpress.org/download/)
 - [Timber 2.x](https://timber.github.io/docs/v2/installation/installation/)
+
+This project also assumes that you have:
+- [PHP 8.1](https://www.php.net/manual/en/install.php)
+- [Node 20.x](https://nodejs.org/en/download/package-manager) ([NPM 10.x](https://www.npmjs.com/))
 - [Composer 2.x](https://getcomposer.org/doc/00-intro.md)
 - [DDEV](https://ddev.com/get-started/)
-- [Node 22.x](https://nodejs.org/en/download/package-manager) ([NPM 10.x](https://www.npmjs.com/))
 
-It's also recommended that you have:
+It's _highly_ recommended that you have:
 - [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/)
 - [WP-CLI](https://wp-cli.org/)
 - [n](https://github.com/tj/n) or [NVM](https://github.com/nvm-sh/nvm)
@@ -99,9 +101,10 @@ To install ACF Pro, first, download the ZIP file from your [ACF account](https:/
 Automate technical SEO and make optimizing content a breeze with the most popular WordPress [SEO plugin](https://yoast.com/wordpress/plugins/seo/).
 
 #### Additional (highly recommended)
-- [WordPress Importer](https://wordpress.org/plugins/wordpress-importer/)
 - [Site Kit by Google](https://sitekit.withgoogle.com/)
+- [RealFaviconGenerator](https://realfavicongenerator.net/)
 - [Redirection](https://redirection.me/)
+- [WordPress Importer](https://wordpress.org/plugins/wordpress-importer/)
 
 ### 7. Build!
 From here, you can compile your assets with:
@@ -120,7 +123,8 @@ First, activate the necessary plugins on the [Plugins](https://timber-wordpress.
 - **Required:** Classic Editor
 - **Required:** Classic Widgets
 - **Required:** Yoast SEO
-- **Recommended:** Site Kit
+- **Recommended:** Google Site Kit
+- **Recommended:** RealFaviconGenerator
 - **Recommended:** Redirection
 - **Recommended:** WordPress Updater
 

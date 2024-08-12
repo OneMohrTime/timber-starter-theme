@@ -1,9 +1,15 @@
 /* ==========================================================================
-    Intro Content
+    Section: Testimonials
 ========================================================================== */
 
-.c-intro {
+.c-testimonials {
+    @include padding();
+    position: relative;
+
+    // screen at or above 900px
+    @include media(">=medium") {}
+}
+
+.c-testimonial {
     @include content-width();
-    padding: $gutter;
-    font-size: $font-base-lg;
 }

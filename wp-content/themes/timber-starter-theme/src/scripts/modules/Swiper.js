@@ -14,7 +14,7 @@ import {
   // Controller,
   // EffectCards,
   // EffectCoverflow,
-  // EffectCreative,
+  EffectCreative,
   // EffectCube,
   // EffectFade,
   // EffectFlip,
@@ -41,7 +41,7 @@ import 'swiper/scss/a11y';
 // import 'swiper/scss/controller';
 // import 'swiper/scss/effect-cards';
 // import 'swiper/scss/effect-coverflow';
-// import 'swiper/scss/effect-creative';
+import 'swiper/scss/effect-creative';
 // import 'swiper/scss/effect-cube';
 // import 'swiper/scss/effect-fade';
 // import 'swiper/scss/effect-flip';
@@ -85,6 +85,9 @@ export default class extends es6Module {
     }
     if (this.classes.contains('is-cards')) {
       this.createCards();
+    }
+    if (this.classes.contains('is-testimonials')) {
+      this.createTestimonials();
     }
   }
 
@@ -245,6 +248,41 @@ export default class extends es6Module {
       //     spaceBetween: 36,
       //   }
       // }
+    };
+
+    // Init Swiper
+    this.swiper = new Swiper(this.el, this.params);
+  }
+
+  // Create Cards
+  // =========================================================================
+  createTestimonials() {
+    this.params = {
+      // configure Swiper to use modules
+      modules: [A11y, EffectCreative],
+
+      // params
+      a11y: {
+        enabled: true
+      },
+      effect: 'creative',
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: ["-20%", 0, -1],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      },
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // },
+      // rewind: true,
+      // slidesPerView: 1,
+      // spaceBetween: 0,
+      // speed: 500,
     };
 
     // Init Swiper

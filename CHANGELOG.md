@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.2
+`2024/08/12`
+- Add modujs accordion function
+- Add _Large Text_ block to **Page Builder**
+- Add _Testimonial_ block to **Page Builder**
+- Change _Grid_ component to _Cards_ component
+- Change conflicting SCSS variables
+- Remove _Form Embed_ block from **Page Builder**
+
 ## 1.0.1
 `2024/07/31`
 - Update DDEV configs
