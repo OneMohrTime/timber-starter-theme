@@ -59,8 +59,8 @@
                             },
                             "default_value": "",
                             "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
+                            "toolbar": "basic",
+                            "media_upload": 0,
                             "delay": 0
                         },
                         {
@@ -574,14 +574,81 @@
                 },
                 "layout_655682951c0fb": {
                     "key": "layout_655682951c0fb",
-                    "name": "grid",
-                    "label": "Grid",
+                    "name": "cards",
+                    "label": "Card Row(s)",
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_66abffb723c35",
+                            "label": "Headline",
+                            "name": "headline",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "80",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_66abffed23c37",
+                            "label": "Row Count",
+                            "name": "row_count",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "three": "3",
+                                "four": "4",
+                                "five": "5"
+                            },
+                            "default_value": "four",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_66abffc923c36",
+                            "label": "Body Copy",
+                            "name": "body",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
                             "key": "field_6556829b1c0fd",
-                            "label": "Grid",
-                            "name": "grid",
+                            "label": "Cards",
+                            "name": "cards",
                             "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
@@ -751,5 +818,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722541339
+    "modified": 1722551154
 }
