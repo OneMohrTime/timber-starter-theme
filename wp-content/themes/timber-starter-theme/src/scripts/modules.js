@@ -6,6 +6,7 @@
 
 // Modules exports
 // =============================================================================
+export { default as Accordion } from './modules/Accordion';
 // export { default as Example } from './modules/Example';
 export { default as Fancybox } from './modules/Fancybox';
 export { default as FitText } from './modules/FitText';
