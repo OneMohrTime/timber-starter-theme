@@ -22,9 +22,7 @@ a {
     // if link is not a button
     &:not(.btn):not([data-fancybox]) {
         // but is a child of .-wysiwyg
-        ._wysiwyg &,
-        .-wysiwyg &,
-        .c-wysiwyg & {
+        .u-wysiwyg & {
             // stylize as inline link
             @include inline-block();
         }

@@ -32,7 +32,7 @@
         }
 
         // text column
-        ._col.-wysiwyg {
+        ._col.u-wysiwyg {
             padding-right: 0;
             padding-left: $gutter;
             @include media(">=large") {
@@ -49,7 +49,7 @@
         position: relative;
 
         // Text column
-        &.-wysiwyg {
+        &.u-wysiwyg {
 
             @include media(">=medium") {
                 flex-grow: 0;

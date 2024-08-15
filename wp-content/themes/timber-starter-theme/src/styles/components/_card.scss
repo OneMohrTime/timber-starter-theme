@@ -23,7 +23,7 @@ $lgImage: 200px;
                 background-color: $yellow;
                 color: $black;
 
-                ._subheadline {
+                .u-subheadline {
                     color: $black;
                 }
 
@@ -121,14 +121,14 @@ $lgImage: 200px;
         //
         // Card Headline
         //
-        ._headline {
+        .u-headline {
             @include base-font-size();
         }
 
         //
         // Card Subheadline
         //
-        ._subheadline {
+        .u-subheadline {
             @include base-font-size();
             color: $black--light;
         }

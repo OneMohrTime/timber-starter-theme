@@ -52,7 +52,7 @@
 
 .repeater__body {
 
-    ._subheadline {
+    .u-subheadline {
         @include caption();
         margin-bottom: $base-spacing;
     }

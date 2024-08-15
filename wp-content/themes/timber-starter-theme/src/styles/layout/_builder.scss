@@ -21,14 +21,12 @@
     }
 
     // set subheadlines apart a bit more
-    ._subheadline {
+    .u-subheadline {
         color: $black--light;
     }
 
     // cap text line lengths
-    .-wysiwyg,
-    ._wysiwyg,
-    .c-wysiwyg {
+    .u-wysiwyg {
         @include content-width();
 
         & + *:not(.c-button) {
