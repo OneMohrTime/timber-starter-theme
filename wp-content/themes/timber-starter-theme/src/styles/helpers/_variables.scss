@@ -77,31 +77,34 @@ $font-header: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $font-code:   "Monaco", "Consolas", "Lucida Console", monospace;
 
 // Font Sizes
-$font-h1:      6.375em;    // 102px
-$font-h2:      4em;        // 64px
-$font-h3:      3.1875em;   // 51px
+$font-h1:      4.5em;      // 72px
+$font-h2:      3.75em;     // 60px
+$font-h3:      2.75em;     // 44px
 $font-h4:      2.25em;     // 36px
-$font-h5:      1.5625em;   // 25px
+$font-h5:      1.5em;      // 24px
 $font-h6:      1.25em;     // 20px
-$font-base:    1.125em;    // 18px
-$font-base-lg: 1.375em;    // 22px
-$font-base-md: $font-base; // 18px
-$font-base-sm: 0.8125em;   // 13px
-$font-meta:    0.9375em;   // 15px
+$font-base:    1em;        // 16px
+$font-base-lg: 1.125em;    // 18px
+$font-base-md: $font-base; // 16px
+$font-base-sm: 0.875em;    // 14px
+$font-meta:    0.75em;     // 12px
 
 // Font Weights
-$font-hairline: 100;
-$font-thin:     200;
-$font-light:    300;
-$font-book:     400;
-$font-regular:  400;
-$font-medium:   500;
-$font-semibold: 600;
-$font-demibold: 600;
-$font-bold:     700;
-$font-heavy:    800;
-$font-ultra:    800;
-$font-black:    900;
+$font-hairline:   100;
+$font-thin:       100;
+$font-extralight: 200;
+$font-ultralight: 200;
+$font-light:      300;
+$font-book:       400;
+$font-regular:    400;
+$font-medium:     500;
+$font-semibold:   600;
+$font-demibold:   600;
+$font-bold:       700;
+$font-extrabold:  800;
+$font-ultrabold:  800;
+$font-black:      900;
+$font-heavy:      900;
 
 // Line Heights
 $line-height:    1.5em;
