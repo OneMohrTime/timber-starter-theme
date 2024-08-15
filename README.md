@@ -21,9 +21,9 @@ This project also assumes that you have:
 - [DDEV](https://ddev.com/get-started/)
 
 It's _highly_ recommended that you have:
-- [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/)
-- [WP-CLI](https://wp-cli.org/)
-- [n](https://github.com/tj/n) or [NVM](https://github.com/nvm-sh/nvm)
+- [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) for maintaining git history
+- [WP-CLI](https://wp-cli.org/) for WordPress shortcuts
+- [n](https://github.com/tj/n) or [NVM](https://github.com/nvm-sh/nvm) for Node version management
 
 ## Installation
 
@@ -133,7 +133,7 @@ Second, you're going to want to sync the Advanced Custom Fields, from our theme 
 Update some of the website's main settings. These are not required, but are recommended—especially if you're going to be uploading this database to _production_.
 - Add a favicon and choose your timezone [here](https://timber-wordpress.ddev.site/wp-admin/options-general.php)
 - Set a home page and news/blog page [here](https://timber-wordpress.ddev.site/wp-admin/options-reading.php)
-- Set thumbnails to _320&times;320_, uncheck _crop thumbnails ..._, set medium to _768&times;768_, uncheck _organize media..._ [here](https://timber-wordpress.ddev.site/wp-admin/options-media.php)
+- Set thumbnails to _320&times;320_, uncheck _crop thumbnails ..._,<br>set medium to _768&times;768_,<br>uncheck _organize media..._ [here](https://timber-wordpress.ddev.site/wp-admin/options-media.php)
 - Set permalinks to _Post Name_, or your own custom configuration [here](https://timber-wordpress.ddev.site/wp-admin/options-permalink.php)
 
 Activate your new theme in [Appearances > Themes](https://timber-wordpress.ddev.site/wp-admin/themes.php).
