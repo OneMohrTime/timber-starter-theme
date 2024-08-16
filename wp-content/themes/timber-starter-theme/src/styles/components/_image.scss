@@ -3,6 +3,5 @@
 ========================================================================== */
 
 .c-image {
-    padding-left: $gutter;
-    padding-right: $gutter;
+    @include padding();
 }
