@@ -4,6 +4,7 @@
 
 img {
     display: block;
+    max-width: 100%;
     height: auto;
 }
 
@@ -15,7 +16,7 @@ object {
 }
 
 // .c-media {
-// 	position: relative;
+//     position: relative;
 // }
 
 .c-media__image {
@@ -27,14 +28,6 @@ object {
 /**
 * === SVG ICONS ===
 */
-
-.-svg {
-    font-size: 1em;
-    line-height: 1em;
-    width: 1em;
-    height: 1em;
-    fill: currentColor;
-}
 
 .c-media__svg {
     display: block;
@@ -48,31 +41,28 @@ object {
 * === UTILITY CLASSES ===
 */
 
-.image,
-._image {
-    display: block;
-    max-width: 100%;
+.u-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
-    &.-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+.u-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    &.-cover {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.u-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-    &.-contain {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
-
-    &.-svg {
-        width: 100%;
-        height: auto;
-    }
+.u-svg {
+    font-size: 1em;
+    line-height: 1em;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
 }
