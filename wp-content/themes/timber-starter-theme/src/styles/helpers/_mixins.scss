@@ -446,32 +446,84 @@
         background-color: $hover;
     }
 }
+
+//
+// Link hover animation that highlights behind the anchor
+//
+@mixin highlight-link($background: $gray--lightest, $color: inherit) {
+    position: relative;
+    text-decoration: none;
+    color: $color;
+
+    &::before {
+        content: "";
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s ease-in-out;
+        background-color: $background;
+        inset: 0;
+        z-index: -1;
+    }
+
+    @include hocus {
+        &::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}
+
 //
 // Link hover animation that spans multiple lines
 //
-@mixin multiline-link($underline: false, $color: inherit, $display: inline) {
-    display: $display;
-    padding-bottom: 0.15em;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-repeat: no-repeat;
-    color: $color;
-    transition: background-size $speed-hover $bezier-slide;
+@mixin multiline-link($underline: false, $color: $blue) {
+    display: inline;
+    text-decoration: none;
+    transition: background-size $speed-slow $bezier-slide;
+    background: linear-gradient(0deg, $color, $color) no-repeat right bottom / 0 var(--bg-height);
+    color: inherit;
+    line-height: 1em;
 
-    // Faux underline
+    &:where(:hover, :focus-visible) {
+        background-size: 100% var(--bg-height);
+        background-position-x: left;
+    }
+
+    // If underline or background
     @if $underline {
-        background-position: 100% 100%;
-        background-size: 100% 1px;
-        // Hover, focus
-        @include u-hocus {
-            background-size: 0 1px;
-        }
+        --bg-height: 2px;
+        padding-bottom: 2px;
 
     } @else {
-        background-position: 0 100%;
-        background-size: 0 1px;
-        // Hover, focus
-        @include u-hocus {
-            background-size: 100% 1px;
-        }
+        --bg-height: 100%;
+    }
+}
+
+//
+// Link hover animation that spans multiple lines
+//
+@mixin inline-link($underlined: false, $color: inherit, $display: inline) {
+    position: relative;
+    text-decoration: none;
+    color: $color;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: $blue;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform .3s ease-in-out;
+    }
+
+    @include hocus {
+        transform: scaleX(1);
+        transform-origin: left;
     }
 }
