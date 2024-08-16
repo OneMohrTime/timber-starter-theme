@@ -3,8 +3,8 @@
 ========================================================================== */
 
 /**
-* === STRUCTURE ===
-*/
+ * === STRUCTURE ===
+ */
 
 @mixin block-width() {
     margin-top: 0;
@@ -68,8 +68,8 @@
 }
 
 /**
-* === ACCESSIBILITY ===
-*/
+ * === ACCESSIBILITY ===
+ */
 
 @mixin visually-hidden($focus: null) {
     position: absolute !important;
@@ -141,8 +141,8 @@
 }
 
 /**
-* === TOOLS ===
-*/
+ * === TOOLS ===
+ */
 
 @mixin aspect-ratio($width, $height) {
     position: relative;
@@ -176,8 +176,8 @@
 }
 
 /**
-* === TYPE STYLES ===
-*/
+ * === TYPE STYLES ===
+ */
 
 @mixin type() {
     font-family: inherit;
@@ -323,8 +323,8 @@
 }
 
 /**
-* === TEXTURE EFFECTS ===
-*/
+ * === TEXTURE EFFECTS ===
+ */
 
 @mixin texture-grid() {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
@@ -355,8 +355,8 @@
 }
 
 /**
-* === BUTTONS AND LINKS ===
-*/
+ * === BUTTONS AND LINKS ===
+ */
 
 @mixin inline-block() {
     position: relative;
@@ -444,5 +444,34 @@
 
     &::after {
         background-color: $hover;
+    }
+}
+//
+// Link hover animation that spans multiple lines
+//
+@mixin multiline-link($underline: false, $color: inherit, $display: inline) {
+    display: $display;
+    padding-bottom: 0.15em;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    color: $color;
+    transition: background-size $speed-hover $bezier-slide;
+
+    // Faux underline
+    @if $underline {
+        background-position: 100% 100%;
+        background-size: 100% 1px;
+        // Hover, focus
+        @include u-hocus {
+            background-size: 0 1px;
+        }
+
+    } @else {
+        background-position: 0 100%;
+        background-size: 0 1px;
+        // Hover, focus
+        @include u-hocus {
+            background-size: 100% 1px;
+        }
     }
 }
