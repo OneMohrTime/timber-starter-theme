@@ -8,6 +8,7 @@
     padding-left: $gutter;
     padding-right: $gutter;
 
+    // screen at or above 900px
     @include media(">=medium") {
         display: flex;
         justify-content: space-between;
@@ -23,6 +24,7 @@
 .c-textMedia__text {
     margin-bottom: $gutter-sm;
 
+    // screen at or above 900px
     @include media(">=medium") {
         flex: 1 1 50%;
         max-width: calc(50% - $gutter-sm);
@@ -35,6 +37,8 @@
 }
 
 .c-textMedia__media {
+
+    // screen at or above 900px
     @include media(">=medium") {
         flex: 1 1 50%;
         max-width: calc(50% - $gutter-sm);

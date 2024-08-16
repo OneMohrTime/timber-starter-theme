@@ -57,6 +57,7 @@ $lgImage: 200px;
         .-horizontalDeck & {
 
             // images get sized up
+            // screen at or above 1200px
             @include media(">=large") {
                 top: calc(50% - #{$mdImage / 2});
                 width: $mdImage;
@@ -64,6 +65,7 @@ $lgImage: 200px;
             }
 
             // images get sized up
+            // screen at or above 1500px
             @include media(">=big") {
                 top: calc(50% - #{$lgImage / 2});
                 width: $lgImage;
@@ -105,6 +107,7 @@ $lgImage: 200px;
         z-index: 9;
 
         // images get sized up
+        // screen at or above 1200px
         @include media(">=large") {
             width: calc(100% - #{$mdImage - $gutter});
             margin-left: #{$mdImage - $gutter};
@@ -113,6 +116,7 @@ $lgImage: 200px;
         }
 
         // images get sized up
+        // screen at or above 1500px
         @include media(">=big") {
             width: calc(100% - #{$lgImage - $gutter});
             margin-left: #{$lgImage - $gutter};
@@ -254,7 +258,7 @@ $lgImage: 200px;
             }
         }
 
-        // no less than 1170px
+        // screen at or above 1200px
         @include media(">=large") {
             flex-basis: calc(25% - #{$gutter});
             max-width: calc(25% - #{$gutter});

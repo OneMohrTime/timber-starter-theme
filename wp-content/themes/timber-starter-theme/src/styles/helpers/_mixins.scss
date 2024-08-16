@@ -12,16 +12,19 @@
     margin-right: $gutter;
     margin-bottom: $gutter-lg;
 
+    // screen at or above 900px
     @include media(">=medium") {
         margin-left: $gutter-lg;
         margin-right: $gutter-lg;
     }
 
+    // screen at or above 1200px
     @include media(">=large") {
         margin-left: $gutter-xl;
         margin-right: $gutter-xl;
     }
 
+    // screen at or above 1500px
     @include media(">=big") {
         margin-left: $gutter-xxl;
         margin-right: $gutter-xxl;
@@ -29,6 +32,7 @@
 }
 
 @mixin content-width() {
+    // screen at or above 900px
     @include media(">=medium") {
         // cap line lengths
         *:not([picture]):not([img]):not([iframe]):not(.u-wysiwyg) {
@@ -44,16 +48,19 @@
     padding-left: $gutter;
     padding-right: $gutter;
 
+    // screen at or above 900px
     @include media(">=medium") {
         padding-left: $gutter-lg;
         padding-right: $gutter-lg;
     }
 
+    // screen at or above 1200px
     @include media(">=large") {
         padding-left: $gutter-xl;
         padding-right: $gutter-xl;
     }
 
+    // screen at or above 1500px
     @include media(">=big") {
         padding-left: $gutter-xxl;
         padding-right: $gutter-xxl;
@@ -205,6 +212,7 @@
     font-size: $font-h2;
     letter-spacing: -0.5px;
 
+    // screen below 599px
     @include media("<small") {
         hyphens: auto;
         font-size: 1.75em
@@ -218,6 +226,7 @@
 @mixin paragraph($underline: null) {
     font-size: $font-h3;
 
+    // screen below 599px
     @include media("<=small") {
         font-size: 1.2em;
     }
@@ -292,6 +301,7 @@
         transition: background-color $speed, width $speed;
         background-color: $yellow;
 
+        // screen at or above 600px
         @include media(">=small") {
             width: 100px;
         }
@@ -354,6 +364,7 @@
     line-height: $line-height;
     z-index: 1;
 
+    // screen at or above 1200px
     @include media(">=large") {
         // hover, focus
         @include hocus{

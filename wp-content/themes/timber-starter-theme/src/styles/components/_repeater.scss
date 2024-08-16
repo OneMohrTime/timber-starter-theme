@@ -17,6 +17,7 @@
         @include caption();
         margin-top: 3.25em;
 
+        // screen at or above 1200px
         @include media(">=large") {
             margin-top: 5em;
         }
