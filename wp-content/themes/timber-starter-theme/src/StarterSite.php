@@ -1,6 +1,7 @@
 <?php
 
 use Timber\Site;
+use buzzingpixel\twigswitch\SwitchTwigExtension;
 
 /**
  * Class StarterSite
@@ -166,6 +167,9 @@ class StarterSite extends Site {
          */
         // $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
         // $twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
+
+        // Provide a {% switch %} tag for Twig switch case statements
+        $twig->addExtension(new SwitchTwigExtension());
 
         return $twig;
     }
