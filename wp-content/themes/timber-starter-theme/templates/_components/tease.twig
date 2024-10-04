@@ -29,12 +29,12 @@
 
     {% endif %}
 
-    <div class="c-tease__content u-wysiwyg">
+    <div class="c-tease__content">
         <h3 class="c-tease__headline u-heading">
             <a href="{{ this.link }}" title="Read {{ this.headline }}" class="u-link">{{ this.headline }}</a>
         </h3>
         <time datetime="{{ this.date|date('c') }}" class="c-tease__meta">Posted on {{ this.date }}</time>
-        <div class="c-tease__text">
+        <div class="c-tease__text u-wysiwyg">
             <p>{{ this.content|excerpt(36) }}</p>
         </div>
         {% if this.link %}

@@ -1,7 +1,7 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    url: params.url|default('javascript:;'),
+    url: params.url|default('javascript:void(0);'),
     text: params.text|default('Learn More'),
     target: params.target|default(null),
     isPrimary: params.primary ?? true,
