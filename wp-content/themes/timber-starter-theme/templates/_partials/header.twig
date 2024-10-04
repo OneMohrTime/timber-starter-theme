@@ -1,5 +1,6 @@
 {# -- Partial Variables -- #}
 {# ----------------------------------------------------------------- #}
+
 {% set this = {
     primary: params.menu|default(null),
     utility: params.utility|default(null),
@@ -10,6 +11,7 @@
 
 {# -- Partial Template -- #}
 {# ----------------------------------------------------------------- #}
+
 {% if this.utility %}
     {% include '_components/nav-utility.twig' with {
         utilityMenu: this.utility
