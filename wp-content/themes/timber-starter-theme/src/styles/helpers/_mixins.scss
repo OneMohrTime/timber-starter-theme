@@ -6,47 +6,43 @@
  * === STRUCTURE ===
  */
 
-@mixin block-width() {
-    margin-top: 0;
-    margin-left: $gutter;
-    margin-right: $gutter;
-    margin-bottom: $gutter-lg;
+// Force aspect ratio on elements
+@mixin aspect-ratio($width, $height) {
+    position: relative;
 
-    // screen at or above 900px
-    @include media(">=medium") {
-        margin-left: $gutter-lg;
-        margin-right: $gutter-lg;
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        padding-top: math.div($height, $width) * 100%;
     }
 
-    // screen at or above 1200px
-    @include media(">=large") {
-        margin-left: $gutter-xl;
-        margin-right: $gutter-xl;
-    }
-
-    // screen at or above 1500px
-    @include media(">=big") {
-        margin-left: $gutter-xxl;
-        margin-right: $gutter-xxl;
+    & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
 
+// Cap line lengths to stay legible
 @mixin content-width() {
-    // screen at or above 900px
-    @include media(">=medium") {
-        // cap line lengths
-        *:not([picture]):not([img]):not([iframe]):not(.u-wysiwyg) {
-            max-width: $copy-width;
-        }
+    p, ul, ol {
+        max-width: $copy-width;
     }
 }
 
-//
 // Set basic section padding from mobile to desktop
-//
 @mixin padding() {
-    padding-left: $gutter;
-    padding-right: $gutter;
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
 
     // screen at or above 900px
     @include media(">=medium") {
@@ -62,8 +58,8 @@
 
     // screen at or above 1500px
     @include media(">=big") {
-        padding-left: $gutter-xxl;
-        padding-right: $gutter-xxl;
+        padding-left: calc((100% - $container-width) / 2);
+        padding-right: calc((100% - $container-width) / 2);
     }
 }
 
@@ -92,7 +88,7 @@
             left: 5px;
             display: block;
             background-color: $yellow--light;
-            color: #444;
+            color: $black;
             font-size: 1em;
             text-decoration: none;
             line-height: normal;
@@ -144,25 +140,6 @@
  * === TOOLS ===
  */
 
-@mixin aspect-ratio($width, $height) {
-    position: relative;
-
-    &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        padding-top: ($height / $width) * 100%;
-    }
-
-    & > * {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-}
-
 @mixin text-shadow() {
     text-shadow: 2px 2px 4px fade-out($black, 0.95);
 }
@@ -186,10 +163,6 @@
     widows: 3;
     orphans: 3;
     color: inherit;
-
-    @include last(1) {
-        margin-bottom: 0;
-    }
 }
 
 @mixin title($underline: null) {

@@ -1,17 +1,21 @@
 /* ==========================================================================
-    Forms
+    Inputs
 ========================================================================== */
 
 #{$all-text-inputs} {
     display: block;
     width: auto;
     height: auto;
-    padding: $small-spacing;
-    border: 2px solid $black;
+    padding: 0.75em 1em;
+    border: 1px solid $gray;
     border-radius: $border-radius;
-    background-color: transparent;
-    color: $black;
+    background-color: $white;
+    color: $black--light;
     // all: revert;
+
+    &::placeholder {
+        color: $gray--lightest;
+    }
 }
 
 [type=file], select {
@@ -21,4 +25,8 @@
     border-radius: $border-radius;
     background-color: transparent;
     color: $black;
+}
+
+textarea {
+    min-height: em;
 }

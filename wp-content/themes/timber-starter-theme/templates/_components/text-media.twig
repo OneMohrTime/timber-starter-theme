@@ -1,16 +1,34 @@
 {# -- Component Variables -- #}
 
 {% set this = {
+    headline: params.headline,
     text: params.text|default(''),
     image: params.image|default(null),
+    isReverse: params.alignment|default(false)
 } %}
 
 {# -- Component Template -- #}
+{% if this.textMedia %}
+<div class="c-textMedia{{ this.isReverse }}">
 
-<section class="c-textMedia">
-
-    <div class="c-textMedia__text u-wysiwyg">
-        {{ this.text }}
+    <div class="c-textMedia__text">
+        {% if this.headline %}
+            <h3 class="u-heading">{{ this.headline }}</h3>
+        {% endif %}
+        {% if this.text %}
+            <div class="u-wysiwyg">
+                {{ this.text }}
+            </div>
+        {% endif %}
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: text.button.url,
+                    text: text.button.title,
+                    target: text.button.target,
+                }
+            } only %}
+        {% endif %}
     </div>
 
     <figure class="c-textMedia__media">
@@ -22,10 +40,5 @@
         } only %}
     </figure>
 
-    <div class="c-textMedia--curve">
-        <svg class="c-media__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z" class="shape-fill"></path>
-        </svg>
-    </div>
-
 </section>
+{% endif %}

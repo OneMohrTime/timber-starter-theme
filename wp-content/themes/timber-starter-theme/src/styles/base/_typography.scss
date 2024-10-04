@@ -15,11 +15,9 @@
 @for $i from 1 through 6 {
     h#{$i} {
         position: relative;
-        display: block;
-        margin: 0 0 calc($heading-height / 2);
+        margin: 0;
         font-family: $font-header;
         font-weight: $font-bold;
-        text-transform: uppercase;
         line-height: $heading-height;
         color: inherit;
 
@@ -60,17 +58,24 @@ h6 {
 }
 
 .u-wysiwyg {
+    @include content-width();
 
     h1, h2, h3, h4, h5, h6 {
+        display: block;
+        margin-bottom: $small-spacing;
 
         // headers in a wysiwyg section only...hopefully
         &:not([class]) {
-            margin-bottom: ($line-height / 3);
+            margin-bottom: ($line-height / 2);
         }
         // remove top margin for first heading in sections
         &:not([class]):not(:first-child) {
             margin-top: ($line-height / 2);
         }
+    }
+
+    p, ul, ol {
+        line-height: inherit;
     }
 }
 
@@ -80,21 +85,19 @@ h6 {
 
 p {
     @include type();
-
-    &:last-child,
-    &:only-child {
+    @include last(1) {
         margin-bottom: 0;
     }
 }
 
 b, strong {
-    font-weight: 600;
+    font-weight: $font-bold;
 }
 
 sub, sup {
+    position: relative;
     font-size: .75em;
     line-height: 0;
-    position: relative;
     vertical-align: baseline;
 }
 sup { top: -0.5em; }
@@ -118,22 +121,30 @@ ul, ol, dl {
         margin: 0 0 $line-height;
         padding-left: $line-height;
 
-        // yellow dots
+        // custom styled dots
         li::marker {
-            font-weight: 700;
             color: $blue;
         }
 
+        // child elements
         & ul,
         & ol,
         & dl {
             margin: 0;
         }
+
+        // sibling elements
+        & + p,
+        & + ul,
+        & + ol,
+        & + .c-button {
+            margin-top: $line-height;
+        }
     }
 }
 
 .u-wysiwyg ul {
-    list-style: square;
+    list-style: disc;
 }
 
 .u-wysiwyg ol {
@@ -147,21 +158,15 @@ ul, ol, dl {
 .u-title {
     @include title();
 
-    &.-underline {
+    &.is-underlined {
         @include title("underlined");
-    }
-
-    .u-letter {
-        display: inline-block;
-        transform-origin: 0 100%;
-        line-height: 1em;
     }
 }
 
 .u-headline {
     @include subtitle();
 
-    &.-underline {
+    &.is-underlined {
         @include subtitle("underlined");
     }
 }
@@ -169,14 +174,18 @@ ul, ol, dl {
 .u-subheadline {
     @include paragraph();
 
-    &.-underline {
+    &.is-underlined {
         @include paragraph("underlined");
     }
 }
 
-._text {
-    @include type();
-    @include content-width();
+.u-eyebrow {
+    display: inline-block;
+    font-size: $font-base-sm;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    letter-spacing: rem(1px);
+    line-height: $heading-height;
 }
 
 /**
@@ -253,8 +262,8 @@ blockquote {
 
 hr {
     width: 50%;
-    height: 10px;
-    margin: 0 auto $base-spacing;
+    height: 2px;
+    margin: $base-spacing auto;
     border: 0;
     background-color: $blue;
 }

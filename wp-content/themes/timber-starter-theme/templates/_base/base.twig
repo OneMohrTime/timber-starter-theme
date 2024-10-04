@@ -4,8 +4,10 @@
 {% set websiteLogo = siteLogo|default(null) %}
 {% set websiteUrl = site.url %}
 {% set websiteTheme = theme.link %}
-{% set hasSidebar = post.slug in ['news','about'] %}
+{% set hasSidebar = post.slug in ['news','latest','blog'] %}
 {% set showCTA = post.cta_hide|default(false) %}
+{% set showAlert = globals.site_alert.show_alert|default(false) %}
+{% set modalForm = globals.modal_form|default(null) %}
 
 {# -- Site Meta Content -- #}
 {# ----------------------------------------------------------------- #}
@@ -34,19 +36,26 @@
     {{ function('wp_body_open') }}
     <!-- End `wp_body_open` Function -->
 
+    <!-- Loader Element -->
+    <div id="loader" class="c-loader">
+        <div class="c-loader__spinner"></div>
+    </div>
+
     <div id="page" class="o-site" data-load-container>
 
         {# Skip (Tab) Navigation #}
         {% include '_components/nav-keyboard.twig' only %}
 
         {# Global Site Alert #}
-        {% include '_components/alert.twig' with {
-            params: {
-                visible: globals.site_alert.show_alert|default(false),
-                text: globals.site_alert.alert_text|default(null),
-                link: globals.site_alert.alert_link|default(null)
-            }
-        } only %}
+        {% if showAlert == true %}
+            {% include '_components/alert.twig' with {
+                params: {
+                    visible: showAlert,
+                    text: globals.site_alert.alert_text|default(null),
+                    link: globals.site_alert.alert_link|default(null)
+                }
+            } only %}
+        {% endif %}
 
         {# Primary Navigation #}
         <header id="masthead" class="o-site__header" data-module-navigation>
@@ -64,7 +73,7 @@
         </header>
 
         {# Main Site Content Area #}
-        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}">
+        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}" data-module-modal data-module-scroll>
             {% block content %}
                 Sorry, no content
             {% endblock %}
@@ -104,6 +113,15 @@
     <!-- Start `wp_footer` Function -->
     {{ function('wp_footer') }}
     <!-- End `wp_footer` Function -->
+
+    {# Custom script embeds #}
+    {% block scripts %}
+    {% endblock %}
+
+    <!--
+    Website by Derek Mohr
+    https://onemohrti.me?utm_campaign=HTML+Comment&utm_source={{ websiteName|replace({' ':'+'}) }}
+    -->
 
 </body>
 

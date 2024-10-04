@@ -46,21 +46,9 @@
     text-transform: uppercase;
     border-radius: $border-radius;
 
-    &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 0;
-        height: 10px;
-    }
-
     // screen at or above 600px
     @include media(">=small") {
         // padding: 0.25vw 1vw;
-        &::after {
-            transition: all $speed;
-        }
     }
 
     // hover, focus
@@ -71,10 +59,6 @@
         // screen at or above 600px
         @include media(">=small") {
             transition: all $speed;
-            &::after {
-                left: 0;
-                width: 100%;
-            }
         }
     }
 
@@ -90,13 +74,11 @@
         background-color: transparent;
         color: $gray;
         cursor: not-allowed !important;
+
         // hover, focus
         @include hocus {
             background-color: $white--dark;
             color: $gray;
-            &::after {
-                display: none;
-            }
         }
     }
 }
@@ -106,7 +88,27 @@
 */
 .c-button {
     @include btn-style();
-    //	@include mask-texture();
+    // @include mask-texture();
+
+    // &.is-primary {
+    //     @include btn-style($black, $white);
+    // }
+
+    // &.is-secondary {
+    //     @include btn-style($black, $white);
+    // }
+
+    // &.is-tertiary {
+    //     @include btn-style($black, $white);
+    // }
+
+    // &.is-inverse {
+    //     @include btn-style($black, $white);
+    // }
+
+    // &.is-outline {
+    //     @include btn-style($black, $white);
+    // }
 
     .c-media__svg {
         position: relative;
@@ -114,12 +116,8 @@
     }
 }
 
-.c-button--small {
-    padding: $small-spacing / 2 $small-spacing;
-    @include small-font-size();
-    border-width: 2px;
-
-    &::after {
-        height: 5px;
-    }
-}
+// .c-button--small {
+//     padding: $small-spacing / 2 $small-spacing;
+//     @include small-font-size();
+//     border-width: 2px;
+// }

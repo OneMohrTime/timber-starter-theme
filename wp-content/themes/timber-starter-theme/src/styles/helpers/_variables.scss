@@ -102,9 +102,9 @@ $font-semibold:   600;
 $font-demibold:   600;
 $font-bold:       700;
 $font-extrabold:  800;
-$font-ultrabold:  800;
+$font-heavy:      800;
+$font-ultrabold:  900;
 $font-black:      900;
-$font-heavy:      900;
 
 // Line Heights
 $line-height:    1.5em;
@@ -114,10 +114,10 @@ $heading-height: 1.2em;
 // =============================================================================
 
 // Speeds
-$speed: 200ms;
+$base-duration: 350ms;
+$speed: $base-duration;
 $speed-fast: $speed / 2;
 $speed-slow: $speed * 2;
-$base-duration: $speed;
 
 // Cubic Bezier Styles
 $bezier-sine:  cubic-bezier(0.39, 0.575, 0.565, 1);
