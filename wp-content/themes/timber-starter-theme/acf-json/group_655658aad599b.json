@@ -707,8 +707,8 @@
                 },
                 "layout_66abfc31320da": {
                     "key": "layout_66abfc31320da",
-                    "name": "testimonials",
-                    "label": "Testimonials",
+                    "name": "quotes",
+                    "label": "Quotes Section",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -733,8 +733,8 @@
                         },
                         {
                             "key": "field_66abfc55320dd",
-                            "label": "Body Copy",
-                            "name": "body",
+                            "label": "Text",
+                            "name": "text",
                             "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
@@ -844,7 +844,7 @@
                 "layout_655682951c0fb": {
                     "key": "layout_655682951c0fb",
                     "name": "cards",
-                    "label": "Card Row(s)",
+                    "label": "Card Grid Section",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -896,8 +896,8 @@
                         },
                         {
                             "key": "field_66abffc923c36",
-                            "label": "Body Copy",
-                            "name": "body",
+                            "label": "Text",
+                            "name": "text",
                             "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
@@ -1029,7 +1029,7 @@
                 "layout_6556612f78fa4": {
                     "key": "layout_6556612f78fa4",
                     "name": "script_embed",
-                    "label": "Script Embed",
+                    "label": "Embed Section",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1048,7 +1048,7 @@
                             },
                             "default_value": "",
                             "maxlength": "",
-                            "rows": 4,
+                            "rows": 5,
                             "placeholder": "Paste embed code here...",
                             "new_lines": ""
                         }
@@ -1087,5 +1087,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728104866
+    "modified": 1728106331
 }

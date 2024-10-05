@@ -1,15 +1,18 @@
 /* ==========================================================================
-    Section: Testimonials
+    Section: Quotes
 ========================================================================== */
 
-.c-testimonials {
-    @include padding();
+.c-quotes {
     position: relative;
 
     // screen at or above 900px
     @include media(">=medium") {}
 }
 
-.c-testimonial {
+.c-quotes__testimonial {
+
+}
+
+.c-quote {
     @include content-width();
 }
