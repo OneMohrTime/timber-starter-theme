@@ -77,38 +77,3 @@
     </figure>
 
 </div>
-
-{# {% if this.textMedia %}
-<div class="c-textMedia{{ this.isReverse }}">
-
-    <div class="c-textMedia__text">
-        {% if this.headline %}
-            <h3 class="u-heading">{{ this.headline }}</h3>
-        {% endif %}
-        {% if this.text %}
-            <div class="u-wysiwyg">
-                {{ this.text }}
-            </div>
-        {% endif %}
-        {% if this.button %}
-            {% include '_elements/button.twig' with {
-                params: {
-                    url: text.button.url,
-                    text: text.button.title,
-                    target: text.button.target,
-                }
-            } only %}
-        {% endif %}
-    </div>
-
-    <figure class="c-textMedia__media">
-        {% include '_elements/picture.twig' with {
-            params: {
-                src: get_image(this.image),
-                ratio: '1:1'
-            }
-        } only %}
-    </figure>
-
-</section>
-{% endif %} #}
