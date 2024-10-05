@@ -582,7 +582,15 @@
                             "type": "text",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6700b19d41545",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -595,24 +603,75 @@
                             "append": ""
                         },
                         {
+                            "key": "field_66ba303abd946",
+                            "label": "Text",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6700b19d41545",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
                             "key": "field_6700b19d41545",
-                            "label": "Add Text Section",
-                            "name": "add_text_section",
+                            "label": "Add Intro Content",
+                            "name": "add_intro_content",
                             "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
                             "message": "Add Intro section above gallery",
                             "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
+                            "ui_on_text": "Add Intro",
+                            "ui_off_text": "No Intro",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_6700c61f6ccfb",
+                            "label": "Gallery Type",
+                            "name": "gallery_type",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "grid": "Grid",
+                                "slider": "Slider"
+                            },
+                            "default_value": "grid",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "layout": "horizontal"
                         },
                         {
                             "key": "field_655e5ac046601",
@@ -641,26 +700,6 @@
                             "mime_types": "jpg, jpeg, png, gif, webp, avif",
                             "insert": "append",
                             "preview_size": "medium"
-                        },
-                        {
-                            "key": "field_66ba303abd946",
-                            "label": "Text",
-                            "name": "text",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "basic",
-                            "media_upload": 0,
-                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -1048,5 +1087,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728100765
+    "modified": 1728104866
 }
