@@ -1,0 +1,37 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/body.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+
+{% block content %}
+{# <?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?> #}
+{# {{ fn('storefront_product_search') }} #}
+<pre>
+    {{ dump(fn('get_search_form')) }}
+    {# {{ dump(fn('storefront_product_search')) }} #}
+</pre>
+
+    {% do action('woocommerce_before_main_content') %}
+
+    <div class="before-shop-loop">
+        {% do action('woocommerce_before_shop_loop') %}
+    </div>
+
+    <div class="c-grid loop">
+        {% for post in products %}
+            {# {% include ["partials/tease-product.twig"] %} #}
+            <pre>
+                {{ dump(post.title) }}
+            </pre>
+        {% endfor %}
+    </div>
+
+    {% do action('woocommerce_after_shop_loop') %}
+    {% do action('woocommerce_after_main_content') %}
+
+{% endblock  %}
