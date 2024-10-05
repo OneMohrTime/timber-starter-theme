@@ -29,7 +29,6 @@ export default class extends es6Module {
     // Variables
     this.buttons = this.el.querySelectorAll('[href="#facilitator"');
     this.modal = html.querySelector('[data-site-modal]');
-    console.log(this.modal);
 
     this.modalContent = this.modal.querySelector('.c-modal__body');
     this.closeButton = this.modal.querySelector('.c-modal__close');

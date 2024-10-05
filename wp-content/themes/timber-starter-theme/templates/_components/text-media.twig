@@ -43,7 +43,8 @@
             {% case 'video' %}
                 {% include '_elements/embed.twig' with {
                     params: {
-                        src: this.media.video
+                        src: this.media.video,
+                        type: 'video'
                     }
                 } only %}
 
