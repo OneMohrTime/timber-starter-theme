@@ -28,55 +28,47 @@
     </div>
 
     {% if this.menu %}
-    <ul class="c-navigation__menu c-menu is-hidden">
+        <ul class="c-navigation__menu c-menu is-hidden">
 
-        {% for item in this.menu.get_items %}
-        <li class="c-navigation__menuItem c-menuItem">
+            {% for item in this.menu.get_items %}
+                {% set activeMenuClass = ('current-menu-item' in item.classes == 1) ? ' is-current' %}
 
-            {% if item.children %}
-                <a href="{{ item.link }}" class="u-link">
-                    {{ item.title }}
-                </a>
+                <li class="c-navigation__menuItem c-menuItem{{ activeMenuClass }}">
 
-            {% else %}
-                <a href="{{ item.link }}" class="u-link">
-                    {{ item.title }}
-                </a>
+                    {% if 'c-button' in item.classes %}
+                        <a href="{{ item.link }}" class="c-button is-primary"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                            {{ item.title }}
+                        </a>
 
-            {% endif %}
+                    {% elseif item.children %}
+                        <a href="{{ item.link }}" class="u-link">
+                            {{ item.title }}
+                        </a>
 
-            {% if item.children %}
-                <ul id="primary__sub-{{ item.id }}" class="c-submenu">
+                    {% else %}
+                        <a href="{{ item.link }}" class="u-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                            {{ item.title }}
+                            {% if item.target == '_blank' %}
+                                {{ source('assets/img/icons/external-link.svg') }}
+                            {% endif %}
+                        </a>
 
-                    {% for submenu in item.children %}
-                        <li class="c-submenu__item">
-                            <a href="{{ submenu.link }}" class="u-link">
-                                {{ submenu.title }}
-                            </a>
-                        </li>
-                    {% endfor %}
+                    {% endif %}
 
-                </ul>
-            {% endif %}
+                    {% if item.children %}
+                        <ul id="primary__sub-{{ item.id }}" class="c-submenu">
 
-        </li>
-        {% endfor %}
+                            {% for submenu in item.children %}
+                                {% set activeMenuClass = ('current-menu-item' in submenu.classes == 1) ? ' is-current' %}
+                                <li class="c-submenu__item{{ activeMenuClass }}">
+                                    <a href="{{ submenu.link }}" class="u-link">
+                                        {{ submenu.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
 
-    </ul>
-    {% endif %}
-
-    {% if this.buttons %}
-        <ul class="c-navigation__buttons">
-            {% for button in this.buttons %}
-                <li>
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: button.button.url,
-                            text: button.button.title,
-                            target: button.button.target,
-                            primary: loop.index == loop.length ? true : false
-                        }
-                    } only %}
+                        </ul>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
