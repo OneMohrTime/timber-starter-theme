@@ -3,7 +3,7 @@
 ========================================================================== */
 
 .c-embed {
-    @include padding();
+    // @include padding();
 
     &.is-wide {
         padding-left: $gutter;

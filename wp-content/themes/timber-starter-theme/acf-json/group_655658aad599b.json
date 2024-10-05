@@ -143,229 +143,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_655658da90b6b": {
-                    "key": "layout_655658da90b6b",
-                    "name": "text_media",
-                    "label": "Text + Media",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6556593e90b71",
-                            "label": "Text",
-                            "name": "text",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "Headline, copy, and buttons",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6556594f90b72",
-                                    "label": "Headline",
-                                    "name": "headline",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                },
-                                {
-                                    "key": "field_6556595990b73",
-                                    "label": "Body Copy",
-                                    "name": "body",
-                                    "aria-label": "",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 0,
-                                    "delay": 0
-                                },
-                                {
-                                    "key": "field_6556597490b74",
-                                    "label": "Button",
-                                    "name": "button",
-                                    "aria-label": "",
-                                    "type": "link",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_655659c090b75",
-                            "label": "Media",
-                            "name": "media",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "Images, video, etc",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_655e58d1fabb1",
-                                    "label": "Media Type",
-                                    "name": "media_type",
-                                    "aria-label": "",
-                                    "type": "select",
-                                    "instructions": "Choose what kind of media is going to be presented",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "image": "Image",
-                                        "slides": "Gallery\/Slides",
-                                        "video": "Video"
-                                    },
-                                    "default_value": "image",
-                                    "return_format": "value",
-                                    "multiple": 0,
-                                    "allow_null": 0,
-                                    "ui": 0,
-                                    "ajax": 0,
-                                    "placeholder": ""
-                                },
-                                {
-                                    "key": "field_655659e990b76",
-                                    "label": "Image",
-                                    "name": "image",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_655e58d1fabb1",
-                                                "operator": "==",
-                                                "value": "image"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
-                                    "preview_size": "medium"
-                                },
-                                {
-                                    "key": "field_655e599bfabb2",
-                                    "label": "Gallery",
-                                    "name": "gallery",
-                                    "aria-label": "",
-                                    "type": "gallery",
-                                    "instructions": "Add 2-10 images to be rotated through",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_655e58d1fabb1",
-                                                "operator": "==",
-                                                "value": "slides"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "library": "all",
-                                    "min": 2,
-                                    "max": 10,
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
-                                    "insert": "prepend",
-                                    "preview_size": "medium"
-                                },
-                                {
-                                    "key": "field_655e5a25fabb3",
-                                    "label": "Video",
-                                    "name": "video",
-                                    "aria-label": "",
-                                    "type": "oembed",
-                                    "instructions": "Embed a YouTube\/Vimeo\/etc video",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_655e58d1fabb1",
-                                                "operator": "==",
-                                                "value": "video"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "width": "",
-                                    "height": ""
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_65565bfd1f47a": {
                     "key": "layout_65565bfd1f47a",
                     "name": "media",
@@ -548,10 +325,253 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_655658da90b6b": {
+                    "key": "layout_655658da90b6b",
+                    "name": "text_media",
+                    "label": "Text + Media Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6556593e90b71",
+                            "label": "Text",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "Headline, copy, and buttons",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_670069aaea521",
+                                    "label": "Eyebrow",
+                                    "name": "eyebrow",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6556594f90b72",
+                                    "label": "Headline",
+                                    "name": "headline",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6556595990b73",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_6556597490b74",
+                                    "label": "Button",
+                                    "name": "button",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_655659c090b75",
+                            "label": "Media",
+                            "name": "media",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "Images, video, etc",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_655e58d1fabb1",
+                                    "label": "Media Type",
+                                    "name": "media_type",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Choose what kind of media is going to be presented",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "image": "Image",
+                                        "slides": "Slider Gallery",
+                                        "video": "Video"
+                                    },
+                                    "default_value": "image",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_655659e990b76",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_655e58d1fabb1",
+                                                "operator": "==",
+                                                "value": "image"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_655e5a25fabb3",
+                                    "label": "Video",
+                                    "name": "video",
+                                    "aria-label": "",
+                                    "type": "oembed",
+                                    "instructions": "Embed a YouTube\/Vimeo\/etc video",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_655e58d1fabb1",
+                                                "operator": "==",
+                                                "value": "video"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "width": "",
+                                    "height": ""
+                                },
+                                {
+                                    "key": "field_655e599bfabb2",
+                                    "label": "Slider",
+                                    "name": "slider",
+                                    "aria-label": "",
+                                    "type": "gallery",
+                                    "instructions": "Add 2-10 images to be rotated through",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_655e58d1fabb1",
+                                                "operator": "==",
+                                                "value": "slides"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min": 2,
+                                    "max": 10,
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                                    "insert": "prepend",
+                                    "preview_size": "medium"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_655e5ab5465ff": {
                     "key": "layout_655e5ab5465ff",
                     "name": "gallery",
-                    "label": "Gallery",
+                    "label": "Gallery Section",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -573,6 +593,26 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_6700b19d41545",
+                            "label": "Add Text Section",
+                            "name": "add_text_section",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Add Intro section above gallery",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         },
                         {
                             "key": "field_655e5ac046601",
@@ -1008,5 +1048,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728076384
+    "modified": 1728100765
 }
