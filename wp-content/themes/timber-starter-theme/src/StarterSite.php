@@ -9,10 +9,11 @@ use buzzingpixel\twigswitch\SwitchTwigExtension;
 class StarterSite extends Site {
     public function __construct() {
         add_action('after_setup_theme', array($this, 'theme_supports'));
+        add_action('after_setup_theme', array($this, 'navigation_menus'));
+        add_action('after_setup_theme', array($this, 'theme_add_woocommerce_support'));
         // add_action('init', array($this, 'register_post_types'));
         // add_action('init', array($this, 'register_taxonomies'));
         add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
-        add_action('after_setup_theme', array($this, 'navigation_menus'));
         add_action('widgets_init', array($this, 'create_sidebars'));
 
         add_filter('timber/context', array($this, 'add_to_context' ));
@@ -21,6 +22,14 @@ class StarterSite extends Site {
         add_filter('wpseo_metabox_prio', array($this, 'move_yoast_seo_metabox'));
 
         parent::__construct();
+    }
+
+    /**
+     * The first step to get your WooCommerce project integrated with Timber is
+     * declaring WooCommerce support in your theme’s functions.php file like so.
+     */
+    public function theme_add_woocommerce_support() {
+        add_theme_support('woocommerce');
     }
 
     // /**
