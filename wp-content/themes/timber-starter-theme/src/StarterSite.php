@@ -9,10 +9,12 @@ use buzzingpixel\twigswitch\SwitchTwigExtension;
 class StarterSite extends Site {
     public function __construct() {
         add_action('after_setup_theme', array($this, 'theme_supports'));
+        add_action('after_setup_theme', array($this, 'navigation_menus'));
+        add_action('after_setup_theme', array($this, 'theme_add_woocommerce_support'));
+        // add_action('after_setup_theme', array($this, 'timber_set_product'));
         // add_action('init', array($this, 'register_post_types'));
         // add_action('init', array($this, 'register_taxonomies'));
         add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
-        add_action('after_setup_theme', array($this, 'navigation_menus'));
         add_action('widgets_init', array($this, 'create_sidebars'));
 
         add_filter('timber/context', array($this, 'add_to_context' ));
@@ -22,6 +24,22 @@ class StarterSite extends Site {
 
         parent::__construct();
     }
+
+    /**
+     * The first step to get your WooCommerce project integrated with Timber is
+     * declaring WooCommerce support in your theme’s functions.php file like so.
+     */
+    public function theme_add_woocommerce_support() {
+        add_theme_support('woocommerce');
+    }
+
+    // public function timber_set_product($post) {
+    //     global $product;
+
+    //     if (is_woocommerce()) {
+    //         $product = wc_get_product($post->ID);
+    //     }
+    // }
 
     // /**
     //  * This is where you can register custom post types.

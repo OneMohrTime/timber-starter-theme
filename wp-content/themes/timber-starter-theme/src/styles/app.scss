@@ -43,10 +43,12 @@
 --------------------------------------------------------------*/
 /* This section includes styles for building layout components like the header, footer, sidebar, and post layout. */
 
-@import "layout/footer";
+@import "layout/archives";
 @import "layout/header";
+@import "layout/footer";
 @import "layout/page";
 @import "layout/post";
+@import "layout/product";
 @import "layout/sidebar";
 
 /*--------------------------------------------------------------
@@ -91,7 +93,6 @@
 /* This section includes styles specific to different pages of the website, such as about, blog, home, work, etc. */
 
 @import "pages/about";
-@import "pages/archives";
 @import "pages/errors";
 @import "pages/blog";
 @import "pages/contact";

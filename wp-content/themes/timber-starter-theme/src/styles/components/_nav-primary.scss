@@ -3,13 +3,15 @@
 ========================================================================== */
 
 .c-navigation {
+    @include padding();
     position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: $gutter-sm $gutter;
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter-sm;
     background-color: $black;
     color: $white;
 

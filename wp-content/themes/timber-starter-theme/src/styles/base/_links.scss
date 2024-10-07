@@ -23,7 +23,7 @@ a {
         // ...but is a child of .u-wysiwyg...
         .u-wysiwyg & {
             // ...stylize as inline link
-            @include inline-block();
+            @include inline-link();
         }
     }
 }

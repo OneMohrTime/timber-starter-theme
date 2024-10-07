@@ -3,10 +3,16 @@
 ========================================================================== */
 
 .c-utility {
+    @include padding();
     position: relative;
     display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
     width: 100%;
-    padding: $gutter-xs $gutter;
+    padding-top: $gutter-xs;
+    padding-bottom: $gutter-xs;
     background-color: $gray--darkest;
     color: $white;
 }
@@ -19,8 +25,19 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    // &.c-menu {}
+    font-size: $font-base-sm;
 }
 
 .c-utility__menuItem {}
+
+/**
+ * === SEARCH ===
+ */
+
+.c-utility__search {
+
+    // Woocommerce Search
+    .woocommerce-product-search {
+        display: flex;
+    }
+}
