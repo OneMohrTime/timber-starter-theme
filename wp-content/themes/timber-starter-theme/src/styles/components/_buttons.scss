@@ -37,6 +37,7 @@
 
 @mixin btn-style {
     @include btn-color();
+    display: inline-block;
     padding: $small-spacing $base-spacing;
     font-family: $font-header;
     font-size: $font-base-sm;
@@ -45,6 +46,7 @@
     text-align: center;
     text-transform: uppercase;
     border-radius: $border-radius;
+    cursor: pointer;
 
     // screen at or above 600px
     @include media(">=small") {
