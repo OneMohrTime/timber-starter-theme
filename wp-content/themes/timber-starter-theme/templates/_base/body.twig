@@ -20,13 +20,8 @@
 
 {# -- Body Classes -- #}
 {# ----------------------------------------------------------------- #}
-{% if term_page %}
-    {% set postTypeClass  = 'archive' %}
-    {% set postTitleClass = 'is-category' %}
-{% else %}
-    {% set postTypeClass  = post ? post.post_type : 'default' %}
-    {% set postTitleClass = post ? 'is-' ~ post.slug : 'is-archive' %}
-{% endif %}
+{% set postTypeClass  = post ? post.post_type : 'default' %}
+{% set postTitleClass = post ? 'is-' ~ post.slug : 'is-archive' %}
 
 {# -- Site Frame -- #}
 {# ----------------------------------------------------------------- #}
