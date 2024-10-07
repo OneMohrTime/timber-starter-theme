@@ -11,6 +11,7 @@ class StarterSite extends Site {
         add_action('after_setup_theme', array($this, 'theme_supports'));
         add_action('after_setup_theme', array($this, 'navigation_menus'));
         add_action('after_setup_theme', array($this, 'theme_add_woocommerce_support'));
+        // add_action('after_setup_theme', array($this, 'timber_set_product'));
         // add_action('init', array($this, 'register_post_types'));
         // add_action('init', array($this, 'register_taxonomies'));
         add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
@@ -31,6 +32,14 @@ class StarterSite extends Site {
     public function theme_add_woocommerce_support() {
         add_theme_support('woocommerce');
     }
+
+    // public function timber_set_product($post) {
+    //     global $product;
+
+    //     if (is_woocommerce()) {
+    //         $product = wc_get_product($post->ID);
+    //     }
+    // }
 
     // /**
     //  * This is where you can register custom post types.

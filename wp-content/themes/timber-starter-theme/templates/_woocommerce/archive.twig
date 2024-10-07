@@ -4,30 +4,30 @@
 
 {# -- Page Variables -- #}
 {# ----------------------------------------------------------------- #}
+{% set postTypeClass = 'shop' %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
 
 {% block content %}
-{# <?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?> #}
-{# {{ fn('storefront_product_search') }} #}
-<pre>
-    {{ dump(fn('get_search_form')) }}
-    {# {{ dump(fn('storefront_product_search')) }} #}
-</pre>
 
     {% do action('woocommerce_before_main_content') %}
 
-    <div class="before-shop-loop">
+    <div class="woocommerce-sorting">
+        <h1 class="u-title">Shop</h1>
         {% do action('woocommerce_before_shop_loop') %}
     </div>
 
-    <div class="c-grid loop">
+    <div class="c-grid is-products">
         {% for post in products %}
-            {# {% include ["partials/tease-product.twig"] %} #}
-            <pre>
-                {{ dump(post.title) }}
-            </pre>
+            {% include '_components/tease-product.twig' with {
+                product: {
+                    ID: post.id,
+                    title: post.title,
+                    content: post.content,
+                    excerpt: post.excerpt
+                }
+            } only %}
         {% endfor %}
     </div>
 

@@ -12,15 +12,13 @@
 
     {% do action('woocommerce_before_single_product') %}
 
-    <article itemscope itemtype="https://schema.org/Product" class="single-product-details {{ post.class }}">
+    <article itemscope itemtype="https://schema.org/Product" class="c-product {{ post.class }}">
 
-        <div class="entry-images">
+        <div class="c-product__images">
             {% do action('woocommerce_before_single_product_summary') %}
-
-            {# <img src="{{ post.thumbnail.src('shop_single') }}" /> #}
         </div>
 
-        <div class="summary entry-summary">
+        <div class="c-product__summary">
             {% do action('woocommerce_single_product_summary') %}
         </div>
 
@@ -30,7 +28,9 @@
 
     </article>
 
-    {# {% include ["partials/tease-product.twig"] with { products: related_products } %} #}
+    {# {% include '_components/tease-product.twig' with {
+        products: related_products
+    } %} #}
 
     {% do action('woocommerce_after_single_product') %}
 
