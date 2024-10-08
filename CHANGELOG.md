@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.0
+`2024/10/08`
+- Add basic support for **Woocommerce** based on _Storefront_ theme
+- Add basic modal functionality
+- Update a ton of `.class` and `$variable` names
+- Update navigation styles
+- Update button styles
+- Combine _Video_ and _Image_ blocks into single _Media_ block
+- Combine _Large Text_ and _Text_ onto same block
+- Remove unused icons in `src/` directory
+- Remove unused Twig
+- Remove unused ES6 components
+
 ## 1.0.2
 `2024/08/12`
 - Add modujs accordion function
