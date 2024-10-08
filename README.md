@@ -3,6 +3,8 @@
 ## Overview
 This WordPress starter theme is built on top of Timber and DDEV to provide a robust and flexible foundation for creating modern, maintainable, and performant WordPress websites. It was written by [@onemohrtime](https://github.com/OneMohrTime), with a _**LOT**_ of inspiration and education from [@bgrrtt](https://github.com/bgrrtt).
 
+You can also use the [WordPress theme](/wp-content/themes/timber-starter-theme/README.md) alone, without the environment.
+
 ## Features
 - **Timber Integration:** Leverages the power of the Timber library to separate PHP and HTML, allowing for clean and readable templating using the Twig language.
 - **DDEV Environment:** Easily set up your local development environment with DDEV for a seamless and containerized development experience.
