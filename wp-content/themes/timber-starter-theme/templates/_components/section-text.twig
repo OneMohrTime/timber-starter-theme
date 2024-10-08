@@ -1,29 +1,24 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    text: params.section|default(null)
+    textSection: params.section|default(null)
 } %}
 
 {# -- Component Template -- #}
 
-{% if this.text %}
-<div class="c-content">
+{% if this.textSection %}
+<div class="o-section is-text">
 
-    <div class="u-wysiwyg">
-        <h2 class="u-headline">{{ this.text.headline }}</h2>
-        {{ this.text.body }}
-    </div>
-
-    {% if this.text.button %}
-        {% include '_elements/button.twig' with {
-            params: {
-                url: this.text.button.url,
-                text: this.text.button.title,
-                target: this.text.button.target,
-                primary: true
-            }
-        } only %}
-    {% endif %}
+    {% include '_components/content.twig' with {
+        params: {
+            eyebrow: this.textSection.eyebrow|default(null),
+            headline: this.textSection.headline|default(null),
+            text: this.textSection.text|default(null),
+            button: this.textSection.button|default(null),
+            largeHeadline: this.textSection.headline_size ?? false,
+            largeText: this.textSection.text_size ?? false,
+        },
+    } only %}
 
 </div>
 {% endif %}

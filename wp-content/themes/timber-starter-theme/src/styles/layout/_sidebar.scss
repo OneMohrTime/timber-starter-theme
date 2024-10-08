@@ -7,8 +7,14 @@
  */
 
 .c-sidebar {
+
+    // screen at or above 600px
     @include media(">=small") {}
+
+    // screen at or above 900px
     @include media(">=medium") {}
+
+    // screen at or above 1200px
     @include media(">=large") {}
 }
 
@@ -30,6 +36,7 @@
 
 .o-site__main.has-sidebar {
 
+    // screen at or above 900px
     @include media(">=medium") {
         display: flex;
 
@@ -42,6 +49,7 @@
         }
     }
 
+    // screen at or above 1200px
     @include media(">=large") {
         .o-page {
             flex-basis: 75%;

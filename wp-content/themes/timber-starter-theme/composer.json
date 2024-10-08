@@ -16,7 +16,8 @@
     }
   ],
   "require": {
-    "timber/timber": "2.x-dev"
+    "timber/timber": "2.x-dev",
+    "buzzingpixel/twig-switch": "^1.0"
   },
   "require-dev": {
     "automattic/wordbless": "^0.4.2",

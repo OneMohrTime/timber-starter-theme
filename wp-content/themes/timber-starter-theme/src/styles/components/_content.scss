@@ -3,11 +3,8 @@
 ========================================================================== */
 
 .c-content {
-    // @include padding();
     @include content-width();
     position: relative;
-    padding-left: $gutter;
-    padding-right: $gutter;
 
     // screen at or above 900px
     @include media(">=medium") {}

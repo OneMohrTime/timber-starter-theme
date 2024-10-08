@@ -1,15 +1,17 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    scriptEmbed: params.section|default(null)
+    embedSection: params.section|default(null)
 } %}
 
 {# -- Component Template -- #}
 
-{% if this.scriptEmbed %}
+{% if this.embedSection %}
 
-    <div class="c-embed">
-        {{ this.scriptEmbed.embed_code|raw }}
-    </div>
+    {% include '_elements/embed.twig' with {
+        params: {
+            src: this.embedSection.embed_code
+        },
+    } only %}
 
 {% endif %}

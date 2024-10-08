@@ -3,66 +3,69 @@
 ========================================================================== */
 
 /**
-* === STRUCTURE ===
-*/
+ * === STRUCTURE ===
+ */
 
-@mixin block-width() {
-    margin-top: 0;
-    margin-left: $gutter;
-    margin-right: $gutter;
-    margin-bottom: $gutter-lg;
+// Force aspect ratio on elements
+@mixin aspect-ratio($width, $height) {
+    position: relative;
 
-    @include media(">=medium") {
-        margin-left: $gutter-lg;
-        margin-right: $gutter-lg;
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        padding-top: math.div($height, $width) * 100%;
     }
 
-    @include media(">=large") {
-        margin-left: $gutter-xl;
-        margin-right: $gutter-xl;
-    }
-
-    @include media(">=big") {
-        margin-left: $gutter-xxl;
-        margin-right: $gutter-xxl;
+    & > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
 
+// Cap line lengths to stay legible
 @mixin content-width() {
-    @include media(">=medium") {
-        // cap line lengths
-        *:not([picture]):not([img]):not([iframe]):not(.u-wysiwyg) {
-            max-width: $copy-width;
-        }
+    p, ul, ol {
+        max-width: $copy-width;
     }
 }
 
-//
 // Set basic section padding from mobile to desktop
-//
 @mixin padding() {
-    padding-left: $gutter;
-    padding-right: $gutter;
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
 
+    // screen at or above 600px
+    @include media(">=small") {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+
+    // screen at or above 900px
     @include media(">=medium") {
         padding-left: $gutter-lg;
         padding-right: $gutter-lg;
     }
 
+    // screen at or above 1200px
     @include media(">=large") {
         padding-left: $gutter-xl;
         padding-right: $gutter-xl;
     }
 
+    // screen at or above 1500px
     @include media(">=big") {
-        padding-left: $gutter-xxl;
-        padding-right: $gutter-xxl;
+        padding-left: calc((100% - $container-width) / 2);
+        padding-right: calc((100% - $container-width) / 2);
     }
 }
 
 /**
-* === ACCESSIBILITY ===
-*/
+ * === ACCESSIBILITY ===
+ */
 
 @mixin visually-hidden($focus: null) {
     position: absolute !important;
@@ -85,7 +88,7 @@
             left: 5px;
             display: block;
             background-color: $yellow--light;
-            color: #444;
+            color: $black;
             font-size: 1em;
             text-decoration: none;
             line-height: normal;
@@ -134,27 +137,8 @@
 }
 
 /**
-* === TOOLS ===
-*/
-
-@mixin aspect-ratio($width, $height) {
-    position: relative;
-
-    &::before {
-        content: "";
-        display: block;
-        width: 100%;
-        padding-top: ($height / $width) * 100%;
-    }
-
-    & > * {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-}
+ * === TOOLS ===
+ */
 
 @mixin text-shadow() {
     text-shadow: 2px 2px 4px fade-out($black, 0.95);
@@ -169,8 +153,8 @@
 }
 
 /**
-* === TYPE STYLES ===
-*/
+ * === TYPE STYLES ===
+ */
 
 @mixin type() {
     font-family: inherit;
@@ -179,10 +163,6 @@
     widows: 3;
     orphans: 3;
     color: inherit;
-
-    @include last(1) {
-        margin-bottom: 0;
-    }
 }
 
 @mixin title($underline: null) {
@@ -205,6 +185,7 @@
     font-size: $font-h2;
     letter-spacing: -0.5px;
 
+    // screen below 599px
     @include media("<small") {
         hyphens: auto;
         font-size: 1.75em
@@ -218,6 +199,7 @@
 @mixin paragraph($underline: null) {
     font-size: $font-h3;
 
+    // screen below 599px
     @include media("<=small") {
         font-size: 1.2em;
     }
@@ -292,6 +274,7 @@
         transition: background-color $speed, width $speed;
         background-color: $yellow;
 
+        // screen at or above 600px
         @include media(">=small") {
             width: 100px;
         }
@@ -313,8 +296,8 @@
 }
 
 /**
-* === TEXTURE EFFECTS ===
-*/
+ * === TEXTURE EFFECTS ===
+ */
 
 @mixin texture-grid() {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
@@ -345,15 +328,16 @@
 }
 
 /**
-* === BUTTONS AND LINKS ===
-*/
+ * === BUTTONS AND LINKS ===
+ */
 
-@mixin inline-block() {
+@mixin inline-link() {
     position: relative;
     color: inherit;
     line-height: $line-height;
     z-index: 1;
 
+    // screen at or above 1200px
     @include media(">=large") {
         // hover, focus
         @include hocus{
@@ -433,5 +417,110 @@
 
     &::after {
         background-color: $hover;
+    }
+}
+
+//
+// Link hover animation that highlights behind the anchor
+//
+@mixin highlight-link($background: $gray--lightest, $color: inherit) {
+    position: relative;
+    text-decoration: none;
+    color: $color;
+
+    &::before {
+        content: "";
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s ease-in-out;
+        background-color: $background;
+        inset: 0;
+        z-index: -1;
+    }
+
+    @include hocus {
+        &::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}
+
+//
+// Link hover animation that spans multiple lines
+//
+@mixin multiline-link($underline: false, $color: $blue) {
+    display: inline;
+    text-decoration: none;
+    transition: background-size $speed-slow $bezier-slide;
+    background: linear-gradient(0deg, $color, $color) no-repeat right bottom / 0 var(--bg-height);
+    color: inherit;
+    line-height: 1em;
+
+    &:where(:hover, :focus-visible) {
+        background-size: 100% var(--bg-height);
+        background-position-x: left;
+    }
+
+    // If underline or background
+    @if $underline {
+        --bg-height: 2px;
+        padding-bottom: 2px;
+
+    } @else {
+        --bg-height: 100%;
+    }
+}
+
+//
+// Link hover animation that spans multiple lines
+//
+@mixin inline-link($underline: false, $color: inherit, $display: inline-block) {
+    display: $display;
+    position: relative;
+    transition: color $speed $bezier-slide;
+    text-decoration: none !important;
+    color: $color;
+    cursor: pointer;
+
+    // Faux underline
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        transition: width $speed linear;
+        background-color: currentColor;
+        background-color: $black;
+        z-index: 2;
+    }
+
+    @if $underline {
+        // Faux underline, faded
+        &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $gray;
+            z-index: 1;
+        }
+    }
+
+    // Hover, focus
+    @include hocus {
+        color: $color;
+
+        // Faux underline
+        &::after {
+            left: 0;
+            right: auto;
+            width: 100%;
+        }
     }
 }

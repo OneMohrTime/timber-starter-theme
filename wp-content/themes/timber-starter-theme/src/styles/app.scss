@@ -35,18 +35,20 @@
 @import "base/typography";
 @import "base/links";
 @import "base/media";
+@import "base/inputs";
+@import "components/buttons"; // technically a component, but used like an element
 
 /*--------------------------------------------------------------
 === 2.0 Layout ===
 --------------------------------------------------------------*/
 /* This section includes styles for building layout components like the header, footer, sidebar, and post layout. */
 
-@import "layout/builder";
-@import "layout/footer";
-@import "layout/forms";
+@import "layout/archives";
 @import "layout/header";
+@import "layout/footer";
 @import "layout/page";
 @import "layout/post";
+@import "layout/product";
 @import "layout/sidebar";
 
 /*--------------------------------------------------------------
@@ -59,28 +61,29 @@
 @import "components/banner";
 @import "components/blockquote";
 @import "components/blog";
-@import "components/buttons";
+// @import "components/buttons";
 @import "components/call-to-action";
 @import "components/card";
 @import "components/contact";
 @import "components/content";
+@import "components/dropdowns";
 @import "components/embed";
 @import "components/fittext";
 @import "components/footer";
+@import "components/form";
 @import "components/gallery";
 @import "components/grid";
 @import "components/hamburger";
 @import "components/image";
 @import "components/intro";
 @import "components/menu";
+@import "components/modal";
 @import "components/nav-keyboard";
 @import "components/nav-primary";
 @import "components/nav-utility";
 @import "components/pagination";
-@import "components/repeater";
+@import "components/quotes";
 @import "components/tease";
-@import "components/testimonials";
-// @import "components/text-image";
 @import "components/text-media";
 @import "components/video";
 
@@ -90,7 +93,6 @@
 /* This section includes styles specific to different pages of the website, such as about, blog, home, work, etc. */
 
 @import "pages/about";
-@import "pages/archives";
 @import "pages/errors";
 @import "pages/blog";
 @import "pages/contact";

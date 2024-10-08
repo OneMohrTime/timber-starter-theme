@@ -12,6 +12,8 @@
 .c-footer--col {
     display: block;
 
+    // screen at or above 900px
+    // screen below 1199px
     @include media(">=medium", "<large") {
         flex: 0 1 50%;
         max-width: calc(50% - 1em);
@@ -57,11 +59,14 @@
         background-color: $white;
     }
 
+    // screen at or above 900px
+    // screen below 1199px
     @include media(">=medium", "<large") {
         flex-basis: 100%;
         max-width: 100%;
     }
 
+    // screen at or above 1200px
     @include media(">=large") {
         grid-area: legal;
 
@@ -74,12 +79,13 @@
 .c-footer__nav {
     margin-bottom: 2em;
 
-    .c-wysiwyg {
+    .u-wysiwyg {
         @include type();
         column-count: 2;
         column-gap: 1em;
     }
 
+    // screen at or above 1200px
     @include media(">=large") {
         grid-area: nav;
         margin-bottom: 0;

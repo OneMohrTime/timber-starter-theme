@@ -41,11 +41,13 @@ export default class extends es6Module {
 
     // Attach click event listener to the toggle button
     const toggleButton = this.toggleMenu;
-    toggleButton.addEventListener('click', () => {
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => {
 
-      // Open primary navigation
-      this.togglePrimaryNav();
-    });
+        // Open primary navigation
+        this.togglePrimaryNav();
+      });
+    }
   }
 
   // Handle Scroll

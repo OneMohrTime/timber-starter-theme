@@ -5,7 +5,6 @@
 a {
     position: relative;
     display: inline-block;
-    // outline: none;
     text-decoration: none;
     color: inherit;
     vertical-align: baseline;
@@ -19,14 +18,12 @@ a {
         outline-color: fade-out($blue, 0.4);
     }
 
-    // if link is not a button
+    // if link is not a button...
     &:not(.btn):not([data-fancybox]) {
-        // but is a child of .-wysiwyg
-        ._wysiwyg &,
-        .-wysiwyg &,
-        .c-wysiwyg & {
-            // stylize as inline link
-            @include inline-block();
+        // ...but is a child of .u-wysiwyg...
+        .u-wysiwyg & {
+            // ...stylize as inline link
+            @include inline-link();
         }
     }
 }

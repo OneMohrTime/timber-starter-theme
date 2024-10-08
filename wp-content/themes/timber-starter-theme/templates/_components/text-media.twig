@@ -1,31 +1,80 @@
 {# -- Component Variables -- #}
 
 {% set this = {
+    eyebrow: params.eyebrow|default(null),
+    headline: params.headline|default(null),
     text: params.text|default(''),
-    image: params.image|default(null),
+    button: params.button ?? null,
+    media: params.media|default(null),
+    mediaType: params.mediaType|default(null),
+    isReverse: params.alignment|default(false)
 } %}
 
 {# -- Component Template -- #}
 
-<section class="c-textMedia">
+<div class="c-textMedia{{ this.isReverse }}">
 
-    <div class="c-textMedia__text u-wysiwyg">
-        {{ this.text }}
+    <div class="c-textMedia__text">
+        {% if this.eyebrow %}
+            <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+        {% endif %}
+        {% if this.headline %}
+            <h2 class="u-subheadline">{{ this.headline }}</h2>
+        {% endif %}
+        {% if this.text %}
+            <div class="u-wysiwyg">
+                {{ this.text }}
+            </div>
+        {% endif %}
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.button.url,
+                    text: this.button.title,
+                    target: this.button.target,
+                }
+            } only %}
+        {% endif %}
     </div>
 
     <figure class="c-textMedia__media">
-        {% include '_elements/picture.twig' with {
-            params: {
-                src: get_image(this.image),
-                ratio: '1:1'
-            }
-        } only %}
+        {% switch this.mediaType %}
+
+            {% case 'video' %}
+                {% include '_elements/embed.twig' with {
+                    params: {
+                        src: this.media.video,
+                        type: 'video'
+                    }
+                } only %}
+
+            {% case 'slides' %}
+                <div class="swiper is-cards" data-module-swiper>
+                    <div class="swiper-wrapper">
+                        {% for image in this.media.slider %}
+                            <div class="swiper-slide">
+                                {% include '_elements/picture.twig' with {
+                                    params: {
+                                        src: image,
+                                    }
+                                } only %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <nav class="swiper-pagination"></nav>
+                    <button class="swiper-button-prev"></button>
+                    <button class="swiper-button-next"></button>
+                </div>
+
+            {% default %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: this.media.image,
+                        ratio: '1:1'
+                    }
+                } only %}
+
+        {% endswitch %}
     </figure>
 
-    <div class="c-textMedia--curve">
-        <svg class="c-media__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z" class="shape-fill"></path>
-        </svg>
-    </div>
-
-</section>
+</div>
