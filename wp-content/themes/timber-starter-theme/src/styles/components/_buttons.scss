@@ -40,28 +40,23 @@
     display: inline-block;
     padding: $small-spacing $base-spacing;
     font-family: $font-header;
-    font-size: $font-base-sm;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: $font-base;
+    font-weight: $font-bold;
     text-align: center;
     text-transform: uppercase;
+    border: none;
     border-radius: $border-radius;
     cursor: pointer;
 
     // screen at or above 600px
     @include media(">=small") {
-        // padding: 0.25vw 1vw;
+        transition: all $speed $bezier-slide;
     }
 
     // hover, focus
     @include hocus {
         background-color: transparent;
         color: inherit;
-
-        // screen at or above 600px
-        @include media(">=small") {
-            transition: all $speed;
-        }
     }
 
     &:active {
@@ -90,7 +85,6 @@
 */
 .c-button {
     @include btn-style();
-    // @include mask-texture();
 
     // &.is-primary {
     //     @include btn-style($black, $white);
@@ -112,14 +106,20 @@
     //     @include btn-style($black, $white);
     // }
 
+    &:has(.c-button__icon) {
+        display: flex;
+        display: inline-flex;
+        align-items: baseline;
+        column-gap: $small-spacing;
+    }
+
     .c-media__svg {
         position: relative;
-        transition: $speed cubic-bezier(.455,.03,.515,.955);
+        transition: all $speed $bezier-back;
     }
 }
 
-// .c-button--small {
-//     padding: $small-spacing / 2 $small-spacing;
-//     @include small-font-size();
-//     border-width: 2px;
-// }
+.c-button--small {
+    padding: math.div($small-spacing, 2) math.div($base-spacing, 2);
+    font-size: $font-base;
+}
