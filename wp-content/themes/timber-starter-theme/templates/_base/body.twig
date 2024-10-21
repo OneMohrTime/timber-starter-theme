@@ -25,18 +25,18 @@
 
 {# -- Site Frame -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ postTypeClass }} {{ postTitleClass }}">
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}" data-module-load>
 
     <!-- Start `wp_body_open` Function -->
     {{ function('wp_body_open') }}
     <!-- End `wp_body_open` Function -->
 
     <!-- Loader Element -->
-    <div id="loader" class="c-loader">
+    <div id="loader" class="c-loader is-active">
         <div class="c-loader__spinner"></div>
     </div>
 
-    <div id="page" class="o-site" data-load-container>
+    <div id="page" class="o-site">
 
         {# Skip (Tab) Navigation #}
         {% include '_components/nav-keyboard.twig' only %}
