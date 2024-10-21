@@ -7,7 +7,6 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
-import { html } from '../utils/environment';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -27,7 +26,7 @@ export default class extends es6Module {
   // Init module
   // ===========================================================================
   init() {
-    this.elements = html.querySelectorAll('[data-scroll-trigger]');
+    this.elements = document.querySelectorAll('[data-scroll-trigger]');
 
     // Animate each element when it comes into the viewport
     this.elements.forEach(element => {
