@@ -62,6 +62,14 @@ class StarterSite extends Site {
 
         // Main script file
         wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true );
+
+         // Filter to add defer attribute to the main script
+        add_filter( 'script_loader_tag', function( $tag, $handle ) {
+            if ( 'main' !== $handle ) {
+                return $tag; // Only modify the 'main' script
+            }
+            return str_replace( ' src', ' defer="defer" src', $tag );
+        }, 10, 2 );
     }
 
     /**
