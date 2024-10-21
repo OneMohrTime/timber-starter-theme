@@ -15,13 +15,15 @@
 
     <span class="c-button__text">{{ this.text }}</span>
 
-    {% if this.target == '_blank' %}
+    {% if this.icon %}
+        <span class="c-button__icon">
+            {{ this.icon }}
+        </span>
+
+    {% elseif this.target == '_blank' %}
         <span class="c-button__icon">
             {{ source('assets/img/icons/external-link.svg') }}
         </span>
-
-    {% if this.icon %}
-        <span class="c-button__icon">{{ this.icon }}</span>
 
     {% endif %}
 </a>

@@ -32,10 +32,10 @@
 }
 
 /**
-* === Bourbon Mixins ===
-*/
+ * === Bourbon Mixins ===
+ */
 
-@mixin btn-style {
+@mixin btn-style($bg: $black, $text: $white, $hover: $blue) {
     @include btn-color();
     display: inline-block;
     padding: $small-spacing $base-spacing;
@@ -81,8 +81,8 @@
 }
 
 /**
-* === Button Class ===
-*/
+ * === Button Class ===
+ */
 .c-button {
     @include btn-style();
 
