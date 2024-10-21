@@ -8,7 +8,7 @@
 {# -- Component Template -- #}
 
 {% if this.mediaSection %}
-<section class="o-section is-{{ this.mediaSection.media_type }}">
+<section class="o-section is-{{ this.mediaSection.media_type }}" data-scroll-trigger>
     {% switch this.mediaSection.media_type %}
 
         {% case 'image' %}

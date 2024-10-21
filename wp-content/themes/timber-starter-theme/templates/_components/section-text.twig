@@ -7,7 +7,7 @@
 {# -- Component Template -- #}
 
 {% if this.textSection %}
-<div class="o-section is-text">
+<section class="o-section is-text" data-scroll-trigger>
 
     {% include '_components/content.twig' with {
         params: {
@@ -20,5 +20,5 @@
         },
     } only %}
 
-</div>
+</section>
 {% endif %}

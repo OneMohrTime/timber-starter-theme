@@ -7,6 +7,8 @@
 {# -- Component Template -- #}
 
 {% if this.video %}
+<section class="o-section is-video" data-scroll-trigger>
+
 <figure class="c-video">
 
     {% include '_elements/video.twig' with {
@@ -16,4 +18,6 @@
     } only %}
 
 </figure>
+
+</section>
 {% endif %}
