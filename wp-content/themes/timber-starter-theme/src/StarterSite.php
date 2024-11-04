@@ -29,9 +29,9 @@ class StarterSite extends Site {
      * The first step to get your WooCommerce project integrated with Timber is
      * declaring WooCommerce support in your theme’s functions.php file like so.
      */
-    public function theme_add_woocommerce_support() {
-        add_theme_support('woocommerce');
-    }
+    // public function theme_add_woocommerce_support() {
+    //     add_theme_support('woocommerce');
+    // }
 
     // public function timber_set_product($post) {
     //     global $product;
