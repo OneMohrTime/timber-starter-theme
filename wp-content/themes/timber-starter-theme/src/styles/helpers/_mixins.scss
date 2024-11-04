@@ -34,7 +34,7 @@
 }
 
 // Set basic section padding from mobile to desktop
-@mixin padding() {
+@mixin padding($multiplier: null) {
     padding-left: $gutter-sm;
     padding-right: $gutter-sm;
 
@@ -60,6 +60,17 @@
     @include media(">=big") {
         padding-left: calc((100% - $container-width) / 2);
         padding-right: calc((100% - $container-width) / 2);
+    }
+
+    $multiplier: null !default;
+    @if $multiplier == null {
+        // nothing, continue on
+    } @else if $multiplier == '2x' {
+        // screen at or above 1500px
+        @include media(">=big") {
+            padding-left: calc(((100% - $container-width) / 2) * 2);
+            padding-right: calc(((100% - $container-width) / 2) * 2);
+        }
     }
 }
 
