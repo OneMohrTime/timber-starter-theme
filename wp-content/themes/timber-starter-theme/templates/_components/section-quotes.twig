@@ -11,15 +11,13 @@
 
     <div class="c-quotes">
 
-        {% if this.quotes.headline or this.quotes.body %}
-        <div class="u-wysiwyg">
-            <h2 class="u-headline">{{ this.quotes.headline }}</h2>
-            {% if this.quotes.text %}
+        {% if this.quotes.add_intro_content == true %}
+            <div class="u-wysiwyg">
+                <h2 class="u-headline">{{ this.quotes.headline }}</h2>
                 <div class="u-wysiwyg">
                     {{ this.quotes.text }}
                 </div>
-            {% endif %}
-        </div>
+            </div>
         {% endif %}
 
         {% if this.quotes.testimonials|length > 1 %}
@@ -44,7 +42,7 @@
             </div>
 
         {% else %}
-            <div class="c-quotes__testimonial">
+            <div class="c-quotes__testimonial has-single">
                 <blockquote class="c-quote"{% if this.quotes.testimonials[0].website %} cite="{{ this.quotes.testimonials[0].website }}"{% endif %}>
                     {{ this.quotes.testimonials[0].quote }}
                     {% if this.quotes.testimonials[0].website %}
