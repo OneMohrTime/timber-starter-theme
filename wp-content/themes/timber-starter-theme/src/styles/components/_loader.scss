@@ -8,14 +8,15 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #000;  // Change to your preferred background color
+    background-color: var(--loader-bg, $white--dark);
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;   // Initially invisible
-    visibility: hidden;  // Hides from layout but allows for smooth visibility changes
-    transition: opacity 0.5s ease, visibility 0.5s;  // Smooth fade transitions
+    opacity: 0; // Initially invisible
+    visibility: hidden; // Hides from layout but allows for smooth visibility changes
+    transition: opacity $speed $bezier-slide,
+                visibility $speed $bezier-slide;
 
     &.is-active {
         opacity: 1;
@@ -29,9 +30,9 @@
 }
 
 .c-loader__spinner {
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top: 5px solid #fff;
-    border-radius: 50%;
+    border: 5px solid var(--loader-circle, $white--darkest);
+    border-top: 5px solid var(--loader-bar, $white);
+    border-radius: 50px;
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
