@@ -47,10 +47,12 @@ body {
     padding: 0;
     transition: $speed linear;
 
+    // screen at or above 600px
     @include media(">=small") {
         &.-activeNavigationAreaUpTopButNotWhenScrolling {}
     }
 
+    // screen at or above 1500px
     @include media(">=big") {
         display: flex;
         flex-direction: column;
@@ -59,6 +61,7 @@ body {
         margin-right: auto;
     }
 
+    // screen at or above 1800px
     @include media(">=huge") {
         max-width: 1600px;
     }
@@ -70,6 +73,7 @@ body {
     background-color: $white;
     color: $black;
 
+    // screen at or above 1500px
     @include media(">=big") {
         flex: 1 0 auto;
     }

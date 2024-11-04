@@ -35,6 +35,7 @@
  */
 
 .o-site__main.has-sidebar {
+    padding-bottom: 0;
 
     // screen at or above 900px
     @include media(">=medium") {
