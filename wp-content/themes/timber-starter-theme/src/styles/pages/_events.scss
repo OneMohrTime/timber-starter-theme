@@ -1,0 +1,78 @@
+/* ==========================================================================
+    Events
+========================================================================== */
+
+:root {
+    --tec-grid-width: 100%;
+}
+
+.t-tribe_events.is-events {
+
+    // Page Frame
+    .tribe-events-l-container {
+        @include padding();
+        min-height: 1px;
+        padding-top: $gutter-sm;
+        padding-bottom: 0;
+
+        // screen at or above 600
+        @include media(">=small") {
+            padding-top: $gutter;
+            padding-bottom: 0;
+        }
+    }
+
+    // Datepickers
+    .tribe-events-header__events-bar.tribe-events-c-events-bar {
+        margin-bottom: $small-spacing;
+    }
+    .tribe-events-c-top-bar.tribe-events-header__top-bar {
+        margin-bottom: 0;
+        .tribe-events-c-top-bar__today-button {
+            padding: $small-spacing $base-spacing;
+        }
+    }
+    .tribe-events-c-top-bar__datepicker {
+        .datepicker.datepicker-dropdown.dropdown-menu {
+            padding: 0 $gutter-sm $gutter-sm;
+            .active.day.current {
+            }
+        }
+    }
+
+    // Event List
+    .tribe-events-calendar-list {
+        margin-top: $gutter;
+    }
+
+    // Month Seperator
+    .tribe-events-calendar-list__month-separator {
+        @include caption();
+    }
+
+    // No Events
+    .tribe-events-c-messages__message--notice {
+        column-gap: $small-spacing;
+        padding: var(--tec-spacer-7) 0 0;
+    }
+
+    // Buttons
+    .tribe-events-c-top-bar__datepicker-button,
+    .tribe-events-c-subscribe-dropdown__button-text,
+    .tribe-common-c-btn--clear {
+        border: 0;
+        appearance: none;
+    }
+    .tribe-common-c-btn,
+    .tribe-events-c-search__button,
+    .tribe-common-c-btn-border,
+    .tribe-events-c-subscribe-dropdown__button,
+    .tribe-events-c-top-bar__nav-link--prev,
+    .tribe-events-c-top-bar__nav-link--next,
+    .tribe-events-c-nav__prev,
+    .tribe-events-c-nav__next {
+        @include btn-style();
+        @include btn-color($black);
+    }
+
+}
