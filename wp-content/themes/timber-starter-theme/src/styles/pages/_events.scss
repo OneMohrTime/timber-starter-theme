@@ -50,6 +50,76 @@
         @include caption();
     }
 
+    // Time Seperator
+    .tribe-events-calendar-day__time-separator {
+        @include caption();
+    }
+
+    // Event Calendar
+    .tribe-events-calendar-month__header-column {
+        padding: 0;
+        text-align: center;
+    }
+    .tribe-events-calendar-month__header-column-title {
+        font-size: $font-h5;
+        line-height: $heading-height;
+    }
+    .tribe-events-calendar-month__day-date {
+        font-size: $font-base-lg;
+        line-height: $line-height;
+    }
+    .tribe-events-calendar-month__calendar-event-datetime {
+        font-size: $font-base-sm;
+        line-height: $line-height;
+    }
+    .tribe-events-calendar-month__calendar-event-title {
+        font-size: $font-h6;
+        line-height: $heading-height;
+    }
+
+    // Calendar Event Hover
+    .tooltipster-sidetip {
+        .tooltipster-box {
+            border-radius: 0;
+            border: 2px solid $black--lightest;
+            background-color: $white--dark;
+        }
+        .tooltipster-content {
+            line-height: $line-height;
+            color: $black;
+        }
+        .tribe-events-calendar-month__calendar-event-tooltip {
+            padding-bottom: var(--tec-spacer-2);
+        }
+        .tribe-events-calendar-month__calendar-event-tooltip-datetime {
+            padding-left: var(--tec-spacer-2);
+            padding-right: var(--tec-spacer-2);
+            font-size: $font-base-sm;
+            line-height: $heading-height;
+        }
+        .tribe-events-calendar-month__calendar-event-tooltip-title {
+            padding-left: var(--tec-spacer-2);
+            padding-right: var(--tec-spacer-2);
+            font-size: $font-base-lg;
+            line-height: $heading-height;
+        }
+        .tribe-events-calendar-month__multiday-event-hidden-title {}
+        .tribe-events-calendar-month__calendar-event-tooltip-description {
+            padding-left: var(--tec-spacer-2);
+            padding-right: var(--tec-spacer-2);
+            font-size: $font-base-sm;
+            line-height: $heading-height;
+        }
+        .tribe-events-calendar-month__calendar-event-tooltip-cost {
+            padding-left: var(--tec-spacer-2);
+            padding-right: var(--tec-spacer-2);
+            font-size: $font-h5;
+            font-weight: $font-bold;
+            text-align: center;
+            line-height: 1em;
+        }
+    }
+
     // No Events
     .tribe-events-c-messages__message--notice {
         column-gap: $small-spacing;
