@@ -25,7 +25,7 @@
 
 {# -- Site Frame -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ postTypeClass }} {{ postTitleClass }}" data-module-load>
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}"{% if postTypeClass != 'product' %} data-module-load{% endif %}>
 
     <!-- Start `wp_body_open` Function -->
     {{ function('wp_body_open') }}
