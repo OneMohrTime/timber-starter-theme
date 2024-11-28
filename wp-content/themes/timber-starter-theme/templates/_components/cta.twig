@@ -20,7 +20,14 @@
             <div class="u-wysiwyg">
                 {{ this.body }}
                 {% if this.button %}
-                    <a href="{{ this.button.url }}" class="u-link"{% if this.button.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %}>{{ this.button.title }}</a>
+                    {% include '_elements/button.twig' with {
+                        params: {
+                            url: this.button.url,
+                            text: this.button.title,
+                            target: this.button.target,
+                            primary: true
+                        }
+                    } only %}
                 {% endif %}
             </div>
 
