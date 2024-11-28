@@ -5,6 +5,7 @@
     alt: params.alt|default(null),
     ratio: params.ratio ?? null,
     attr: params.attr ?? null,
+    sizes: params.sizes ?? '100vw',
     lazy: lazyload ?? true,
     classes: classes ?? null,
 } %}
@@ -26,7 +27,7 @@
 >
 
     {# img tag for browsers that do not support picture element #}
-    <img src="{{ renderedImage.thumbnail ?? renderedImage }}"
+    <img src="{{ renderedImage.src('thumbnail') }}"
 
         {# Alt text should never be empty, or contain tags, or be too long #}
         alt="{{ this.alt ?? renderedAltText }}"
@@ -40,6 +41,9 @@
 
         {# Additional custom classes #}
         {% if this.classes %}{{ this.classes }}{% endif %}"
+
+        {# Media query sizes #}
+        sizes="{{ this.sizes }}"
 
         {# Optimized image sizes #}
         srcset="{{ renderedImage.srcset }}"

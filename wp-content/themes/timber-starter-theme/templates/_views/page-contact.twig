@@ -11,6 +11,7 @@
 {% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
 {% set button = post.meta('banner_button')|default(null) %}
+{% set contactForm = post.meta('contact_form')|default(null) %}
 {% set pageBuilder = post.meta('section_builder')|default(null) %}
 
 {# -- Page Template -- #}
@@ -32,10 +33,18 @@
         } only %}
 
         {% if post.content is not empty %}
-            <section class="c-intro" data-scroll-trigger>
+            <section class="c-intro">
                 <div class="u-wysiwyg">
                     {{ post.content }}
                 </div>
+            </section>
+        {% endif %}
+
+        {% if contactForm is not empty %}
+            <section class="c-contact">
+                {% apply shortcodes %}
+                    [wpforms id="{{ contactForm.ID }}" title="false" description="false"]
+                {% endapply %}
             </section>
         {% endif %}
 
@@ -44,33 +53,6 @@
                 sections: pageBuilder
             }
         } only %}
-
-        {% if post.children('page')|length > 0 %}
-            <section class="o-section" data-scroll-trigger>
-                <ul class="c-related-posts">
-
-                    {% for child in post.children('page') %}
-                        <li class="c-related-posts__post">
-
-                            {% include '_components/text-media.twig' with {
-                                params: {
-                                    headline: child.post_headline|default(child.title),
-                                    text: child.content|excerpt(36),
-                                    button: {
-                                        url: child.link,
-                                        title: 'Learn More'
-                                    },
-                                    media: child.image|default(null),
-                                    alignment: loop.index is even ? ' is-reversed' : '',
-                                }
-                            } only %}
-
-                        </li>
-                    {% endfor %}
-
-                </ul>
-            </section>
-        {% endif %}
 
     </article>
 

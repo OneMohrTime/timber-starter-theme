@@ -32,10 +32,10 @@
 }
 
 /**
-* === Bourbon Mixins ===
-*/
+ * === Bourbon Mixins ===
+ */
 
-@mixin btn-style {
+@mixin btn-style($bg: $black, $text: $white, $hover: $blue) {
     @include btn-color();
     display: inline-block;
     padding: $small-spacing $base-spacing;
@@ -47,11 +47,6 @@
     border: none;
     border-radius: $border-radius;
     cursor: pointer;
-
-    // screen at or above 600px
-    @include media(">=small") {
-        transition: all $speed $bezier-slide;
-    }
 
     // hover, focus
     @include hocus {
@@ -81,8 +76,8 @@
 }
 
 /**
-* === Button Class ===
-*/
+ * === Button Class ===
+ */
 .c-button {
     @include btn-style();
 

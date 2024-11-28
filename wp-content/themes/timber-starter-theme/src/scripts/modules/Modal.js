@@ -6,7 +6,6 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
-import { html } from '../utils/environment';
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -28,7 +27,7 @@ export default class extends es6Module {
   init() {
     // Variables
     this.buttons = this.el.querySelectorAll('[href="#facilitator"');
-    this.modal = html.querySelector('[data-site-modal]');
+    this.modal = document.querySelector('[data-site-modal]');
 
     this.modalContent = this.modal.querySelector('.c-modal__body');
     this.closeButton = this.modal.querySelector('.c-modal__close');

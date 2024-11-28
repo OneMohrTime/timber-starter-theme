@@ -1,56 +1,37 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    headline: params.headline|default('Lorem Ipsum'),
-    body: params.text|default('Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.'),
-    button1: params.btn1|default(null),
-    button2: params.btn2|default(null),
+    headline: params.headline ?? null,
+    body: params.text ?? null,
+    button: params.button ?? null,
 } %}
 
 {# -- Component Template -- #}
 
 <div class="c-callToAction">
 
-    <div class="c-callToAction__text">
+    <div class="c-callToAction__primary">
         <h2 class="u-headline">{{ this.headline }}</h2>
-        {% if this.body %}
-            <div class="u-wysiwyg">
-                {{ this.body }}
-            </div>
-        {% endif %}
     </div>
 
-    <div class="c-callToAction__button">
+    <div class="c-callToAction__secondary">
+        {% if this.body or this.button %}
 
-        {# {% if not this.button1 and not this.button2 %}
-            {% apply shortcodes %}
-                [mc4wp_form id=264]
-            {% endapply %}
+            <div class="u-wysiwyg">
+                {{ this.body }}
+                {% if this.button %}
+                    {% include '_elements/button.twig' with {
+                        params: {
+                            url: this.button.url,
+                            text: this.button.title,
+                            target: this.button.target,
+                            primary: true
+                        }
+                    } only %}
+                {% endif %}
+            </div>
 
-        {% else %} #}
-            {% if this.button1 %}
-                {% include '_elements/button.twig' with {
-                    params: {
-                        url: this.button1.url,
-                        text: this.button1.title,
-                        target: this.button1.target,
-                        primary: false
-                    }
-                } only %}
-            {% endif %}
-            {% if this.button2 %}
-                {% include '_elements/button.twig' with {
-                    params: {
-                        url: this.button2.url,
-                        text: this.button2.title,
-                        target: this.button2.target,
-                        primary: true
-                    }
-                } only %}
-            {% endif %}
-
-        {# {% endif %} #}
-
+        {% endif %}
     </div>
 
 </div>

@@ -44,6 +44,8 @@
 /* This section includes styles for building layout components like the header, footer, sidebar, and post layout. */
 
 @import "layout/archives";
+@import "layout/cart";
+@import "layout/event";
 @import "layout/header";
 @import "layout/footer";
 @import "layout/page";
@@ -76,6 +78,7 @@
 @import "components/hamburger";
 @import "components/image";
 @import "components/intro";
+@import "components/loader";
 @import "components/menu";
 @import "components/modal";
 @import "components/nav-keyboard";
@@ -96,4 +99,5 @@
 @import "pages/errors";
 @import "pages/blog";
 @import "pages/contact";
+@import "pages/events";
 @import "pages/home";

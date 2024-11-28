@@ -6,7 +6,7 @@ let PATHS = {
     node: './node_modules',
     src: './wp-content/themes/timber-starter-theme/src',
     dist: './wp-content/themes/timber-starter-theme/assets',
-    proxy: 'https://simplified-destinations.ddev.site'
+    proxy: 'https://timber-wordpress.ddev.site'
 };
 
 // var themename = "website";

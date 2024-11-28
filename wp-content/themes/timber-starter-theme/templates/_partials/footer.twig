@@ -3,11 +3,12 @@
 
 {% set this = {
     hideCTA: params.cta,
-    headline: params.headline|default(null),
-    text: params.text|default(null),
-    btn1: params.btn1|default(null),
-    btn2: params.btn2|default(null),
+    headline: params.headline|default('Looking for items on sale?'),
+    text: params.text|default('<p>Offering a range of GE MRI services including high-order calibrations, ramping, shimming, white pixel adjustments, BRM changes, troubleshooting, system part sales, relocations, installations, de-installations, and site planning.</p>'),
+    button: params.button ?? null,
     siteLogo: params.siteLogo,
+    about: params.about,
+    contact: params.contact,
     social: params.social,
     navigation: params.menu,
     siteName: params.siteName,
@@ -24,9 +25,7 @@
         {% include '_components/cta.twig' with {
             params: {
                 headline: this.headline,
-                text: this.text,
-                btn1: params.btn1,
-                btn2: params.btn2,
+                text: this.text
             }
         } only %}
     {% endif %}

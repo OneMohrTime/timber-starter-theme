@@ -4,11 +4,19 @@
 
 {# -- Page Variables -- #}
 {# ----------------------------------------------------------------- #}
+{% if not post %}
+    {% set post = {
+        post_type: 'tribe_events',
+        slug: 'events'
+    } %}
+{% endif %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
 {% block content %}
-    <div class="container content-wrapper">
-        {{content}}
-    </div>
+
+    <article class="o-page">
+        {{ event_listings }}
+    </article>
+
 {% endblock %}

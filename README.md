@@ -59,7 +59,13 @@ wp core download
 ```
 
 ### 3. Set Up DDEV
-Ensure you have [DDEV installed](https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/) (mine is set up through [Docker](https://docs.docker.com/desktop/install/mac-install/)). Then, run:
+Ensure you have [DDEV installed](https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/) (mine is set up through [Docker](https://docs.docker.com/desktop/install/mac-install/)). If you have a website URL in mind already, alter the first line of `.ddev/config.yaml` to be the domain name, without ".com".
+
+```yaml
+name: timber-wordpress # this will become timber-wordpress.ddev.site
+```
+
+Then, run:
 ```bash
 ddev start
 ```

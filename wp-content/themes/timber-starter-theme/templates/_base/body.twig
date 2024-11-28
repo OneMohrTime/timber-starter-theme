@@ -25,18 +25,18 @@
 
 {# -- Site Frame -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ postTypeClass }} {{ postTitleClass }}">
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}"{% if postTypeClass != 'product' %} data-module-load{% endif %}>
 
     <!-- Start `wp_body_open` Function -->
     {{ function('wp_body_open') }}
     <!-- End `wp_body_open` Function -->
 
     <!-- Loader Element -->
-    <div id="loader" class="c-loader">
+    <div id="loader" class="c-loader is-active">
         <div class="c-loader__spinner"></div>
     </div>
 
-    <div id="page" class="o-site" data-load-container>
+    <div id="page" class="o-site">
 
         {# Skip (Tab) Navigation #}
         {% include '_components/nav-keyboard.twig' only %}
@@ -81,12 +81,12 @@
                     cta: showCTA ?? post.cta_hide|default(false),
                     headline: post.cta_headline|default(null),
                     text: post.cta_body|default(null),
-                    btn1: post.cta_button_1|default(null),
-                    btn2: post.cta_button_2|default(null),
+                    button: post.cta_button|default(null),
                     logo: globals.footer_logo|default(null),
                     about: globals.footer_about|default(null),
-                    social: globals.footer_profiles|default(null),
-                    menu: footerMenu|default(null),
+                    contact: globals.footer_contact|default(null),
+                    social: globals.social_profiles|default(null),
+                    menu: footerMenu ?? null,
                     siteName: websiteName,
                     siteLogo: siteLogo,
                     siteUrl: websiteUrl

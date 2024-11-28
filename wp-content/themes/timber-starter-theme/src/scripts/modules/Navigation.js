@@ -6,7 +6,6 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
-import { html } from '../utils/environment';
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -120,7 +119,7 @@ export default class extends es6Module {
   // =========================================================================
   togglePrimaryNav() {
     // Find sit elements
-    const siteContainer = html.querySelector('.o-site');
+    const siteContainer = document.querySelector('.o-site');
 
     // Set classes to "open"
     this.header.classList.toggle('is-active');
