@@ -89,7 +89,7 @@ class StarterSite extends Site {
     public function create_sidebars() {
         register_sidebar( array(
             'name' => 'Global Sidebar',
-            'id' => 'globalSidebar',
+            'id' => 'global-sidebar',
             'before_widget' => '<div class="c-widget">',
             'after_widget' => '</div>',
             'before_title' => '<h3 class="u-heading">',
