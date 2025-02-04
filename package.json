@@ -20,8 +20,8 @@
   },
   "browserslist": [
     "last 5 versions",
-    "> 1%",
-    "IE 10-11"
+    "> 2%",
+    "IE 11"
   ],
   "repository": {
     "type": "git",
