@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.2
+`2025/02/04`
+- Update PHP to `8.2`
+- Update additional minor versions
+- Remove _browsersync_ from `node` package, add to `DDEV`
+
+## 1.1.1
+`2024/11/28`
+- n/a
+
 ## 1.1.0
 `2024/10/08`
 - Add basic support for **Woocommerce** based on _Storefront_ theme

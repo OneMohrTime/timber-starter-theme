@@ -17,7 +17,7 @@ We'll be working with the latest and greatest WordPress templating system, make 
 - [Timber 2.x](https://timber.github.io/docs/v2/installation/installation/)
 
 This project also assumes that you have:
-- [PHP 8.1](https://www.php.net/manual/en/install.php)
+- [PHP 8.2](https://www.php.net/manual/en/install.php)
 - [Node 20.x](https://nodejs.org/en/download/package-manager) ([NPM 10.x](https://www.npmjs.com/))
 - [Composer 2.x](https://getcomposer.org/doc/00-intro.md)
 - [DDEV](https://ddev.com/get-started/)
@@ -75,15 +75,7 @@ Your site (with the default WordPress theme) should now be viewable at `https://
 
 Make sure you are using the version of Node.js specified in the `.n-node-version` or `.nvmrc`.
 ```bash
-npm install --legacy-peer-deps
-```
-_*Note: the flag `--legacy-peer-deps` is necessary for `npm run watch` packages. If you'd like to install without the flag, remove the two **browser-sync** packages._
-```bash
-"devDependencies": {
-    "browser-sync": "^X.X.X", # remove
-    "browser-sync-webpack-plugin": "^X.X.X", # remove
-    ...
-}
+npm install
 ```
 
 ### 5. Install Composer Dependencies
