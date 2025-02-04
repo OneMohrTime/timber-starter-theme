@@ -1,0 +1,19 @@
+name: ddev-browsersync
+repository: ddev/ddev-browsersync
+version: "2.9"
+install_date: "2025-02-04T13:25:37-05:00"
+project_files:
+    - config.browsersync.yaml
+    - web-build/Dockerfile.ddev-browsersync
+    - browser-sync.js
+    - commands/web/browsersync
+    - scripts/wp-config-ddev-browsersync.php
+    - scripts/remove-wordpress-settings.sh
+    - scripts/setup-wordpress-settings.sh
+global_files: []
+removal_actions:
+    - |
+      #ddev-nodisplay
+      #ddev-description:Remove browsersync settings for WordPress if applicable
+      rm -f "${DDEV_APPROOT}/wp-config-ddev-browsersync.php"
+      scripts/remove-wordpress-settings.sh

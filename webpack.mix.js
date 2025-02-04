@@ -74,12 +74,3 @@ mix
         processCssUrls: false
     })
     .setPublicPath(`${PATHS.dist}`);
-
-mix.browserSync({
-    proxy: `${PATHS.proxy}`,
-    port: 3000,
-    injectChanges: true,
-    open: false,
-    files: [`${PATHS.dist}/*.*`],
-    logLevel: "debug"
-});
