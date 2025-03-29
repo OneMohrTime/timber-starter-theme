@@ -74,21 +74,20 @@
         {# Site Footer #}
         {% block footer %}
             {% include '_partials/footer.twig' with {
+                cta: {
+                    visiblity: showCTA ?? post.cta_hide|default(false),
+                    headline: post.cta_headline|default(globals.footer_cta_headline),
+                    text: post.cta_text|default(globals.footer_cta_text),
+                    button: post.cta_button|default(globals.footer_cta_button),
+                },
                 params: {
-                    cta: showCTA ?? post.cta_hide|default(false),
-                    headline: post.cta_headline|default(null),
-                    text: post.cta_body|default(null),
-                    button: post.cta_button|default(null),
-                    logo: globals.footer_logo|default(null),
+                    footerLogo: globals.footer_logo|default(null),
                     about: globals.footer_about|default(null),
                     contact: globals.footer_contact|default(null),
-                    social: globals.social_profiles|default(null),
+                    social: globals.social_media|default(null),
                     menu: footerMenu ?? null,
-                    siteName: websiteName,
-                    siteLogo: siteLogo,
-                    siteUrl: websiteUrl
                 }
-            } only %}
+            } %}
         {% endblock %}
 
         {% block modal %}

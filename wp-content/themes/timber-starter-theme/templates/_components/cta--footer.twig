@@ -1,0 +1,28 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    headline: params.headline ?? null,
+    text: params.text ?? null,
+    button: params.button ?? null,
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-callToAction">
+
+    <h2 class="u-headline">{{ this.headline }}</h2>
+    <div class="u-wysiwyg">
+        {{ this.text }}
+        {% if this.button %}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: this.button.url,
+                    text: this.button.title,
+                    target: this.button.target,
+                    type: 'primary'
+                }
+            } only %}
+        {% endif %}
+    </div>
+
+</div>
