@@ -4,4 +4,10 @@
 
 .c-form {
     position: relative;
+
+    &.is-inline {
+        display: flex;
+        display: inline-flex;
+        column-gap: $small-spacing;
+    }
 }

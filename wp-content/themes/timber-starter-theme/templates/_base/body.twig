@@ -58,12 +58,9 @@
                 {% include '_partials/header.twig' with {
                     params: {
                         menu: primaryMenu,
-                        utility: utilityMenu,
-                        siteName: websiteName,
-                        siteLogo: siteLogo,
-                        siteUrl: websiteUrl
+                        utility: utilityMenu
                     }
-                } only %}
+                } %}
             {% endblock %}
         </header>
 

@@ -2,9 +2,9 @@
 
 {% set this = {
     menu: navMenu,
-    siteName: params.siteName,
-    siteUrl: params.siteUrl,
-    logo: params.logo
+    siteName: websiteName,
+    siteUrl: websiteUrl,
+    logo: websiteLogo
 } %}
 
 {# -- Component Template -- #}
@@ -49,7 +49,7 @@
                         <a href="{{ item.link }}" class="u-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
                             {{ item.title }}
                             {% if item.target == '_blank' %}
-                                {{ source('assets/img/icons/external-link.svg') }}
+                                {{ source('_elements/svg/external-link.svg') }}
                             {% endif %}
                         </a>
 
