@@ -37,9 +37,10 @@
     {% switch this.type %}
 
         {% case 'video' %}
-            {% include '_elements/video.twig' with {
+            {% include '_elements/embed.twig' with {
                 params: {
-                    video: this.video
+                    src: this.video,
+                    type: 'video',
                 }
             } only %}
 
@@ -80,7 +81,7 @@
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: renderedImage,
-                        ratio: (this.address or this.logo) ? '16:9' : '4:3'
+                        ratio: '4:3'
                     }
                 } only %}
             {% endif %}

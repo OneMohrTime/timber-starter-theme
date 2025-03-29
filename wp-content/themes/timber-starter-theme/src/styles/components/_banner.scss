@@ -3,10 +3,9 @@
 ========================================================================== */
 
 .c-banner {
+    @include padding();
     position: relative;
     margin-bottom: $gutter;
-    padding-left: $gutter;
-    padding-right: $gutter;
     background-color: $white--dark;
 
     // screen at or above 600px
