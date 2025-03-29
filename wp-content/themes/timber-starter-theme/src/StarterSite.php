@@ -179,6 +179,8 @@ class StarterSite extends Site {
         add_theme_support( 'menus' );
 
         add_theme_support( 'custom-logo' );
+
+        add_post_type_support( 'page', 'excerpt' );
     }
 
     /**
