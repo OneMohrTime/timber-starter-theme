@@ -10,7 +10,7 @@ if (!class_exists('Timber')) {
 }
 
 $context = Timber::context();
-$context['sidebar'] = Timber::get_widgets('shop-sidebar');
+// $context['sidebar'] = Timber::get_widgets('shop-sidebar');
 
 if (is_singular('product')) {
     $context['post'] = Timber::get_post();

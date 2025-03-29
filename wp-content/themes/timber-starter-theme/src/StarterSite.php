@@ -83,19 +83,19 @@ class StarterSite extends Site {
         ]);
     }
 
-    /**
-     * Create a global site sidebar
-     */
-    public function create_sidebars() {
-        register_sidebar( array(
-            'name' => 'Global Sidebar',
-            'id' => 'global-sidebar',
-            'before_widget' => '<div class="c-widget">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="u-heading">',
-            'after_title' => '</h3>',
-        ) );
-    }
+    // /**
+    //  * Create a global site sidebar
+    //  */
+    // public function create_sidebars() {
+    //     register_sidebar( array(
+    //         'name' => 'Global Sidebar',
+    //         'id' => 'global-sidebar',
+    //         'before_widget' => '<div class="c-widget">',
+    //         'after_widget' => '</div>',
+    //         'before_title' => '<h3 class="u-heading">',
+    //         'after_title' => '</h3>',
+    //     ) );
+    // }
 
     /**
      * This is where you move SEO fields to the bottom of the page

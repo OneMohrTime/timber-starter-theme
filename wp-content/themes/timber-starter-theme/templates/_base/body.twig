@@ -4,10 +4,22 @@
 {% set websiteLogo = siteLogo|default(null) %}
 {% set websiteUrl = site.url %}
 {% set websiteTheme = theme.link %}
-{% set hasSidebar = post.slug in ['news','latest','blog'] %}
 {% set showCTA = post.cta_hide|default(false) %}
 {% set showAlert = globals.site_alert.show_alert|default(false) %}
 {% set modalForm = globals.modal_form|default(null) %}
+
+{# -- Sidebar Conditions -- #}
+{# ----------------------------------------------------------------- #}
+{% set hasSidebar = false %}
+{% if post.slug == 'blog' %}
+    {% set hasSidebar = true %}
+{% elseif post.terms %}
+    {% set hasSidebar = true %}
+{% elseif categoryPage %}
+    {% set hasSidebar = true %}
+{% elseif tagPage %}
+    {% set hasSidebar = true %}
+{% endif %}
 
 {# -- Site Meta Content -- #}
 {# ----------------------------------------------------------------- #}

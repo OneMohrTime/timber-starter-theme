@@ -7,7 +7,7 @@
  */
 
 $context = [
-    'dynamic_sidebar' => Timber::get_widgets('global-sidebar'),
+    // 'dynamic_sidebar' => Timber::get_widgets('global-sidebar'),
 ];
 
 Timber::render('_partials/sidebar.twig', $context);
