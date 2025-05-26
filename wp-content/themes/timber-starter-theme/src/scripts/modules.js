@@ -13,4 +13,6 @@ export { default as Load } from './modules/Load';
 export { default as Modal } from './modules/Modal';
 export { default as Navigation } from './modules/Navigation';
 export { default as Scroll } from './modules/Scroll';
-export { default as Swiper } from './modules/Swiper';
+export { default as SwiperCards } from './modules/SwiperCards';
+export { default as SwiperGallery } from './modules/SwiperGallery';
+export { default as SwiperTestimonials } from './modules/SwiperTestimonials';

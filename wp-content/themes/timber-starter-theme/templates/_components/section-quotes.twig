@@ -21,7 +21,7 @@
         {% endif %}
 
         {% if this.quotes.testimonials|length > 1 %}
-            <div class="c-quotes__testimonial swiper is-quotes" data-module-swiper>
+            <div class="c-quotes__testimonial swiper is-quotes" data-module-swiper-testimonials>
                 <ul class="swiper-wrapper">
                     {% for testimonial in this.quotes.testimonials %}
                         {% set quote = testimonial.quote %}
