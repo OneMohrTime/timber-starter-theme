@@ -9,7 +9,7 @@
 {% if this.grid %}
 <section class="o-section is-cards" data-scroll-trigger>
 
-    <div class="c-grid">
+    <div class="c-grid has-{{ this.grid.row_count }}">
 
         {% for item in this.grid.cards %}
             {% set image = get_image(item.card_image)|default(null) %}
