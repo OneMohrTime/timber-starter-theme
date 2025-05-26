@@ -265,7 +265,7 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                             "preview_size": "large"
                         },
                         {
@@ -498,7 +498,7 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                                     "preview_size": "medium"
                                 },
                                 {
@@ -558,7 +558,7 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                                     "insert": "prepend",
                                     "preview_size": "medium"
                                 }
@@ -697,7 +697,7 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                             "insert": "append",
                             "preview_size": "medium"
                         }
@@ -957,7 +957,7 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": "jpg, jpeg, png, gif, webp, avif",
+                                    "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
                                     "preview_size": "medium",
                                     "parent_repeater": "field_6556829b1c0fd"
                                 },
