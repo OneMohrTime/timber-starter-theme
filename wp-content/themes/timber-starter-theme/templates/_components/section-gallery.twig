@@ -45,40 +45,11 @@
             </ul>
 
         {% case 'slider' %}
-            <figure class="c-gallery" data-module-fancybox>
-                <div class="swiper is-gallery" data-module-swiper>
-
-                    <ul class="swiper-wrapper">
-                        {% for image in this.images %}
-
-                            <li class="swiper-slide c-gallery__image">
-                                {% set slideImage = get_image(image) %}
-                                <a href="{{ slideImage.src('large') }}" class="c-gallery__image-link" data-fancybox="gallery-{{ this.images|length }}">
-                                    {% include '_elements/picture.twig' with {
-                                        params: {
-                                            src: slideImage,
-                                            sizes: '(min-width: 900px) 50vw, 100vw'
-                                        }
-                                    } only %}
-                                </a>
-                            </li>
-
-                        {% endfor %}
-                    </ul>
-
-                    <div class="swiper-pagination"></div>
-                    <button class="c-button is-prev">
-                        <span class="u-screen-reader-text">Previous</span>
-                        {{ source('_elements/svg/arrow-left.svg') }}
-                    </button>
-                    <button class="c-button is-next">
-                        <span class="u-screen-reader-text">Next</span>
-                        {{ source('_elements/svg/arrow-right.svg') }}
-                    </button>
-                    <div class="swiper-scrollbar"></div>
-
-                </div>
-            </figure>
+            {% include '_components/gallery.twig' with {
+                params: {
+                    images: this.images
+                }
+            } only %}
 
         {% default %}
         {# no default configured #}
