@@ -2,17 +2,18 @@
 {# ----------------------------------------------------------------- #}
 
 {% set this = {
-    hideCTA: cta.visibility,
+    hideCTA: cta.visibility ?? false,
+    logo: params.footerLogo ? get_image(params.footerLogo) : null,
     headline: cta.headline ?? null,
     text: cta.text ?? null,
+    form: cta.form ?? null,
     button: cta.button ?? null,
-    logo: params.footerLogo ? get_image(params.footerLogo) : null,
     about: params.about,
     contact: params.contact,
     social: params.social,
     navigation: params.menu,
-    siteName: websiteName,
-    siteUrl: websiteUrl
+    siteName: params.siteName,
+    siteUrl: params.siteUrl
 } %}
 
 {# -- Partial Template -- #}
@@ -26,6 +27,7 @@
             params: {
                 headline: this.headline,
                 text: this.text,
+                form: this.form,
                 button: this.button
             }
         } only %}

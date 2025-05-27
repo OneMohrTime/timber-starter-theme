@@ -87,10 +87,11 @@
         {% block footer %}
             {% include '_partials/footer.twig' with {
                 cta: {
-                    visiblity: showCTA ?? post.cta_hide|default(false),
+                    visiblity: showCTA ?? post.cta_hide ?? false,
                     headline: post.cta_headline|default(globals.footer_cta_headline),
                     text: post.cta_text|default(globals.footer_cta_text),
                     button: post.cta_button|default(globals.footer_cta_button),
+                    form: post.cta_form|default(globals.footer_cta_form),
                 },
                 params: {
                     footerLogo: globals.footer_logo|default(null),

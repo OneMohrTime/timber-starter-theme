@@ -10,8 +10,8 @@
 
 <div class="c-callToAction">
 
-    <h2 class="u-headline">{{ this.headline }}</h2>
-    <div class="u-wysiwyg">
+    <h2 class="c-callToAction__headline u-headline">{{ this.headline }}</h2>
+    <div class="c-callToAction__text u-wysiwyg">
         {{ this.text }}
         {% if this.button %}
             {% include '_elements/button.twig' with {
