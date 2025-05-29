@@ -112,6 +112,8 @@ class StarterSite extends Site {
     public function add_to_context( $context ) {
         $context['site']          = $this;
         $context['homePage']      = is_front_page();
+        $context['categoryPage']  = is_category();
+        $context['tagPage']       = is_tag();
         $context['globals']       = get_fields('option');
         $context['globalSidebar'] = dynamic_sidebar('global_sidebar');
 
@@ -121,6 +123,20 @@ class StarterSite extends Site {
         $context['primaryMenu'] = Timber::get_menu('primary');
         $context['utilityMenu'] = Timber::get_menu('utility');
         $context['footerMenu']  = Timber::get_menu('footer');
+
+        $context['blogArchives'] = wp_get_archives([
+            'type' => 'monthly',
+            'format' => 'option',
+            'echo' => false
+        ]);
+        $context['blogCategories'] = Timber::get_terms([
+            'taxonomy' => 'category',
+            'hide_empty' => true
+        ]);
+        $context['blogTags'] = Timber::get_terms([
+            'taxonomy' => 'post_tag',
+            'hide_empty' => true
+        ]);
 
         return $context;
     }
