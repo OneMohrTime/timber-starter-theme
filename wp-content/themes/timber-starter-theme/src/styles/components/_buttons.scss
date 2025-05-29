@@ -36,7 +36,7 @@
  */
 
 @mixin btn-style($bg: $black--lighter, $text: $white, $hover: $black) {
-    @include btn-color();
+    // @include btn-color();
     display: inline-block;
     padding: $small-spacing $base-spacing;
     transition: background-color $speed $bezier-back,
@@ -47,7 +47,7 @@
     text-align: center;
     text-transform: uppercase;
     border: none;
-    border-radius: $border-radius;
+    border-radius: $border-radius-sm;
     background-color: $bg;
     color: $text;
     cursor: pointer;

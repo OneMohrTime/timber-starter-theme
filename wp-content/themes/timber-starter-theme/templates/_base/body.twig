@@ -11,7 +11,7 @@
 {# -- Sidebar Conditions -- #}
 {# ----------------------------------------------------------------- #}
 {% set hasSidebar = false %}
-{% if post.slug == 'blog' %}
+{% if post.slug == 'news' %}
     {% set hasSidebar = true %}
 {% elseif post.terms %}
     {% set hasSidebar = true %}

@@ -7,8 +7,8 @@
     width: auto;
     height: auto;
     padding: 0.75em 1em;
-    border: 1px solid $gray;
-    border-radius: $border-radius;
+    border: $border-width solid $gray;
+    border-radius: $border-radius-sm;
     background-color: $white;
     color: $black--light;
     // all: revert;
@@ -21,12 +21,12 @@
 [type=file], select {
     display: block;
     padding: $small-spacing;
-    border: 2px solid $black;
+    border: $border-width solid $black;
     border-radius: $border-radius;
     background-color: transparent;
     color: $black;
 }
 
 textarea {
-    min-height: em;
+    min-height: 4em;
 }

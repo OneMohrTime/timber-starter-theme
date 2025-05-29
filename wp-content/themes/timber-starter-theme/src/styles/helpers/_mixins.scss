@@ -169,15 +169,6 @@
 
 @mixin type() {
     font-family: inherit;
-    font-weight: normal;
-    line-height: $line-height;
-    widows: 3;
-    orphans: 3;
-    color: inherit;
-}
-
-@mixin type() {
-    font-family: inherit;
     line-height: inherit;
     widows: 3;
     orphans: 3;
@@ -190,12 +181,11 @@
 
 @mixin title($underline: null) {
     font-size: $font-h1;
-    letter-spacing: -1.5px;
 
+    // screen below 599px
     @include media("<small") {
         font-size: $font-h2;
         font-size: 2.5em;
-        letter-spacing: normal;
         hyphens: auto;
         word-break: break-word;
     }
@@ -205,13 +195,12 @@
     }
 }
 
-@mixin subtitle($underline: null) {
+@mixin headline($underline: null) {
     font-size: $font-h2;
-    letter-spacing: -0.5px;
 
+    // screen below 599px
     @include media("<small") {
         font-size: 2.25em;
-        letter-spacing: normal;
         hyphens: auto;
     }
 
@@ -220,11 +209,25 @@
     }
 }
 
-@mixin paragraph($underline: null) {
+@mixin subheadline($underline: null) {
     font-size: $font-h3;
 
+    // screen below 599px
     @include media("<=small") {
         font-size: 2em;
+    }
+
+    @if $underline == "underlined" {
+        @include underlined();
+    }
+}
+
+@mixin heading($underline: null) {
+    font-size: $font-h4;
+
+    // screen below 599px
+    @include media("<=small") {
+        font-size: 1.75em;
     }
 
     @if $underline == "underlined" {
@@ -239,6 +242,10 @@
     @if $underline == "underlined" {
         @include underlined();
     }
+}
+
+@mixin fluid-body-copy($min: $font-base-sm, $max: $font-base-lg) {
+    font-size: clamp($min, 0.75rem + 1vw, $max);
 }
 
 @mixin base-font-size() {
@@ -424,11 +431,11 @@
     padding-bottom: .25em;
 }
 
-@mixin btn-color($buttoncolor: $black, $hover: $yellow) {
-    border: 3px $buttoncolor solid;
-    color: $buttoncolor;
+@mixin btn-color($bg: $black--lighter, $text: $white, $hover: $black) {
+    background-color: $bg;
+    color: $text;
 
-    &::after {
+    @include hocus {
         background-color: $hover;
     }
 }
