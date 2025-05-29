@@ -71,6 +71,13 @@
     }
 }
 
+.c-navigation__menuItem {
+    .u-link {
+        @include inline-link(true);
+        line-height: $line-height;
+    }
+}
+
 /**
  * === LOGO ===
  */

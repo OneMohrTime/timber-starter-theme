@@ -8,7 +8,6 @@
     height: 18px;
     padding-left: 0;
     padding-right: 0;
-    // transform: translate(-50%, -50%);
     border: none;
     color: $white;
     cursor: pointer;
@@ -16,12 +15,11 @@
 }
 
 // .c-hamburger.not-active {}
-.is-active {
-    .c-hamburger {
-        transform: scale(0.9);
-        // transform: translate(-50%, -50%) scale(0.9);
-    }
-}
+// .is-active {
+//     .c-hamburger {
+//         transform: scale(0.9);
+//     }
+// }
 
 .c-hamburger__line {
     position: relative;

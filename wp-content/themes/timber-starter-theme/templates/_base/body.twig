@@ -70,7 +70,10 @@
                 {% include '_partials/header.twig' with {
                     params: {
                         menu: primaryMenu,
-                        utility: utilityMenu
+                        utility: utilityMenu,
+                        siteName: websiteName,
+                        siteLogo: siteLogo,
+                        siteUrl: websiteUrl
                     }
                 } %}
             {% endblock %}

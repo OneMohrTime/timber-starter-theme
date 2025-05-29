@@ -1,7 +1,7 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    menu: utilityMenu
+    menu: params.menu
 } %}
 
 {# -- Component Template -- #}
@@ -13,7 +13,7 @@
         {% for item in this.menu.get_items %}
             <li class="c-utility__menuItem c-menuItem">
 
-                <a href="{{ item.get_link }}" class="u-link">
+                <a href="{{ item.link }}" class="u-link">
                     {{ item.title }}
                 </a>
 
