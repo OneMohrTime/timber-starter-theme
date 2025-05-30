@@ -37,14 +37,27 @@
     <div id="colophon" class="c-footer">
         <h2 class="u-screen-reader-text">Colophon</h2>
         <div class="c-footer__primary">
-            <div class="c-footer__logo">
+            <div class="c-footer__branding">
                 {% if this.logo %}
-                    <a href="{{ this.siteUrl }}" class="c-media">
+                    <a href="{{ this.siteUrl }}" class="c-footer__logo c-media">
                         <img src="{{ this.logo }}" alt="{{ this.siteName }}" class="c-media__image" />
                     </a>
                 {% endif %}
+                <ul class="c-footer__social">
+                    {% if this.social %}
+                        {% for profile in this.social %}
+                            {% set account = profile.profile %}
+                            <li class="c-footer__social-profile">
+                                <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                                    {{ source('_elements/svg/social-' ~ account.title|lower ~ '.svg') }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
             </div>
             <div class="c-footer__about">
+                <h3>About</h3>
                 <div class="u-wysiwyg">
                     {{ this.about }}
                 </div>
@@ -61,15 +74,6 @@
             </div>
         </div>
         <div class="c-footer__utility">
-             <ul class="c-footer__social">
-                {% for profile in this.social %}
-                    <li class="c-footer__social-profile">
-                        <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
-                            {{ source('_elements/svg/social-' ~ profile.icon ~ '.svg') }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
             <div class="c-footer__legal">
                 <p>&copy; {{ this.siteName }} {{ 'now'|date('Y') }} | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source={{ this.siteName|replace({' ':'+'}) }}" class="u-link" target="_blank" rel="noopener noreferrer nofollow">Derek Mohr</a></p>
             </div>

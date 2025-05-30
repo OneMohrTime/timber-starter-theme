@@ -20,10 +20,6 @@
     @include content-width();
     text-align: center;
 
-    // screen at or above 900px
-    @include media(">=medium") {
-    }
-
     .c-button {
         margin-top: $base-spacing;
     }
