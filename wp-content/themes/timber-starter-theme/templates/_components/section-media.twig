@@ -36,6 +36,14 @@
 
             {% endif %}
 
+        {% case 'audio' %}
+            {% include '_elements/embed.twig' with {
+                params: {
+                    src: this.mediaSection.audio_file,
+                    type: 'audio'
+                },
+            } only %}
+
         {% default %}
         {# no default configured #}
 
