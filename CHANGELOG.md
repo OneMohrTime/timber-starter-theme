@@ -2,15 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.3
+`2025/05/31`
+- Seperate base & theme `README`s
+- Add SVG support
+- Add audio as embeddable element
+- Add some additional global `$var`s and configs
+- Add parallax functionality to some images
+- Update card, gallery, grid, tease, text components
+- Update button, media, embed elements
+- Update Node.js to `22.x` and NPM to `11.x`
+- Remove `only` params from header & footer sections
+
 ## 1.1.2
 `2025/02/04`
-- Update PHP to `8.2`
 - Update additional minor versions
 - Remove _browsersync_ from `node` package, add to `DDEV`
+- Update PHP to `8.2`
 
 ## 1.1.1
 `2024/11/28`
-- n/a
+- Add support for **The Events Calendar**
+- Add page transitions & loading screen
+- Add scrolling animations with **GSAP**
+- Update `composer.json`, `functions.php`, `README.md`
 
 ## 1.1.0
 `2024/10/08`
