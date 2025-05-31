@@ -57,6 +57,24 @@
         margin: 0;
     }
 
+    // Past Event Notice
+    .tribe-events-notices {
+        text-align: center;
+        ul {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        li {
+            display: inline-block;
+            padding: $small-spacing;
+            line-height: $heading-height;
+            border-radius: $border-radius-sm;
+            background-color: $white--darkest;
+            color: $black;
+        }
+    }
+
     // Event Meta
     .tribe-events-meta-group {
         flex: 1 1 100%;
@@ -180,7 +198,7 @@
     .tribe-events-nav-previous a,
     .tribe-events-nav-next a {
         @include btn-style();
-        @include btn-color($black);
+        // @include btn-color($black);
         @include ellipsis;
     }
     .tribe-events-c-subscribe-dropdown__button-text,
