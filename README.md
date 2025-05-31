@@ -1,4 +1,4 @@
-# OneMohrTime Timber Starter Theme
+# OneMohrTime Timber Starter Template
 
 ## Overview
 This WordPress starter theme is built on top of Timber and DDEV to provide a robust and flexible foundation for creating modern, maintainable, and performant WordPress websites. It was written by [@onemohrtime](https://github.com/OneMohrTime), with a _**LOT**_ of inspiration and education from [@bgrrtt](https://github.com/bgrrtt).
@@ -18,7 +18,7 @@ We'll be working with the latest and greatest WordPress templating system, make 
 
 This project also assumes that you have:
 - [PHP 8.2](https://www.php.net/manual/en/install.php)
-- [Node 20.x](https://nodejs.org/en/download/package-manager) ([NPM 10.x](https://www.npmjs.com/))
+- [Node 22.x](https://nodejs.org/en/download/package-manager) ([NPM 11.x](https://www.npmjs.com/))
 - [Composer 2.x](https://getcomposer.org/doc/00-intro.md)
 - [DDEV](https://ddev.com/get-started/)
 
@@ -117,27 +117,9 @@ npm run development
 npm run production
 ```
 
-### 8. Admin
-First, activate the necessary plugins on the [Plugins](https://timber-wordpress.ddev.site/wp-admin/plugins.php) tab.
-- **Required:** Advacnced Custom Fields PRO
-- **Required:** Classic Editor
-- **Required:** Classic Widgets
-- **Required:** Yoast SEO
-- **Recommended:** Google Site Kit
-- **Recommended:** RealFaviconGenerator
-- **Recommended:** Redirection
-- **Recommended:** WordPress Updater
-
-Second, you're going to want to sync the Advanced Custom Fields, from our theme root directory `acf-json/`. This can be found within the [ACF tab](https://timber-wordpress.ddev.site/wp-admin/edit.php?post_type=acf-field-group&post_status=sync).
-
-Update some of the website's main settings. These are not required, but are recommended—especially if you're going to be uploading this database to _production_.
-- Add a favicon and choose your timezone [here](https://timber-wordpress.ddev.site/wp-admin/options-general.php)
-- Set a home page and news/blog page [here](https://timber-wordpress.ddev.site/wp-admin/options-reading.php)
-- Set thumbnails to _320&times;320_, uncheck _crop thumbnails ..._,<br>set medium to _768&times;768_,<br>uncheck _organize media..._ [here](https://timber-wordpress.ddev.site/wp-admin/options-media.php)
-- Set permalinks to _Post Name_, or your own custom configuration [here](https://timber-wordpress.ddev.site/wp-admin/options-permalink.php)
-
-Activate your new theme in [Appearances > Themes](https://timber-wordpress.ddev.site/wp-admin/themes.php).
+### 8. Theme Setup
+Follow the instructions from the [theme repo](/wp-content/themes/timber-starter-theme/) to continue your theme setup.
 
 ## Additional Credits
 
-The missing image placeholder is from the [Mackinaw Bridge](https://unsplash.com/photos/white-truck-on-gray-road-during-daytime-99HLgU4IHLY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) by fellow NMU Wildcat [Riley Crawford](https://unsplash.com/@ricrawfo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+This repo wouldn't be possible without the ideas and opinions of [Branden Garrett](https://github.com/bgrrtt).
