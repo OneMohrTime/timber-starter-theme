@@ -12,6 +12,7 @@ export { default as FitText } from './modules/FitText';
 // export { default as Load } from './modules/Load';
 export { default as Modal } from './modules/Modal';
 export { default as Navigation } from './modules/Navigation';
+export { default as Parallax } from './modules/Parallax';
 export { default as Scroll } from './modules/Scroll';
 export { default as SwiperCards } from './modules/SwiperCards';
 export { default as SwiperGallery } from './modules/SwiperGallery';
