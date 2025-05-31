@@ -22,15 +22,19 @@
 .c-textMedia__text {
     margin-bottom: $gutter-sm;
 
+    .u-wysiwyg {
+        margin-top: $base-spacing;
+    }
+
+    .c-button {
+        margin-top: 1em;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
         flex: 1 1 50%;
         max-width: calc(50% - $gutter-sm);
         margin-bottom: 0;
-    }
-
-    .c-button {
-        margin-top: 1em;
     }
 }
 

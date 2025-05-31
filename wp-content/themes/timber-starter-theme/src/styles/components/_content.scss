@@ -6,6 +6,41 @@
     @include content-width();
     position: relative;
 
+    .u-headline {
+        line-height: $heading-height;
+
+        &.is-large {
+            @include headline();
+        }
+        &.is-default {
+            @include subheadline();
+        }
+        &.is-small {
+            @include heading();
+        }
+    }
+
+    .u-wysiwyg {
+        margin-top: $base-spacing;
+
+        &.is-small {
+            font-size: $font-base-sm;
+        }
+        &.is-base {
+            font-size: $font-base;
+        }
+        &.is-large {
+            font-size: $font-base-lg;
+        }
+        &.is-xl {
+            font-size: $font-h6;
+        }
+    }
+
+    .c-button {
+        margin-top: $base-spacing;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {}
 }
