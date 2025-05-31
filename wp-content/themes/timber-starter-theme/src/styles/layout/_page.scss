@@ -12,6 +12,15 @@
     display: flex;
     flex-direction: column;
     row-gap: $gutter;
+
+    .o-section {
+        @include padding();
+    }
+
+    .o-section.is-full-width {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /**

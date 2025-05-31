@@ -9,10 +9,14 @@
         width: 100%;
         height: 100%;
     }
+}
 
-    // // screen at or above 600px
-    // @include media(">=small") {
-    // }
+.c-gallery__intro {
+    margin-bottom: $gutter;
+
+    .u-wysiwyg {
+        margin-top: $base-spacing;
+    }
 }
 
 .c-gallery__image-link {

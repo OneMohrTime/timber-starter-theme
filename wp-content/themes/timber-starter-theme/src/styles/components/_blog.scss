@@ -5,6 +5,7 @@
 .c-blog {
     @include padding();
     display: block;
+    padding-top: $gutter-sm;
     padding-bottom: $gutter;
 
     // screen at or above 900px
