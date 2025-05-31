@@ -1,22 +1,46 @@
 {# -- Partial Variables -- #}
 {# ----------------------------------------------------------------- #}
 
-{% set this = {
+{# {% set this = {
     sidebar: params.widgets
-} %}
+} %} #}
 
 {# -- Partial Template -- #}
 {# ----------------------------------------------------------------- #}
 
-{# <pre>
-    {{ dump('globalSidebar.twig') }}
-    {{ dump(globalSidebar) }}
-    {{ dump('dynamic_sidebar.twig') }}
-    {{ dump(dynamic_sidebar) }}
-</pre> #}
-
 <aside class="o-sidebar">
     <h2 class="u-screen-reader-text">Sidebar Navigation</h2>
-    {# {{ this.sidebar }} #}
-    {{ globalSidebar }}
+    <div class="c-sidebar">
+
+        <div class="c-sidebar__widget is-select" data-scroll-trigger data-scroll-style="scroll">
+            <h3 class="u-subheadline">Categories</h3>
+            <select onchange="if (this.value) window.location.href=this.value;">
+                <option value="">Select Category</option>
+                {% for category in blogCategories %}
+                    <option value="{{ category.link }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="c-sidebar__widget" data-scroll-trigger data-scroll-style="scroll">
+            <h3 class="u-subheadline">Archives</h3>
+            <select onchange="if (this.value) window.location.href=this.value;">
+                <option value="">Select Month</option>
+                {{ blogArchives|raw }}
+            </select>
+        </div>
+
+        <div class="c-sidebar__widget" data-scroll-trigger data-scroll-style="scroll">
+            <h3 class="u-subheadline">Tags</h3>
+            <div class="c-sidebar__tag-cloud" data-scroll-trigger>
+                {% for tag in blogTags %}
+                    <a href="{{ tag.link }}" class="c-button is-pill">
+                        {{ tag.name }}
+                        <span>{{ tag.count }}</span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
 </aside>

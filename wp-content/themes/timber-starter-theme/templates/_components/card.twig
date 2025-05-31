@@ -1,68 +1,44 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    isVisible: params.visible|default(true),
-    headline: params.headline|default('Lorem ipsum dolor sit amet.'),
-    body: params.text|default(null),
-    button1: params.btn1|default(null),
-    button2: params.btn2|default(null),
+    image: params.image ?? null,
+    headline: params.headline ?? null,
+    text: params.text ?? null,
+    button: params.button ?? null
 } %}
 
 {# -- Component Template -- #}
 
-<div class="c-callToAction{% if not this.isVisible %} is-hidden{% endif %}">
+<div class="c-card">
 
-    <div class="c-callToAction__text">
-        <h2 class="u-headline">{{ this.headline }}</h2>
-        {% if this.body %}
-            <div class="u-wysiwyg">
-                {{ this.body }}
-            </div>
-        {% endif %}
-    </div>
+    {% if this.image %}
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: this.image,
+                ratio: '16:9'
+            }
+        } only %}
+    {% endif %}
 
-    <div class="c-callToAction__button">
+    {% if this.headline %}
+        <h3 class="c-card__headline">{{ this.headline }}</h3>
+    {% endif %}
 
-        {% if not this.button1 and not this.button2 %}
-            {% include '_elements/button.twig' with {
-                params: {
-                    url: '/join-us',
-                    text: 'Join MCA',
-                    primary: false
-                }
-            } only %}
-            {% include '_elements/button.twig' with {
-                params: {
-                    url: '/contact',
-                    text: 'Contact Us',
-                    primary: true
-                }
-            } only %}
+    {% if this.text %}
+        <div class="c-card__text u-wysiwyg">
+            {{ this.text }}
+        </div>
+    {% endif %}
 
-        {% else %}
-            {% if this.button1 %}
-                {% include '_elements/button.twig' with {
-                    params: {
-                        url: this.button1.url,
-                        text: this.button1.title,
-                        target: this.button1.target,
-                        primary: false
-                    }
-                } only %}
-            {% endif %}
-            {% if this.button2 %}
-                {% include '_elements/button.twig' with {
-                    params: {
-                        url: this.button2.url,
-                        text: this.button2.title,
-                        target: this.button2.target,
-                        primary: true
-                    }
-                } only %}
-            {% endif %}
-
-        {% endif %}
-
-    </div>
+    {% if this.button %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.button.url,
+                text: this.button.title,
+                target: this.button.target,
+                classes: 'c-card__button'
+            }
+        } only %}
+    {% endif %}
 
 </div>

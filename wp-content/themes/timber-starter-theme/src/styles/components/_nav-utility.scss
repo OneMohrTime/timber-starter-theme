@@ -29,13 +29,21 @@
     font-size: $font-base-sm;
 }
 
-.c-utility__menuItem {}
+.c-utility__menuItem {
+    flex: 0 1 auto;
+
+    .u-link {
+        @include inline-link(true);
+        line-height: $line-height;
+    }
+}
 
 /**
  * === SEARCH ===
  */
 
 .c-utility__search {
+    font-size: $font-base-sm;
 
     // Woocommerce Search
     .woocommerce-product-search {

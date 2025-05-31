@@ -9,45 +9,23 @@
 {% if this.grid %}
 <section class="o-section is-cards" data-scroll-trigger>
 
-    <div class="c-grid">
+    <div class="c-grid has-{{ this.grid.row_count }}">
 
         {% for item in this.grid.cards %}
-            {% set image = get_image(item.card_image)|default(null) %}
-            {% set headline = item.card_headline|default(null) %}
-            {% set text = item.card_body|default(null) %}
-            {% set button = item.card_button|default(null) %}
+            {% set cardImage = get_image(item.card_image)|default(null) %}
+            {% set cardHeadline = item.card_headline|default(null) %}
+            {% set cardText = item.card_body|default(null) %}
+            {% set cardButton = item.card_button|default(null) %}
 
             <div class="c-grid__item">
-                {% if image %}
-                    {% include '_elements/picture.twig' with {
-                        params: {
-                            src: image,
-                            ratio: '16:9'
-                        }
-                    } only %}
-                {% endif %}
-
-                {% if headline %}
-                    <h3 class="u-heading">{{ headline }}</h3>
-                {% endif %}
-
-                {% if text %}
-                    <div class="u-wysiwyg">
-                        {{ text }}
-                    </div>
-                {% endif %}
-
-                {% if button %}
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: button.url,
-                            text: button.title,
-                            target: button.target,
-                            primary: false
-                        }
-                    } only %}
-                    {# primary: loop.index == loop.length ? true : false #}
-                {% endif %}
+                {% include '_components/card.twig' with {
+                    params: {
+                        image: cardImage,
+                        headline: cardHeadline,
+                        text: cardText,
+                        button: cardButton
+                    }
+                } only %}
             </div>
 
         {% endfor %}

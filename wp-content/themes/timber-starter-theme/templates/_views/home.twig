@@ -41,7 +41,6 @@
                         params: {
                             headline: post.meta('post_headline')|default(post.title),
                             image: post.thumbnail,
-                            missing: websiteTheme ~ '/assets/img/placeholder.jpg',
                             content: post.content,
                             date: post.date,
                             link: post.link,
@@ -61,10 +60,5 @@
     </article>
 
     {% include '_partials/sidebar.twig' %}
-    {# {% include '_partials/sidebar.twig' with {
-        params: {
-            widgets: sidebar
-        }
-    } only %} #}
 
 {% endblock %}

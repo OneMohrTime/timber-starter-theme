@@ -32,58 +32,57 @@
 }
 
 /**
- * === Bourbon Mixins ===
+ * === BOURBON MIXINS ===
  */
 
-@mixin btn-style($bg: $black, $text: $white, $hover: $blue) {
-    @include btn-color();
+@mixin btn-style($bg: $black--lighter, $text: $white, $hover: $black) {
+    // @include btn-color();
     display: inline-block;
     padding: $small-spacing $base-spacing;
+    transition: background-color $speed $bezier-back,
+                color $speed $bezier-back;
     font-family: $font-header;
     font-size: $font-base;
     font-weight: $font-bold;
     text-align: center;
     text-transform: uppercase;
     border: none;
-    border-radius: $border-radius;
+    border-radius: $border-radius-sm;
+    background-color: $bg;
+    color: $text;
     cursor: pointer;
 
     // hover, focus
     @include hocus {
-        background-color: transparent;
-        color: inherit;
+        background-color: $hover;
+        color: $text;
     }
 
     &:active {
-        background-color: $black;
-        color: $white;
+        background-color: $bg;
+        color: $text;
     }
 
     // disabled buttons
+    &.is-disabled,
     &:disabled {
         opacity: 1;
-        border-color: $gray;
-        background-color: transparent;
-        color: $gray;
+        background-color: $gray--dark !important;
+        color: $white--darkest !important;
         cursor: not-allowed !important;
-
-        // hover, focus
-        @include hocus {
-            background-color: $white--dark;
-            color: $gray;
-        }
     }
 }
 
 /**
- * === Button Class ===
+ * === BUTTON (BTN) CLASS ===
  */
+
 .c-button {
     @include btn-style();
 
-    // &.is-primary {
-    //     @include btn-style($black, $white);
-    // }
+    &.is-primary {
+        @include btn-style($black--lighter, $white);
+    }
 
     // &.is-secondary {
     //     @include btn-style($black, $white);
@@ -93,13 +92,17 @@
     //     @include btn-style($black, $white);
     // }
 
-    // &.is-inverse {
-    //     @include btn-style($black, $white);
-    // }
+    &.is-inverse {
+        @include btn-style($white, $black--light);
+    }
 
     // &.is-outline {
     //     @include btn-style($black, $white);
     // }
+
+    /**
+     * === ICONS ===
+     */
 
     &:has(.c-button__icon) {
         display: flex;
@@ -110,11 +113,15 @@
 
     .c-media__svg {
         position: relative;
+        display: block;
         transition: all $speed $bezier-back;
     }
-}
 
-.c-button--small {
-    padding: math.div($small-spacing, 2) math.div($base-spacing, 2);
-    font-size: $font-base;
+    /**
+     * === SMALL SIZING ===
+     */
+    &.is-small {
+        padding: math.div($small-spacing, 2) math.div($base-spacing, 2) !important;
+        font-size: $font-base-sm !important;
+    }
 }

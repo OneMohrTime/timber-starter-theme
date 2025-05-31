@@ -3,10 +3,11 @@
 ========================================================================== */
 
 .c-article {
-    // @include padding();
     @include content-width();
+    @include padding();
     position: relative;
-    padding: $gutter;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
 
     // screen at or above 900px
     @include media(">=medium") {

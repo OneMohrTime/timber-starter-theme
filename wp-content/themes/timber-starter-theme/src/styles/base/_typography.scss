@@ -59,10 +59,12 @@ h6 {
 
 .u-wysiwyg {
     @include content-width();
+    line-height: $line-height;
 
     h1, h2, h3, h4, h5, h6 {
         display: block;
         margin-bottom: $small-spacing;
+        line-height: $heading-height;
 
         // headers in a wysiwyg section only...hopefully
         &:not([class]) {
@@ -164,18 +166,18 @@ ul, ol, dl {
 }
 
 .u-headline {
-    @include subtitle();
+    @include subheadline();
 
     &.is-underlined {
-        @include subtitle("underlined");
+        @include subheadline("underlined");
     }
 }
 
 .u-subheadline {
-    @include paragraph();
+    @include heading();
 
     &.is-underlined {
-        @include paragraph("underlined");
+        @include heading("underlined");
     }
 }
 
@@ -262,7 +264,7 @@ blockquote {
 
 hr {
     width: 50%;
-    height: 2px;
+    height: $border-width;
     margin: $base-spacing auto;
     border: 0;
     background-color: $blue;

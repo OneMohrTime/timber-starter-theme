@@ -4,4 +4,14 @@
 
 .c-form {
     position: relative;
+
+    &.is-inline {
+        display: flex;
+        display: inline-flex;
+        column-gap: $small-spacing;
+    }
+}
+
+.c-form__input {
+    border-color: $black--light;
 }

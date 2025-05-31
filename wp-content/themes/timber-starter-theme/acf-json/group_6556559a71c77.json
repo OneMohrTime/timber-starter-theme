@@ -64,8 +64,8 @@
         },
         {
             "key": "field_6556562fbf129",
-            "label": "Button 1",
-            "name": "cta_button_1",
+            "label": "Button",
+            "name": "cta_button",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -76,23 +76,8 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
-        },
-        {
-            "key": "field_6556565ebf12a",
-            "label": "Button 2",
-            "name": "cta_button_2",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
+            "return_format": "array",
+            "allow_in_bindings": 1
         }
     ],
     "location": [
@@ -120,5 +105,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718860962
+    "modified": 1748318433
 }

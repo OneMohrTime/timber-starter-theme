@@ -83,19 +83,19 @@ class StarterSite extends Site {
         ]);
     }
 
-    /**
-     * Create a global site sidebar
-     */
-    public function create_sidebars() {
-        register_sidebar( array(
-            'name' => 'Global Sidebar',
-            'id' => 'global-sidebar',
-            'before_widget' => '<div class="c-widget">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="u-heading">',
-            'after_title' => '</h3>',
-        ) );
-    }
+    // /**
+    //  * Create a global site sidebar
+    //  */
+    // public function create_sidebars() {
+    //     register_sidebar( array(
+    //         'name' => 'Global Sidebar',
+    //         'id' => 'global-sidebar',
+    //         'before_widget' => '<div class="c-widget">',
+    //         'after_widget' => '</div>',
+    //         'before_title' => '<h3 class="u-heading">',
+    //         'after_title' => '</h3>',
+    //     ) );
+    // }
 
     /**
      * This is where you move SEO fields to the bottom of the page
@@ -112,6 +112,8 @@ class StarterSite extends Site {
     public function add_to_context( $context ) {
         $context['site']          = $this;
         $context['homePage']      = is_front_page();
+        $context['categoryPage']  = is_category();
+        $context['tagPage']       = is_tag();
         $context['globals']       = get_fields('option');
         $context['globalSidebar'] = dynamic_sidebar('global_sidebar');
 
@@ -121,6 +123,20 @@ class StarterSite extends Site {
         $context['primaryMenu'] = Timber::get_menu('primary');
         $context['utilityMenu'] = Timber::get_menu('utility');
         $context['footerMenu']  = Timber::get_menu('footer');
+
+        $context['blogArchives'] = wp_get_archives([
+            'type' => 'monthly',
+            'format' => 'option',
+            'echo' => false
+        ]);
+        $context['blogCategories'] = Timber::get_terms([
+            'taxonomy' => 'category',
+            'hide_empty' => true
+        ]);
+        $context['blogTags'] = Timber::get_terms([
+            'taxonomy' => 'post_tag',
+            'hide_empty' => true
+        ]);
 
         return $context;
     }
@@ -179,6 +195,10 @@ class StarterSite extends Site {
         add_theme_support( 'menus' );
 
         add_theme_support( 'custom-logo' );
+
+        add_post_type_support( 'page', 'excerpt' );
+
+        add_editor_style();
     }
 
     /**

@@ -11,12 +11,12 @@
 
     {% include '_components/content.twig' with {
         params: {
-            eyebrow: this.textSection.eyebrow|default(null),
-            headline: this.textSection.headline|default(null),
-            text: this.textSection.text|default(null),
-            button: this.textSection.button|default(null),
-            largeHeadline: this.textSection.headline_size ?? false,
-            largeText: this.textSection.text_size ?? false,
+            eyebrow: this.textSection.eyebrow ?? null,
+            headline: this.textSection.headline ?? null,
+            headlineSize: this.textSection.headline_size ?? null,
+            text: this.textSection.text ?? null,
+            textSize: this.textSection.text_size ?? null,
+            button: this.textSection.button ?? null
         },
     } only %}
 

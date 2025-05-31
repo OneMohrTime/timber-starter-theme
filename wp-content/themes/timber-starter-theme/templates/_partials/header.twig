@@ -2,11 +2,11 @@
 {# ----------------------------------------------------------------- #}
 
 {% set this = {
-    primary: params.menu|default(null),
-    utility: params.utility|default(null),
-    siteName: params.siteName|default(null),
-    siteLogo: params.siteLogo|default(null),
-    siteUrl: params.siteUrl|default(null),
+    primary: params.menu ?? null,
+    utility: params.utility ?? null,
+    siteName: params.siteName ?? null,
+    siteLogo: params.siteLogo ?? null,
+    siteUrl: params.siteUrl ?? null
 } %}
 
 {# -- Partial Template -- #}
@@ -14,8 +14,11 @@
 
 {% if this.utility %}
     {% include '_components/nav-utility.twig' with {
-        utilityMenu: this.utility
-    } only %}
+        params: {
+            menu: this.utility,
+            siteUrl: this.siteUrl
+        }
+    } %}
 {% endif %}
 
 {% if this.primary %}
@@ -26,5 +29,5 @@
             siteUrl: this.siteUrl,
             logo: this.siteLogo
         }
-    } only %}
+    } %}
 {% endif %}

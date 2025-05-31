@@ -20,7 +20,7 @@
             {% if this.eyebrow %}
                 <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
             {% endif %}
-            <h3 class="u-subheadline">{{ this.headline }}</h3>
+            <h3 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-subheadline">{{ this.headline }}</h3>
         </div>
     {% endif %}
 

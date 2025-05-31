@@ -11,22 +11,17 @@
     background-color: $gray--light;
 }
 
+.c-callToAction__headline {
+    @include subheadline();
+    margin-bottom: $small-spacing;
+}
+
 .c-callToAction__text {
     @include content-width();
     text-align: center;
 
-    // screen at or above 900px
-    @include media(">=medium") {
-    }
-
-    .u-headline {
-        margin-bottom: 0.5em;
+    .c-button {
+        margin-top: $base-spacing;
     }
 }
 
-.c-callToAction__button {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin-top: 1em;
-}

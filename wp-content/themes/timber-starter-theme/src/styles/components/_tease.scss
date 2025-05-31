@@ -3,10 +3,13 @@
 ========================================================================== */
 
 .c-tease {
+    position: relative;
 
-    // Media
     .c-media {
-        margin-bottom: $base-spacing;
+        display: block;
+        margin-bottom: $small-spacing;
+        overflow: hidden;
+        border-radius: $border-radius;
     }
 }
 
@@ -75,7 +78,7 @@
     }
 
     .woocommerce-loop-product__title {
-        @include paragraph();
+        @include heading();
         margin-top: 0.5em;
         margin-bottom: 0.5em;
     }

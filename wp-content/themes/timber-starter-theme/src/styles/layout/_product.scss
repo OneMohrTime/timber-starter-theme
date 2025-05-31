@@ -73,12 +73,12 @@
     }
 
     .product_title, h2 {
-        @include subtitle();
+        @include subheadline();
         font-weight: $font-bold;
     }
 
     .price {
-        @include paragraph();
+        @include heading();
         margin-bottom: $small-spacing;
         font-weight: $font-regular;
     }

@@ -25,8 +25,14 @@
 
     // Event Image
     .tribe-events-event-image {
+        @include aspect-ratio(16, 9);
+        overflow: hidden;
+        border-radius: $border-radius;
+
         img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -49,6 +55,24 @@
     // Add to Calendar
     .tribe-events-c-subscribe-dropdown {
         margin: 0;
+    }
+
+    // Past Event Notice
+    .tribe-events-notices {
+        text-align: center;
+        ul {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        li {
+            display: inline-block;
+            padding: $small-spacing;
+            line-height: $heading-height;
+            border-radius: $border-radius-sm;
+            background-color: $white--darkest;
+            color: $black;
+        }
     }
 
     // Event Meta
@@ -122,6 +146,8 @@
     .tribe-events-venue-map {
         flex: 1 1 100%;
         width: auto;
+        overflow: hidden;
+        border-radius: $border-radius;
 
         // screen at or above 600px
         @include media(">=small") {
@@ -172,7 +198,7 @@
     .tribe-events-nav-previous a,
     .tribe-events-nav-next a {
         @include btn-style();
-        @include btn-color($black);
+        // @include btn-color($black);
         @include ellipsis;
     }
     .tribe-events-c-subscribe-dropdown__button-text,

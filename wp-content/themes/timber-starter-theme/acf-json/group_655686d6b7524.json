@@ -199,7 +199,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "20",
                 "class": "",
                 "id": ""
             },
@@ -211,8 +211,111 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": "jpg, jpeg, png, gif, webp, avif",
-            "preview_size": "medium"
+            "mime_types": "jpg, jpeg, png, gif, webp, avif, svg",
+            "allow_in_bindings": 1,
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_67e832c6d3436",
+            "label": "About Us",
+            "name": "footer_about",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_67e832fcd3437",
+            "label": "Contact Info",
+            "name": "footer_contact",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_67e83203d3433",
+            "label": "Social Media",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_67e83212d3434",
+            "label": "Social Media",
+            "name": "social_media",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_67e8323dd3435",
+            "button_label": "Add Profile",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_67e8323dd3435",
+                    "label": "Profile",
+                    "name": "profile",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_67e83212d3434"
+                }
+            ]
         }
     ],
     "location": [
@@ -233,5 +336,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1731271978
+    "modified": 1743271089
 }
