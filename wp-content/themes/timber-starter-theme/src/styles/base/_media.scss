@@ -17,6 +17,12 @@ object {
 
 .c-media {
     position: relative;
+
+    .o-section.is-image & {
+        display: block;
+        overflow: hidden;
+        border-radius: $border-radius;
+    }
 }
 
 /**

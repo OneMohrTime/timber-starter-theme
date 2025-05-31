@@ -208,10 +208,9 @@
                                 "id": ""
                             },
                             "choices": {
-                                "default": "Original Ratio",
-                                "landscape": "4 x 3 (Landscape)",
-                                "square": "1 x 1 (Square)",
-                                "portrait": "3 x 4 (Portrait)"
+                                "default": "Standard Image",
+                                "full": "Full Width (No Padding)",
+                                "fixed": "Fixed Background"
                             },
                             "default_value": "default",
                             "return_format": "value",
@@ -225,9 +224,9 @@
                             "save_options": 0
                         },
                         {
-                            "key": "field_66e5e7bcadb53",
-                            "label": "Image Type",
-                            "name": "image_type",
+                            "key": "field_6837cf15a4973",
+                            "label": "Aspect Ratio",
+                            "name": "aspect_ratio",
                             "aria-label": "",
                             "type": "select",
                             "instructions": "",
@@ -235,21 +234,22 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_67000fb247d32",
+                                        "field": "field_66e5e7bcadb53",
                                         "operator": "==",
-                                        "value": "image"
+                                        "value": "default"
                                     }
                                 ]
                             ],
                             "wrapper": {
-                                "width": "33",
+                                "width": "34",
                                 "class": "",
                                 "id": ""
                             },
                             "choices": {
-                                "default": "Standard Image",
-                                "full": "Full Width (No Padding)",
-                                "fixed": "Fixed Background"
+                                "default": "Original Ratio",
+                                "landscape": "4 x 3 (Landscape)",
+                                "square": "1 x 1 (Square)",
+                                "portrait": "3 x 4 (Portrait)"
                             },
                             "default_value": "default",
                             "return_format": "value",
@@ -1328,5 +1328,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1748540400
+    "modified": 1748707487
 }

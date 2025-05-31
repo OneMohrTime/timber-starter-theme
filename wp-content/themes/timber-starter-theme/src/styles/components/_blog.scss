@@ -22,6 +22,11 @@
         margin-top: $gutter;
     }
 
+    .c-media {
+        overflow: hidden;
+        border-radius: $border-radius;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
         flex: 0 0 50%;

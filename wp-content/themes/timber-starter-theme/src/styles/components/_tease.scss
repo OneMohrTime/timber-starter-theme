@@ -6,7 +6,10 @@
 
     // Media
     .c-media {
-        margin-bottom: $base-spacing;
+        display: block;
+        margin-bottom: $small-spacing;
+        overflow: hidden;
+        border-radius: $border-radius;
     }
 }
 

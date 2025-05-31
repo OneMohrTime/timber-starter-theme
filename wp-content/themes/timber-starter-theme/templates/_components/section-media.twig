@@ -23,6 +23,16 @@
                     } only %}
                 </figure>
             {% else %}
+                {% switch this.mediaSection.aspect_ratio %}
+                    {% case 'landscape' %}
+                        {% set aspectRatio = '4:3' %}
+                    {% case 'square' %}
+                        {% set aspectRatio = '1:1' %}
+                    {% case 'portrait' %}
+                        {% set aspectRatio = '3:4' %}
+                    {% default %}
+                        {% set aspectRatio = null %}
+                {% endswitch %}
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: this.mediaSection.image,
