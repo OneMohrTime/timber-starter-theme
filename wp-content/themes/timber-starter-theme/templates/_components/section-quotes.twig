@@ -13,7 +13,7 @@
 
         {% if this.quotes.add_intro_content == true %}
             <div class="u-wysiwyg">
-                <h2 class="u-headline">{{ this.quotes.headline }}</h2>
+                <h2 id="{{ this.quotes.headline|sanitize|slice(0, 24) }}" class="u-headline">{{ this.quotes.headline }}</h2>
                 <div class="u-wysiwyg">
                     {{ this.quotes.text }}
                 </div>

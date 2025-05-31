@@ -16,7 +16,7 @@
     {% if this.hasIntro %}
         <div class="c-gallery__intro">
         {% if this.headline %}
-            <h2 class="u-subheadline">{{ this.headline }}</h2>
+            <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-subheadline">{{ this.headline }}</h2>
         {% endif %}
         {% if this.text %}
             <div class="u-wysiwyg">

@@ -11,7 +11,7 @@
 <div class="c-callToAction">
 
     <div class="c-callToAction__primary">
-        <h2 class="u-headline">{{ this.headline }}</h2>
+        <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-headline">{{ this.headline }}</h2>
     </div>
 
     <div class="c-callToAction__secondary">

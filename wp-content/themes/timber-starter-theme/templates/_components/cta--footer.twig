@@ -10,7 +10,7 @@
 
 <div class="c-callToAction">
 
-    <h2 class="c-callToAction__headline u-headline">{{ this.headline }}</h2>
+    <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="c-callToAction__headline u-headline">{{ this.headline }}</h2>
     <div class="c-callToAction__text u-wysiwyg">
         {{ this.text }}
         {% if this.button %}

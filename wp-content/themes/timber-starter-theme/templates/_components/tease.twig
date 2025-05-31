@@ -20,7 +20,7 @@
     } only %}
 
     <div class="c-tease__content">
-        <h3 class="c-tease__headline u-heading">
+        <h3 id="{{ this.headline|sanitize|slice(0, 24) }}" class="c-tease__headline u-heading">
             <a href="{{ this.link }}" title="Read {{ this.headline }}" class="u-link">{{ this.headline }}</a>
         </h3>
         <time datetime="{{ this.date|date('c') }}" class="c-tease__meta">Posted on {{ this.date }}</time>
