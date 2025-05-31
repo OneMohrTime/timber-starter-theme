@@ -31,12 +31,14 @@
 /**
  * === DEFAULT ===
  */
+
 .c-banner.is-default {
     padding-top: $gutter;
     padding-bottom: $gutter;
 
     // No media of any kind, just text
     &.no-image {
+        margin-bottom: 0;
         padding-top: $gutter-xs;
         padding-bottom: $gutter-xs;
         background-color: transparent;
@@ -52,8 +54,8 @@
 /**
  * === SWIPER SLIDES ===
  */
-.c-banner.is-slides {
 
+.c-banner.is-slides {
     // screen at or above 900px
     @include media(">=medium") {
         display: flex;
@@ -71,17 +73,17 @@
     margin-bottom: $gutter;
     z-index: 1;
 
-    // screen at or above 900px
-        @include media(">=medium") {
-            margin-bottom: 0;
-        }
-
     // Default Banner
     .c-banner.is-default & {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+    }
+
+    // No Image Banner
+    .c-banner.is-default.no-image & {
+        margin-bottom: 0;
     }
 
     // Video Banner
@@ -111,6 +113,15 @@
     .u-headline,
     .u-subheadline {
         display: block;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        margin-bottom: 0;
+
+        .c-banner.is-slides & {
+            padding-top: 0;
+        }
     }
 }
 
