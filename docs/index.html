@@ -1,92 +1,440 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js no-svg" lang="en-US">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Timber Starter Theme for WordPress with ACF, SCSS, Composer, and DDEV">
-  <title>Timber Starter Theme</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin: 0;
-    }
-    p {
-      font-size: 1.1rem;
-      margin: 0.5rem 0 1rem;
-    }
-    a.button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #228be6;
-      color: white;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.2s;
-    }
-    a.button:hover {
-      background-color: #1c7ed6;
-    }
-    section {
-      max-width: 600px;
-      text-align: left;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.875rem;
-      color: #868e96;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <link rel="author" href="https://github.com/OneMohrTime/" />
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+
+  <title>Timber Theme - OneMohrTime Design Co.</title>
+  <link rel="canonical" href="https://onemohrtime.github.io/timber-starter-theme" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Timber Theme - OneMohrTime Design Co." />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="https://onemohrtime.github.io/timber-starter-theme" />
+  <meta property="og:site_name" content="Timber Theme - OneMohrTime Design Co." />
+
+  <link rel="stylesheet" href="https://onemohrtime.github.io/timber-starter-theme/assets/css/app.css" media="screen" />
+  <link rel="shortlink" href="https://onemohrtime.github.io/timber-starter-theme/" />
 </head>
-<body>
-  <header>
-    <h1>Timber Starter Theme</h1>
-    <p>A modern WordPress theme using Timber, ACF Pro, SCSS, Composer & DDEV</p>
-    <a class="button" href="https://github.com/OneMohrTime/timber-starter-theme" target="_blank">View on GitHub</a>
-  </header>
 
-  <section>
-    <h2>Features</h2>
-    <ul>
-      <li>✨ Timber with Twig templates</li>
-      <li>⚙️ Composer for PHP dependencies</li>
-      <li>🎨 SCSS with Webpack Mix</li>
-      <li>🐳 DDEV for local containerized setup</li>
-      <li>🔌 ACF Pro, Classic Editor, Yoast SEO</li>
-    </ul>
+<body class="t-page is-home" data-module-load>
 
-    <h2>Setup</h2>
-    <ol>
-      <li>Clone the repo: <code>git clone git@github.com:OneMohrTime/timber-starter-theme.git</code></li>
-      <li>Install WordPress + configure with DDEV</li>
-      <li>Install dependencies: <code>npm install</code> & <code>composer install</code></li>
-      <li>Run build scripts: <code>npm run watch</code> or <code>npm run production</code></li>
-    </ol>
+  <!-- Loader Element -->
+  <div id="loader" class="c-loader is-active">
+    <div class="c-loader__spinner"></div>
+  </div>
 
-    <h2>More Info</h2>
-    <p>Check the <a href="https://r.1lm.io/p/https://github.com/OneMohrTime/timber-starter-theme" target="_blank">README</a> for complete instructions and credits.</p>
-  </section>
+  <div id="page" class="o-site">
 
-  <footer>
-    &copy; 2025 OneMohrTime &mdash; Timber Starter Theme
-  </footer>
+    <div class="c-tab-nav">
+      <a class="u-screen-reader-text is-focusable" href="#masthead">Skip to navigation</a>
+      <a class="u-screen-reader-text is-focusable" href="#main">Skip to content</a>
+      <a class="u-screen-reader-text is-focusable" href="#colophon">Skip to footer</a>
+    </div>
+
+    <header id="masthead" class="o-site__header" data-module-navigation>
+
+      <div class="c-utility">
+        <ul class="c-utility__menu c-menu">
+          <li class="c-utility__menuItem c-menuItem">
+            <a href="https://onemohrtime.github.io/timber-starter-theme/contact/" class="u-link">Contact</a>
+          </li>
+          <li class="c-utility__menuItem c-menuItem">
+            <a href="https://onemohrtime.github.io/timber-starter-theme/my-account/" class="u-link">My account</a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="c-navigation">
+        <a href="https://onemohrtime.github.io/timber-starter-theme" id="logo" class="c-navigation__logo">
+          <strong>Timber Theme</strong>
+        </a>
+        <div class="c-navigation__toggle">
+          <button class="c-hamburger" data-toggle-menu>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+            <span class="c-hamburger__line"></span>
+          </button>
+        </div>
+        <ul class="c-navigation__menu c-menu is-hidden">
+          <li class="c-navigation__menuItem c-menuItem">
+            <a href="https://onemohrtime.github.io/timber-starter-theme/events/" class="u-link">Events</a>
+          </li>
+          <li class="c-navigation__menuItem c-menuItem">
+            <a href="https://onemohrtime.github.io/timber-starter-theme/about/" class="u-link">About</a>
+          </li>
+          <li class="c-navigation__menuItem c-menuItem">
+            <a href="https://onemohrtime.github.io/timber-starter-theme/news/" class="u-link">News</a>
+          </li>
+          <li class="c-navigation__menuItem c-menuItem">
+            <a href="https://onemohrtime.github.io/timber-starter-theme/shop/" class="c-button is-primary">Shop</a>
+          </li>
+        </ul>
+
+      </nav>
+    </header>
+
+    <main id="main" class="o-site__main" data-module-modal data-module-scroll>
+      <article class="o-page">
+
+        <section class="c-banner is-default" data-scroll-trigger>
+          <div class="c-banner__text">
+            <h1 class="u-title">Headline Override</h1>
+            <strong class="u-subheadline">Subheadline Override</strong>
+            <a href="https://onemohrtime.github.io/timber-starter-theme/contact/" class="c-button is-primary  ">
+              <span class="c-button__text">Contact Us</span>
+            </a>
+          </div>
+          <figure class="c-banner__media">
+            <picture class="c-media u-ratio u-4:3">
+              <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1.jpg 800w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/pennant-1-100x100.jpg 100w" loading="lazy" />
+            </picture>
+          </figure>
+        </section>
+
+        <section class="c-intro" data-scroll-trigger>
+          <div class="u-wysiwyg">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+        </section>
+
+        <section class="o-page__sections">
+
+          <section class="o-section is-text-media" data-scroll-trigger>
+            <div class="c-textMedia">
+              <div class="c-textMedia__text">
+                <strong class="u-eyebrow">Eyebrow</strong>
+                <h2 id="headline" class="u-subheadline">Headline</h2>
+                <div class="u-wysiwyg">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <a href="https://onemohrtime.github.io/timber-starter-theme/event/tig-notoro-live/" class="c-button is-primary  ">
+                  <span class="c-button__text">Tig Notoro LIVE</span>
+                </a>
+              </div>
+              <figure class="c-textMedia__media">
+                <picture class="c-media u-ratio u-1:1">
+                  <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-320x320.png" alt="this is woocommerce placeholder" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder.png 1200w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-300x300.png 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-100x100.png 100w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-600x600.png 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-768x768.png 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-1024x1024.png 1024w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder-320x320.png 320w" loading="lazy" />
+                </picture>
+              </figure>
+            </div>
+          </section>
+
+          <section class="o-section is-text-media" data-scroll-trigger>
+            <div class="c-textMedia">
+              <div class="c-textMedia__text">
+                <h2 id="headline" class="u-subheadline">Headline</h2>
+                <div class="u-wysiwyg">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+              </div>
+              <figure class="c-textMedia__media">
+                <div class="swiper is-cards" data-module-swiper-cards>
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1.jpg 800w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/t-shirt-with-logo-1-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1.jpg 800w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/beanie-with-logo-1-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2-768x767.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2-600x599.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/polo-2-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-pocket-2-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2.jpg 800w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/hoodie-with-zipper-2-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/long-sleeve-tee-2-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/belt-2-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                    <div class="swiper-slide">
+                      <picture class="c-media">
+                        <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-100x100.jpg 100w" loading="lazy" />
+                      </picture>
+                    </div>
+                  </div>
+                  <nav class="swiper-pagination"></nav>
+                  <button class="c-button is-prev">
+                    <span class="u-screen-reader-text">Previous</span>
+                    <svg width="16" height="8" fill="currentColor" class="c-media__svg" viewBox="0 0 16 8" xmlns="http://www.w3.org/2000/svg"><path d="m0 4c0 .1 0 .3.2.4s3.4 3.4 3.4 3.4c.2.2.6.2.8 0s.2-.3.2-.4v-2.3h11.4v-2.2h-11.4v-2.4c0-.1 0-.3-.2-.4-.2-.2-.6-.2-.8 0l-3.4 3.5c-.2.1-.2.3-.2.4z" /></svg>
+                  </button>
+                  <button class="c-button is-next">
+                    <span class="u-screen-reader-text">Next</span>
+                    <svg width="16" height="8" fill="currentColor" class="c-media__svg" viewBox="0 0 16 8" xmlns="http://www.w3.org/2000/svg"><path d="m16 4c0-.1 0-.3-.2-.4s-3.4-3.4-3.4-3.4c-.2-.2-.6-.2-.8 0s-.2.3-.2.4v2.3h-11.4v2.2h11.4v2.4c0 .1 0 .3.2.4.2.2.6.2.8 0l3.4-3.4c.1-.1.2-.3.2-.4z" /></svg>
+                  </button>
+                </div>
+              </figure>
+            </div>
+          </section>
+
+          <section class="o-section is-text-media" data-scroll-trigger>
+            <div class="c-textMedia">
+              <div class="c-textMedia__text">
+                <strong class="u-eyebrow">Eyebrow</strong>
+                <h2 id="headline" class="u-subheadline">Headline</h2>
+                <a href="https://onemohrtime.github.io/timber-starter-theme/about/" class="c-button is-primary  ">
+                  <span class="c-button__text">About</span>
+                </a>
+              </div>
+              <figure class="c-textMedia__media">
+                <div class="c-embed" data-scroll-trigger>
+                  <figure class="c-embed__video u-ratio u-16:9">
+                    <iframe title="The Beatles - Now And Then (Official Music Video)" width="640" height="360"
+                      src="https://www.youtube.com/embed/Opxhh9Oh3rg?feature=oembed" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  </figure>
+                </div>
+              </figure>
+            </div>
+          </section>
+
+          <section class="o-section is-cards" data-scroll-trigger>
+            <div class="c-grid has-three">
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <picture class="c-media u-ratio u-16:9">
+                    <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/cap-2-100x100.jpg 100w" loading="lazy" />
+                  </picture>
+                  <h3 class="c-card__headline">Headline 1</h3>
+                  <div class="c-card__text u-wysiwyg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                  <a href="https://onemohrtime.github.io/timber-starter-theme/news/" class="c-button is-primary c-card__button ">
+                    <span class="c-button__text">View News</span>
+                  </a>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 2</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 3</h3>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="o-section is-cards" data-scroll-trigger>
+            <div class="c-grid has-four">
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 1</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 2</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 3</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 4</h3>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="o-section is-cards" data-scroll-trigger>
+            <div class="c-grid has-five">
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 1</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 2</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 3</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 4</h3>
+                </div>
+              </div>
+              <div class="c-grid__item">
+                <div class="c-card">
+                  <h3 class="c-card__headline">Headline 5</h3>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="o-section is-image is-full-width" data-scroll-trigger>
+            <figure class="c-media__fixed-container" data-module-parallax>
+              <picture class="c-media">
+                <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="(min-width: 1200px) 85vw, 100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1.jpg 800w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1-768x767.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1-600x599.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/logo-1-100x100.jpg 100w" loading="lazy" />
+              </picture>
+            </figure>
+          </section>
+
+          <section class="o-section is-image" data-scroll-trigger>
+            <picture class="c-media u-ratio u-4:3">
+              <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2-320x320.jpg" alt="" width="320" height="320" class="c-media__image" sizes="(min-width: 1200px) 85vw, 100vw" srcset="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2.jpg 801w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2-768x768.jpg 768w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2-320x320.jpg 320w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2-300x300.jpg 300w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2-600x600.jpg 600w, https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/sunglasses-2-100x100.jpg 100w" loading="lazy" />
+            </picture>
+          </section>
+
+          <section class="o-section is-video" data-scroll-trigger>
+            <div class="c-embed" data-scroll-trigger>
+              <figure class="c-embed__video u-ratio u-16:9">
+                <iframe title="The Beatles - Now And Then (Official Music Video)" width="640" height="360" src="https://www.youtube.com/embed/Opxhh9Oh3rg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </figure>
+            </div>
+          </section>
+
+          <section class="o-section is-video" data-scroll-trigger>
+            <div class="c-video u-ratio u-16:9">
+              <video width="1280" height="720" class="c-video__media" preload="none">
+                <source src=" https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </section>
+
+          <section class="o-section is-audio" data-scroll-trigger>
+            <div class="c-embed" data-scroll-trigger>
+              <figure class="c-embed__audio">
+                <figcaption class="u-screen-reader-text">1-13 Hateful (feat. Mayburg) [Ada Remix]: "1-13 Hateful (feat. Mayburg) [Ada Remix]".</figcaption>
+                <audio controls preload="metadata">
+                  <source src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/1-13-Hateful-feat.-Mayburg-Ada-Remix.m4a" type="audio/mpeg">
+                </audio>
+                <a href="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/1-13-Hateful-feat.-Mayburg-Ada-Remix.m4a" target="_blank" rel="noopener noreferrer nofollow" class="c-button is-primary  has-icon">
+                  <span class="c-button__text">Download Audio</span>
+                  <span class="c-button__icon">
+                    <svg width="24" height="24" fill="currentColor" class="c-media__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.3 24h-13.3c-2.2 0-4-1.8-4-4v-13.3c0-2.2 1.8-4 4-4h5.3c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3h-5.3c-.7 0-1.3.6-1.3 1.3v13.3c0 .7.6 1.3 1.3 1.3h13.3c.7 0 1.3-.6 1.3-1.3v-5.3c0-.7.6-1.3 1.3-1.3s1.3.6 1.3 1.3v5.3c0 2.2-1.8 4-4 4zm-8-8c-.3 0-.7-.1-.9-.4-.5-.5-.5-1.4 0-1.9l11-11h-4.8c-.7 0-1.3-.6-1.3-1.3s.6-1.3 1.3-1.3h8c.2 0 .3 0 .5.1.2 0 .3.2.4.3s.2.3.3.4c0 .2.1.3.1.5v8c0 .7-.6 1.3-1.3 1.3s-1.3-.6-1.3-1.3v-4.8l-11.1 11.1c-.3.3-.6.4-.9.4z" /></svg>
+                  </span>
+                </a>
+              </figure>
+            </div>
+          </section>
+
+          <section class="o-section is-quotes" data-scroll-trigger>
+            <div class="c-quotes">
+              <div class="c-quotes__testimonial has-single">
+                <blockquote class="c-quote" cite="https://onemohrti.me/">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <cite>&ndash; <a href="https://onemohrti.me/" target="_blank" rel="noopener noreferrer nofollow" class="u-link" title="Visit website">Derek Mohr</a></cite>
+                </blockquote>
+              </div>
+            </div>
+          </section>
+
+        </section>
+
+      </article>
+    </main>
+
+    <footer class="o-site__footer">
+
+      <div class="c-callToAction">
+        <h2 id="lorem-ipsum-dolor" class="c-callToAction__headline u-headline">Lorem Ipsum Dolor</h2>
+        <div class="c-callToAction__text u-wysiwyg">
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </p>
+          <a href="https://onemohrtime.github.io/timber-starter-theme/contact/" class="c-button is-primary  ">
+            <span class="c-button__text">Contact</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="colophon" class="c-footer">
+        <h2 class="u-screen-reader-text">Colophon</h2>
+        <div class="c-footer__primary">
+          <div class="c-footer__branding">
+            <a href="https://onemohrtime.github.io/timber-starter-theme" class="c-footer__logo c-media">
+              <img src="https://onemohrtime.github.io/timber-starter-theme/wp-content/uploads/woocommerce-placeholder.png"
+                alt="Timber Theme" class="c-media__image" />
+            </a>
+            <ul class="c-footer__social">
+              <li class="c-footer__social-profile">
+                <a href="" target="_blank" rel="noopener noreferrer nofollow">
+                  <svg width="72" height="72" fill="currentColor" class="c-media__svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><path d="m36 6.52c9.67 0 10.8 0 14.63.22 3.6.22 5.4.67 6.75 1.13 1.58.67 2.92 1.35 4.05 2.7s2.02 2.47 2.7 4.05c.45 1.35 1.13 3.15 1.13 6.75.23 3.82.23 4.95.23 14.63s0 10.8-.23 14.63c-.23 3.6-.67 5.4-1.13 6.75-.67 1.58-1.35 2.92-2.7 4.05s-2.48 2.02-4.05 2.7c-1.35.45-3.15 1.13-6.75 1.13-3.83.23-4.95.23-14.63.23s-10.8 0-14.63-.23c-3.6-.23-5.4-.67-6.75-1.13-1.57-.67-2.93-1.35-4.05-2.7s-2.03-2.48-2.7-4.05c-.45-1.35-1.13-3.38-1.13-6.75-.22-3.83-.22-4.95-.22-14.63s0-10.8.22-14.63c0-3.38.67-5.4 1.13-6.53.67-1.57 1.35-2.92 2.7-4.05s2.47-2.03 4.05-2.7c1.35-.67 3.38-1.35 6.75-1.35 3.82-.22 4.95-.22 14.63-.22m0-6.52c-9.67 0-11.02 0-14.85.22s-6.53.68-8.78 1.58-4.28 2.03-6.3 4.05-3.38 4.28-4.28 6.53-1.56 4.94-1.56 8.77c-.23 3.82-.23 4.95-.23 14.85s0 11.02.23 14.85c.22 3.83.68 6.52 1.58 8.77s2.03 4.27 4.05 6.3 4.05 3.15 6.3 4.05 4.95 1.58 8.77 1.58c4.05.45 5.4.45 15.08.45s11.03 0 14.85-.23 6.52-.67 8.77-1.58 4.27-2.02 6.3-4.05 3.15-4.05 4.05-6.3 1.58-4.95 1.58-8.77.45-5.4.45-15.08 0-11.02-.23-14.85-.67-6.53-1.58-8.78-2.02-4.28-4.05-6.3-4.05-3.15-6.52-4.05c-2.25-.9-4.95-1.58-8.77-1.58-3.84-.43-5.18-.43-14.86-.43zm0 17.55c-10.13 0-18.45 8.32-18.45 18.45s8.32 18.45 18.45 18.45 18.45-8.33 18.45-18.45-8.33-18.45-18.45-18.45zm0 30.37c-6.52 0-11.93-5.4-11.93-11.93s5.4-11.93 11.93-11.93 11.92 5.4 11.92 11.93-5.4 11.93-11.92 11.93zm23.4-31.05c0 2.48-2.02 4.27-4.27 4.27s-4.27-2.02-4.27-4.28 2.02-4.28 4.27-4.28 4.27 1.8 4.27 4.28z" /></svg>
+                </a>
+              </li>
+              <li class="c-footer__social-profile">
+                <a href="" target="_blank" rel="noopener noreferrer nofollow">
+                  <svg width="72" height="72" fill="currentColor" class="c-media__svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><path d="m52.63 40.19 1.98-12.93h-12.41v-8.39c0-3.54 1.73-6.99 7.29-6.99h5.64v-11.01s-5.12-.87-10.01-.87c-10.22 0-16.9 6.19-16.9 17.41v9.86h-11.36v12.93h11.36v31.26c2.28.36 4.61.54 6.99.54s4.71-.19 6.99-.54v-31.26h10.42z" /></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="c-footer__about">
+            <h3>About</h3>
+            <div class="u-wysiwyg">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="c-footer__nav u-wysiwyg">
+            <h3>Navigation</h3>
+            <ul class="c-menu">
+              <li class="c-menuItem">
+                <a href="https://onemohrtime.github.io/timber-starter-theme/hello-world/" class="u-link">Hello world!</a>
+              </li>
+              <li class="c-menuItem">
+                <a href="https://onemohrtime.github.io/timber-starter-theme/terms-conditions/" class="u-link">Terms &#038;
+                  Conditions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="c-footer__utility">
+          <div class="c-footer__legal">
+            <p>&copy; Timber Theme 2025 | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source=Timber+Theme" class="u-link" target="_blank" rel="noopener noreferrer nofollow">Derek Mohr</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="https://onemohrtime.github.io/timber-starter-theme/assets/js/app.js" defer></script>
+
+  <!--
+  Website by Derek Mohr
+  https://onemohrti.me?utm_campaign=HTML+Comment&utm_source=Github+Timber+Theme+Page
+  -->
+
 </body>
+
 </html>
