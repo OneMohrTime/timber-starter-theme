@@ -6,6 +6,7 @@ let PATHS = {
     node: './node_modules',
     src: './wp-content/themes/timber-starter-theme/src',
     dist: './wp-content/themes/timber-starter-theme/assets',
+    docs: './docs',
     proxy: 'https://timber-wordpress.ddev.site'
 };
 
@@ -68,8 +69,9 @@ mix
     // .copy(`${PATHS.src}/fonts/*`, `${PATHS.dist}/fonts`)
     // .copy(`${PATHS.node}/swiper/dist/js/swiper.js`, `${PATHS.dist}/js`)
     .js(`${PATHS.src}/scripts/app.js`, `${PATHS.dist}/js/`)
-    // .js(`${PATHS.src}/scripts/a11y.js`, `${PATHS.dist}/js/`)
     .sass(`${PATHS.src}/styles/app.scss`, 'css')
+    .copy(`${PATHS.dist}/css/`, `${PATHS.docs}/assets/css`)
+    .copy(`${PATHS.dist}/js/`, `${PATHS.docs}/assets/js`)
     .options({
         processCssUrls: false
     })

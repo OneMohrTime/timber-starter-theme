@@ -4,5 +4,10 @@
     "/img/featured-image.jpg": "/img/featured-image.jpg",
     "/img/logo.svg": "/img/logo.svg",
     "/img/placeholder.jpg": "/img/placeholder.jpg",
-    "/img/transparent.png": "/img/transparent.png"
+    "/img/transparent.png": "/img/transparent.png",
+    "/docs/assets/css/app.css": "/docs/assets/css/app.css",
+    "/docs/assets/css/app.css.map": "/docs/assets/css/app.css.map",
+    "/docs/assets/js/app.js": "/docs/assets/js/app.js",
+    "/docs/assets/js/app.js.LICENSE.txt": "/docs/assets/js/app.js.LICENSE.txt",
+    "/docs/assets/js/app.js.map": "/docs/assets/js/app.js.map"
 }
