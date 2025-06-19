@@ -46,8 +46,8 @@
         } only %}
 
         {% if post.children('page')|length > 0 %}
-            <section class="o-section" data-scroll-trigger>
-                <ul class="c-related-posts">
+            <section class="o-section">
+                <ul class="c-related-posts" data-scroll-trigger>
 
                     {% for child in post.children('page') %}
                         <li class="c-related-posts__post">

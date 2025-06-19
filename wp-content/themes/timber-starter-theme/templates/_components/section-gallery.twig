@@ -11,10 +11,10 @@
 {# -- Component Template -- #}
 
 {% if this.images %}
-<section class="o-section is-{{ this.galleryType }}-gallery" data-scroll-trigger>
+<section class="o-section is-{{ this.galleryType }}-gallery">
 
     {% if this.hasIntro %}
-        <div class="c-gallery__intro">
+        <div class="c-gallery__intro" data-scroll-trigger>
         {% if this.headline %}
             <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-subheadline">{{ this.headline }}</h2>
         {% endif %}
@@ -29,7 +29,7 @@
     {% switch this.galleryType %}
 
         {% case 'grid' %}
-            <ul class="c-grid is-gallery" data-module-fancybox>
+            <ul class="c-grid is-gallery" data-module-fancybox data-scroll-trigger>
                 {% for image in this.images %}
                 <li class="c-grid__item">
                     <a href="{{ image.sizes.large }}" class="c-grid__item-link" data-fancybox="gallery-of-{{ this.images|length }}">

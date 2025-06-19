@@ -9,7 +9,7 @@
 {# -- Component Template -- #}
 
 {% if this.mediaSection %}
-<section class="o-section is-{{ this.mediaSection.media_type }}{% if imageFrame == 'full' or imageFrame == 'fixed' %} is-full-width{% endif %}" data-scroll-trigger>
+<section class="o-section is-{{ this.mediaSection.media_type }}{% if imageFrame == 'full' or imageFrame == 'fixed' %} is-full-width{% endif %}"{% if imageFrame != 'fixed' %} data-scroll-trigger{% endif %}>
     {% switch this.mediaSection.media_type %}
 
         {% case 'image' %}
