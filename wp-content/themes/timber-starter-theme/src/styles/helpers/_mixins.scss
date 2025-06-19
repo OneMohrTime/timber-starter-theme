@@ -30,6 +30,8 @@
 @mixin content-width() {
     p, ul, ol {
         max-width: $copy-width;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -168,6 +170,7 @@
  */
 
 @mixin type() {
+    margin-bottom: $small-spacing;
     font-family: inherit;
     line-height: inherit;
     widows: 3;
@@ -262,7 +265,7 @@
 @mixin label() {
     font-family: $font-header;
     font-size: $font-h5;
-    font-weight: 700;
+    font-weight: $font-regular;
     line-height: 1em;
     text-transform: uppercase;
     margin: 0;
@@ -429,7 +432,10 @@
     padding-left: $small-spacing;
     padding-right: $small-spacing;
     padding-bottom: .25em;
-}
+}.c-media__svg {
+        position: relative;
+        transition: transform $speed $bezier-back;
+    }
 
 @mixin btn-color($bg: $black--lighter, $text: $white, $hover: $black) {
     background-color: $bg;
@@ -530,6 +536,11 @@
             background-color: $gray;
             z-index: 1;
         }
+    }
+
+    .c-media__svg {
+        position: relative;
+        transition: transform $speed $bezier-back;
     }
 
     // Hover, focus
