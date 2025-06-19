@@ -2,6 +2,23 @@
     Typography
 ========================================================================== */
 
+/**
+ * === FONT IMPORT ===
+ */
+
+// @font-face {
+//     font-family: "BN Rockies";
+//     src: url("https://website.com/wp-content/uploads/BNRockies.woff2") format("woff2"),
+//          url("https://website.com/wp-content/uploads/BNRockies.woff") format("woff");
+//     font-display: swap;
+//     font-style: normal;
+//     font-weight: $font-regular;
+// }
+
+/**
+ * === USER SELECT ===
+ */
+
 ::selection {
     color: $white;
     background-color: $blue;
@@ -59,12 +76,18 @@ h6 {
 
 .u-wysiwyg {
     @include content-width();
+    @include fluid-body-copy();
     line-height: $line-height;
 
     h1, h2, h3, h4, h5, h6 {
         display: block;
         margin-bottom: $small-spacing;
         line-height: $heading-height;
+
+        a {
+            font-weight: inherit;
+            color: inherit;
+        }
 
         // headers in a wysiwyg section only...hopefully
         &:not([class]) {
@@ -79,6 +102,10 @@ h6 {
     p, ul, ol {
         line-height: inherit;
     }
+
+    // .c-button {
+    //     @include btn-color($navy, $yellow);
+    // }
 }
 
 /**
@@ -166,6 +193,14 @@ ul, ol, dl {
 }
 
 .u-headline {
+    @include headline();
+
+    &.is-underlined {
+        @include headline("underlined");
+    }
+}
+
+.u-subheadline {
     @include subheadline();
 
     &.is-underlined {
@@ -173,7 +208,7 @@ ul, ol, dl {
     }
 }
 
-.u-subheadline {
+.u-heading {
     @include heading();
 
     &.is-underlined {
