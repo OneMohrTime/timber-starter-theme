@@ -14,20 +14,24 @@
 
         <div class="c-sidebar__widget is-select" data-scroll-trigger data-scroll-style="scroll">
             <h3 class="u-subheadline">Categories</h3>
-            <select onchange="if (this.value) window.location.href=this.value;">
-                <option value="">Select Category</option>
-                {% for category in blogCategories %}
-                    <option value="{{ category.link }}">{{ category.name }}</option>
-                {% endfor %}
-            </select>
+            <form action="" class="c-form">
+                <select name="category" onchange="if (this.value) window.location.href=this.value;">
+                    <option value="">Select Category</option>
+                    {% for category in blogCategories %}
+                        <option value="{{ category.link }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </form>
         </div>
 
         <div class="c-sidebar__widget" data-scroll-trigger data-scroll-style="scroll">
             <h3 class="u-subheadline">Archives</h3>
-            <select onchange="if (this.value) window.location.href=this.value;">
-                <option value="">Select Month</option>
-                {{ blogArchives|raw }}
-            </select>
+            <form action="" class="c-form">
+                <select name="archive" onchange="if (this.value) window.location.href=this.value;">
+                    <option value="">Select Month</option>
+                    {{ blogArchives|raw }}
+                </select>
+            </form>
         </div>
 
         <div class="c-sidebar__widget" data-scroll-trigger data-scroll-style="scroll">
