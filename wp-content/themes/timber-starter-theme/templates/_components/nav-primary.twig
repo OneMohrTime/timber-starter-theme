@@ -33,7 +33,7 @@
             {% for item in this.menu.get_items %}
                 {% set activeMenuClass = ('current-menu-item' in item.classes == 1) ? ' is-current' %}
 
-                <li class="c-navigation__menuItem c-menuItem{{ activeMenuClass }}">
+                <li class="c-navigation__menu-item c-menu-item{{ activeMenuClass }}">
 
                     {% if 'c-button' in item.classes %}
                         <a href="{{ item.link }}" class="c-button is-primary"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
@@ -55,7 +55,86 @@
 
                     {% endif %}
 
-                    {% if item.children %}
+                    {# if there is a Mega Menu #}
+                    {% if item.enable_mega_menu == 1 %}
+                        {% set menuCardEyebrow = item.megamenu_feature.eyebrow %}
+                        {% set menuCardImage = item.megamenu_feature.image %}
+                        {% set menuCardHeadline = item.megamenu_feature.headline %}
+                        {% set menuCardText = item.megamenu_feature.text %}
+                        {% set menuCardbutton = item.megamenu_feature.button %}
+                        {% set menuMegaMenu = item.megamenu_columns %}
+
+                        <div id="megamenu-{{ item.id }}" class="c-mega-menu">
+                            {% if menuCardImage or menuCardHeadline or menuCardbutton %}
+                                <div class="c-mega-menu__card">
+                                    {% if menuCardEyebrow %}
+                                        <strong class="u-eyebrow">{{ menuCardEyebrow }}</strong>
+                                    {% endif %}
+                                    {% if menuCardImage %}
+                                        {% include '_elements/picture.twig' with {
+                                            params: {
+                                                src: menuCardImage,
+                                                ratio: '16:9',
+                                                sizes: '(min-width: 900px) 25vw, 75vw'
+                                            }
+                                        } only %}
+                                    {% endif %}
+                                    {% if menuCardHeadline %}
+                                        <h2 id="{{ menuCardHeadline|sanitize|slice(0, 24) }}" class="u-heading">{{ menuCardHeadline }}</h2>
+                                    {% endif %}
+                                    {% if menuCardText %}
+                                        <div class="u-wysiwyg">
+                                            {{ menuCardText }}
+                                        </div>
+                                    {% endif %}
+                                    {% if menuCardbutton %}
+                                        {% include '_elements/button.twig' with {
+                                            params: {
+                                                url: menuCardbutton.url,
+                                                text: menuCardbutton.title,
+                                                target: menuCardbutton.target,
+                                            }
+                                        } only %}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            <div class="c-mega-menu__columns">
+                                {% for column in menuMegaMenu %}
+                                    <div class="c-mega-menu__column">
+                                        {% if column.column_image %}
+                                            {# <figure class="c-mega-menu__image"> #}
+                                                {% if menuCardImage %}
+                                                    {% include '_elements/picture.twig' with {
+                                                        params: {
+                                                            src: column.column_image,
+                                                            ratio: '16:9',
+                                                            sizes: '(min-width: 900px) 25vw, 75vw'
+                                                        },
+                                                        classes: 'c-mega-menu__image'
+                                                    } only %}
+                                                {% endif %}
+                                            {# </figure> #}
+                                        {% endif %}
+                                        {% if column.column_title %}
+                                            <h3 class="c-mega-menu__title">{{ column.column_title }}</h3>
+                                        {% endif %}
+                                        {% if column.column_menu %}
+                                            <ul class="c-mega-menu__list">
+                                                {% for submenu in column.column_menu %}
+                                                    {% set submenuItem = submenu.menu_item %}
+                                                    <li class="c-mega-menu__item">
+                                                        <a href="{{ submenuItem.url }}" class="u-link"{% if submenuItem.target == '_blank' %} target="_blank" rel="noopener noreferrer nofollow"{% endif %}>{{ submenuItem.title }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    {# if there is a Dropdown Menu #}
+                    {% elseif item.children %}
                         <ul id="primary__sub-{{ item.id }}" class="c-submenu">
 
                             {% for submenu in item.children %}
@@ -68,6 +147,7 @@
                             {% endfor %}
 
                         </ul>
+
                     {% endif %}
                 </li>
             {% endfor %}
