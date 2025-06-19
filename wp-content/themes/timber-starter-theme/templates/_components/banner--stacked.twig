@@ -1,0 +1,34 @@
+{# -- Component Variables -- #}
+
+{# set in _components/banner.twig #}
+
+{# -- Component Template -- #}
+
+<div class="c-banner__text">
+
+    <h1 class="u-title">{{ this.headline }}</h1>
+
+    {% if this.subheadline %}
+        <strong class="u-subheadline">{{ this.subheadline }}</strong>
+    {% endif %}
+
+    {% if this.button %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.button.url,
+                text: this.button.title,
+                target: this.button.target
+            }
+        } only %}
+    {% endif %}
+</div>
+
+<figure class="c-banner__media">
+
+    {% include '_elements/picture.twig' with {
+        params: {
+            src: this.image
+        }
+    } only %}
+
+</figure>
