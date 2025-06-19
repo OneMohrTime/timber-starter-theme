@@ -41,20 +41,115 @@
     .tribe-events-c-top-bar.tribe-events-header__top-bar {
         margin-bottom: 0;
         .tribe-events-c-top-bar__today-button {
-            padding: $small-spacing $base-spacing;
+            @include btn-style();
+            // @include btn-color($navy, $yellow);
         }
     }
     .tribe-events-c-top-bar__datepicker {
-        .datepicker.datepicker-dropdown.dropdown-menu {
-            padding: 0 $gutter-sm $gutter-sm;
-            // .active.day.current {}
+        table {
+            width: 100%;
+            max-width: 100%;
         }
+        .datepicker.dropdown-menu {
+            border-radius: $border-radius;
+            background-color: $white;
+            color: $navy;
+            .datepicker-switch:hover,
+            .next:hover,
+            .prev:hover,
+            .year:hover,
+            .month:hover,
+            .day:hover {
+                background-color: $white--darker;
+            }
+            .active.year.current,
+            .active.month.current,
+            .active.day.current {
+                font-weight: $font-bold;
+                background-color: $green;
+                background-image: none;
+            }
+        }
+    }
+    .tribe-events-c-top-bar__datepicker-button {
+        @include btn-style();
+        @include btn-color($navy, transparent);
+    }
+
+    // View Selector
+    .tribe-events-c-view-selector {
+        width: auto;
+    }
+    .tribe-events-c-view-selector__button {
+        border: 0;
+        border-radius: $border-radius-sm;
+        background-color: $green;
+        .tribe-common-c-svgicon__svg-fill {
+            color: $white;
+        }
+    }
+    .tribe-events-c-view-selector__content {
+        border-radius: $border-radius;
+        background-color: $green;
+        color: $white;
     }
 
     // Event List
-    // .tribe-events-calendar-list {
-    //     margin-top: $gutter;
-    // }
+    .tribe-events-calendar-list {
+        margin-top: $gutter;
+    }
+    .tribe-events-calendar-list__event-title {
+        margin: 0 0 0.2em;
+        line-height: $heading-height;
+        line-height: 1em;
+    }
+    .tribe-events-calendar-list__event-venue {
+        margin-bottom: $line-height;
+        font-size: $font-base-sm;
+        font-style: normal;
+        font-weight: $font-regular;
+        line-height: $heading-height;
+
+        @include last(1) {
+            margin-bottom: 0;
+        }
+    }
+    .tribe-events-calendar-list__event-venue-title {
+        font-weight: $font-bold;
+    }
+    // .tribe-events-calendar-list__event-venue-address {}
+    .tribe-events-calendar-list__event-description {
+        line-height: $line-height;
+    }
+    .tribe-events-calendar-list__event-date-tag-datetime {
+        height: auto;
+        padding: 0;
+        border-radius: $border-radius;
+        background-color: $navy;
+        color: $yellow;
+    }
+    .tribe-events-calendar-list__event-datetime-featured-icon-svg {
+        fill: $red;
+    }
+    .tribe-events-calendar-list__event-date-tag-weekday {
+        font-size: $font-base-lg;
+        font-weight: $font-bold;
+        line-height: $line-height;
+    }
+    .tribe-events-calendar-list__event-date-tag-daynum {
+        font-family: $font-header;
+        font-size: $font-h3;
+        line-height: $heading-height;
+    }
+    .tribe-events-calendar-list__event-featured-image {
+        height: 100%;
+        object-fit: cover;
+    }
+    .tribe-events-calendar-list__event-featured-image-link {
+        @include aspect-ratio(16,9);
+        overflow: hidden;
+        border-radius: $border-radius;
+    }
 
     // Month Seperator
     .tribe-events-calendar-list__month-separator {
@@ -87,12 +182,22 @@
         font-size: $font-h6;
         line-height: $heading-height;
     }
+    .tribe-events-calendar-month__multiday-event-bar {
+        background-color: $white--dark;
+        color: $black--light;
+    }
+    .tribe-events-calendar-month__multiday-event-bar-inner {
+        justify-content: center;
+    }
+    .tribe-events-calendar-month__multiday-event-bar-title {
+        line-height: $heading-height;
+    }
 
     // Calendar Event Hover
     .tooltipster-sidetip {
         .tooltipster-box {
-            border-radius: 0;
-            border: $border-width solid $black--lightest;
+            border: none;
+            border-radius: $border-radius;
             background-color: $white--dark;
         }
         .tooltipster-content {

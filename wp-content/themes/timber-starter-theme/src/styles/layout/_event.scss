@@ -23,9 +23,20 @@
         }
     }
 
+    // Event Alerts
+    .tribe-events-notices {
+        margin-bottom: $gutter;
+        padding: $small-spacing;
+        font-size: $font-base-sm;
+        text-align: center;
+        line-height: $heading-height;
+        border: 2px solid $gray--lightest;
+        border-radius: $border-radius;
+    }
+
     // Event Image
     .tribe-events-event-image {
-        @include aspect-ratio(16, 9);
+        @include aspect-ratio(32, 9);
         overflow: hidden;
         border-radius: $border-radius;
 
@@ -42,6 +53,14 @@
     }
     .tribe-events-schedule {
         margin: 0 0 $line-height;
+        h2 {
+            font-family: $font-body;
+            font-size: $font-h5;
+            font-weight: $font-bold;
+        }
+    }
+    .tribe-events-back {
+        margin-bottom: $gutter;
     }
 
     // Event Description
@@ -50,29 +69,18 @@
         @include content-width();
         margin-bottom: 0;
         line-height: $line-height;
+
+        p, ul, ol {
+            margin-left: 0;
+        }
     }
 
     // Add to Calendar
     .tribe-events-c-subscribe-dropdown {
         margin: 0;
     }
-
-    // Past Event Notice
-    .tribe-events-notices {
-        text-align: center;
-        ul {
-            display: inline-block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        li {
-            display: inline-block;
-            padding: $small-spacing;
-            line-height: $heading-height;
-            border-radius: $border-radius-sm;
-            background-color: $white--darkest;
-            color: $black;
-        }
+    .tribe-events-c-subscribe-dropdown__button {
+        width: auto;
     }
 
     // Event Meta
@@ -98,7 +106,11 @@
             font-weight: $font-semibold;
         }
         dd {
+            // max-width: rem(220px);
             line-height: $line-height;
+            a {
+                @include ellipsis;
+            }
         }
     }
     .tribe-events-event-meta.primary,
@@ -148,6 +160,11 @@
         width: auto;
         overflow: hidden;
         border-radius: $border-radius;
+
+        iframe {
+            max-height: rem(300px);
+            border-radius: $border-radius;
+        }
 
         // screen at or above 600px
         @include media(">=small") {
