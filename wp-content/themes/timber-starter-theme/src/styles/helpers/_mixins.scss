@@ -276,7 +276,7 @@
     // font-size: 1.15vw;
     font-size: 0.875em;
     font-family: $font-header;
-    font-weight: 700;
+    font-weight: $font-bold;
     line-height: 1em;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -428,7 +428,7 @@
 
 @mixin underline-link() {
     border-bottom: 3px $black solid;
-    font-weight: 700;
+    font-weight: $font-bold;
     padding-left: $small-spacing;
     padding-right: $small-spacing;
     padding-bottom: .25em;
