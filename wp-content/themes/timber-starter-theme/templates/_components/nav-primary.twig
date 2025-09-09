@@ -32,8 +32,11 @@
 
             {% for item in this.menu.get_items %}
                 {% set activeMenuClass = ('current-menu-item' in item.classes == 1) ? ' is-current' %}
+                {# {% set activeMenuClass = ('current-menu-ancestor' in item.classes == 1) ? ' is-current' %} #}
+                {# {% set activeMenuClass = ('current_page_parent' in item.classes == 1) ? ' is-current' %} #}
+                {# {% set activeMenuClass = ('current_page_ancestor' in item.classes == 1) ? ' is-current' %} #}
 
-                <li class="c-navigation__menu-item c-menu-item{{ activeMenuClass }}">
+                <li class="c-navigation__menu-item c-menu-item{{ activeMenuClass }}{% if item.children or (item.enable_mega_menu == 1) %} has-submenu{% endif %}">
 
                     {% if 'c-button' in item.classes %}
                         <a href="{{ item.link }}" class="c-button is-primary"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
@@ -44,14 +47,23 @@
                         <a href="{{ item.link }}" class="u-link">
                             {{ item.title }}
                         </a>
+                        <span class="u-toggle" data-toggle="primary__sub-{{ item.id }}">
+                            {{ source('_elements/svg/caret-down.svg') }}
+                        </span>
 
                     {% else %}
-                        <a href="{{ item.link }}" class="u-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}>
+                        <a href="{{ item.link }}" class="u-link{% if item.target == '_blank' %} is-external{% endif %}"{% if item.target != '_self' %} target="{{ item.target }}"{% endif %}{% if item.enable_mega_menu == 1 %}aria-haspopup="true" aria-expanded="false" data-trigger-megamenu{% endif %}>
                             {{ item.title }}
                             {% if item.target == '_blank' %}
                                 {{ source('_elements/svg/external-link.svg') }}
                             {% endif %}
                         </a>
+                        {% if item.enable_mega_menu == 1 %}
+                            <span class="u-toggle" data-toggle="megamenu-{{ item.id }}">
+                                {{ source('_elements/svg/caret-down.svg') }}
+                            </span>
+                        {% endif %}
+
 
                     {% endif %}
 
@@ -64,7 +76,7 @@
                         {% set menuCardbutton = item.megamenu_feature.button %}
                         {% set menuMegaMenu = item.megamenu_columns %}
 
-                        <div id="megamenu-{{ item.id }}" class="c-mega-menu">
+                        <div id="megamenu-{{ item.id }}" class="c-mega-menu is-hidden" aria-hidden="true">
                             {% if menuCardImage or menuCardHeadline or menuCardbutton %}
                                 <div class="c-mega-menu__card">
                                     {% if menuCardEyebrow %}
@@ -135,10 +147,13 @@
 
                     {# if there is a Dropdown Menu #}
                     {% elseif item.children %}
-                        <ul id="primary__sub-{{ item.id }}" class="c-submenu">
+                        <ul id="primary__sub-{{ item.id }}" class="c-submenu is-hidden" aria-hidden="true">
 
                             {% for submenu in item.children %}
                                 {% set activeMenuClass = ('current-menu-item' in submenu.classes == 1) ? ' is-current' %}
+                                {# {% set activeMenuClass = ('current-menu-ancestor' in submenu.classes == 1) ? ' is-current' %} #}
+                                {# {% set activeMenuClass = ('current_page_parent' in submenu.classes == 1) ? ' is-current' %} #}
+                                {# {% set activeMenuClass = ('current_page_ancestor' in submenu.classes == 1) ? ' is-current' %} #}
                                 <li class="c-submenu__item{{ activeMenuClass }}">
                                     <a href="{{ submenu.link }}" class="u-link">
                                         {{ submenu.title }}

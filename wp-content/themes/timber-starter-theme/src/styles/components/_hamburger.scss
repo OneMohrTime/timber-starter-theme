@@ -2,10 +2,13 @@
     Hamburger Menu
 ========================================================================== */
 
+$size: 30px;
+$border: 2px;
+
 .c-hamburger {
     display: block;
-    width: 30px;
-    height: 18px;
+    width: $size;
+    height: $size;
     padding-left: 0;
     padding-right: 0;
     border: none;
@@ -14,22 +17,15 @@
     appearance: none;
 }
 
-// .c-hamburger.not-active {}
-// .is-active {
-//     .c-hamburger {
-//         transform: scale(0.9);
-//     }
-// }
-
 .c-hamburger__line {
     position: relative;
     display: block;
     width: 100%;
-    height: 2px;
+    height: $border;
     transition: all $speed $bezier-slide;
     background-color: $white;
 
-    // sibling selector
+    // sibling line selector
     & + & {
         margin-top: 5px;
 
