@@ -8,19 +8,20 @@ use buzzingpixel\twigswitch\SwitchTwigExtension;
  */
 class StarterSite extends Site {
     public function __construct() {
-        add_action('after_setup_theme', array($this, 'theme_supports'));
-        add_action('after_setup_theme', array($this, 'navigation_menus'));
-        add_action('after_setup_theme', array($this, 'theme_add_woocommerce_support'));
-        // add_action('after_setup_theme', array($this, 'timber_set_product'));
-        // add_action('init', array($this, 'register_post_types'));
-        // add_action('init', array($this, 'register_taxonomies'));
-        add_action('wp_enqueue_scripts', array($this, 'load_scripts'));
-        add_action('widgets_init', array($this, 'create_sidebars'));
-
-        add_filter('timber/context', array($this, 'add_to_context' ));
-        add_filter('timber/twig', array($this, 'add_to_twig' ));
+        // Actions
+        add_action('after_setup_theme', [$this, 'theme_supports']);
+        add_action('after_setup_theme', [$this, 'navigation_menus']);
+        add_action('after_setup_theme', [$this, 'theme_add_woocommerce_support']);
+        // add_action('after_setup_theme', [$this, 'timber_set_product']); // WooCommerce
+        // add_action('init', [$this, 'register_post_types']); // ACF handles this
+        // add_action('init', [$this, 'register_taxonomies']); // ACF handles this
+        add_action('wp_enqueue_scripts', [$this, 'load_scripts']);
+        add_action('widgets_init', [$this, 'create_sidebars']);
+        // Filters
+        add_filter('timber/context', [$this, 'add_to_context' ]);
+        add_filter('timber/twig', [$this, 'add_to_twig' ]);
         add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
-        add_filter('wpseo_metabox_prio', array($this, 'move_yoast_seo_metabox'));
+        add_filter('wpseo_metabox_prio', [$this, 'move_yoast_seo_metabox']);
 
         parent::__construct();
     }
@@ -42,19 +43,18 @@ class StarterSite extends Site {
     // }
 
     // /**
-    //  * This is where you can register custom post types.
+    //  * This is where you can register custom post types & taxonomies
+    //  * @link https://codex.wordpress.org/Function_Reference/register_post_type
+    //  * @link https://codex.wordpress.org/Function_Reference/register_taxonomy
+    //  * === CURRENTLY HANDLED BY ACF PRO ===
     //  */
-    // public function register_post_types() {
-    // }
-
-    // /**
-    //  * This is where you can register custom taxonomies.
-    //  */
-    // public function register_taxonomies() {
-    // }
+    // public function register_post_types() {}
+    // public function register_taxonomies() {}
 
     /**
      * This is where you load the frontend CSS & JS files
+     *
+     * @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
      */
     public function load_scripts() {
         // Main "screen" stylesheet
@@ -63,7 +63,7 @@ class StarterSite extends Site {
         // Main script file
         wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true );
 
-         // Filter to add defer attribute to the main script
+        // Filter to add defer attribute to the main script
         add_filter( 'script_loader_tag', function( $tag, $handle ) {
             if ( 'main' !== $handle ) {
                 return $tag; // Only modify the 'main' script
@@ -74,6 +74,8 @@ class StarterSite extends Site {
 
     /**
      * This is where you register & use WordPress menus
+     *
+     * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     public function navigation_menus() {
         register_nav_menus([
@@ -99,6 +101,8 @@ class StarterSite extends Site {
 
     /**
      * This is where you move SEO fields to the bottom of the page
+     *
+     * @link https://developer.yoast.com/customization/yoast-seo/filters/change-metabox-prio-filter/
      */
     public function move_yoast_seo_metabox() {
         return 'low';
@@ -110,20 +114,21 @@ class StarterSite extends Site {
      * @param string $context context['this'] Being the Twig's {{ this }}.
      */
     public function add_to_context( $context ) {
+        // Global vars
         $context['site']          = $this;
         $context['homePage']      = is_front_page();
-        $context['categoryPage']  = is_category();
-        $context['tagPage']       = is_tag();
         $context['globals']       = get_fields('option');
         $context['globalSidebar'] = dynamic_sidebar('global_sidebar');
-
-        $custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
+        // Site logo
+        $custom_logo_url     = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
         $context['siteLogo'] = $custom_logo_url;
-
+        // Menus
         $context['primaryMenu'] = Timber::get_menu('primary');
         $context['utilityMenu'] = Timber::get_menu('utility');
         $context['footerMenu']  = Timber::get_menu('footer');
-
+        // Taxonomies & archives
+        $context['categoryPage'] = is_category();
+        $context['tagPage']      = is_tag();
         $context['blogArchives'] = wp_get_archives([
             'type' => 'monthly',
             'format' => 'option',
@@ -143,7 +148,7 @@ class StarterSite extends Site {
 
     public function theme_supports() {
         // Add default posts and comments RSS feed links to head.
-        add_theme_support( 'automatic-feed-links' );
+        add_theme_support('automatic-feed-links');
 
         /*
         * Let WordPress manage the document title.
@@ -151,14 +156,14 @@ class StarterSite extends Site {
         * hard-coded <title> tag in the document head, and expect WordPress to
         * provide it for us.
         */
-        add_theme_support( 'title-tag' );
+        add_theme_support('title-tag');
 
         /*
         * Enable support for Post Thumbnails on posts and pages.
         *
         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
         */
-        add_theme_support( 'post-thumbnails' );
+        add_theme_support('post-thumbnails');
 
         /*
         * Switch default core markup for search form, comment form, and comments
@@ -169,8 +174,11 @@ class StarterSite extends Site {
             array(
                 'comment-form',
                 'comment-list',
+                'search-form',
                 'gallery',
                 'caption',
+                'style',
+                'script'
             )
         );
 
@@ -192,12 +200,21 @@ class StarterSite extends Site {
             )
         );
 
-        add_theme_support( 'menus' );
+        add_theme_support('menus');
 
-        add_theme_support( 'custom-logo' );
+        add_theme_support('custom-logo');
 
-        add_post_type_support( 'page', 'excerpt' );
+        /**
+         * Allow excerpts for pages, not just posts
+         *
+         * @link https://codex.wordpress.org/Function_Reference/add_post_type_support
+         */
+        add_post_type_support('page', 'excerpt');
 
+
+        /**
+         * Queue editor styles for use
+         */
         add_editor_style();
     }
 
@@ -225,7 +242,7 @@ class StarterSite extends Site {
      *
      * @link https://twig.symfony.com/doc/2.x/api.html#environment-options
      *
-     * \@param array $options An array of environment options.
+     * @param array $options An array of environment options.
      *
      * @return array
      */
