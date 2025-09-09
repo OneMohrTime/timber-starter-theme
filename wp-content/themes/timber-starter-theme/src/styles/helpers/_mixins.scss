@@ -27,11 +27,18 @@
 }
 
 // Cap line lengths to stay legible
-@mixin content-width() {
+@mixin content-width($centered: null) {
     p, ul, ol {
         max-width: $copy-width;
-        margin-left: auto;
-        margin-right: auto;
+
+        $centered: null !default;
+        @if $centered == null {
+            // nothing, continue on
+        } @else if $centered == 'center' {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
     }
 }
 
@@ -252,13 +259,12 @@
 }
 
 @mixin base-font-size() {
-    // font-size: 1.181vw;
-    font-size: clamp(100%, 1rem + 1vw, 1.33em);
+    // font-size: clamp(100%, 1rem + 1vw, 1.33em);
     font-size: 1rem;
 }
 
 @mixin small-font-size() {
-    font-size: clamp(75%, 1rem + 1vw, 1em);
+    // font-size: clamp(75%, 1rem + 1vw, 1em);
     font-size: 0.875rem;
 }
 
@@ -273,13 +279,12 @@
 
 @mixin caption() {
     margin: 0;
-    // font-size: 1.15vw;
     font-size: 0.875em;
     font-family: $font-header;
     font-weight: $font-bold;
     line-height: 1em;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: rem(2px);
 }
 
 @mixin underlined() {
@@ -304,51 +309,16 @@
     }
 }
 
-@mixin drop-cap() {
-    &:first-letter {
-        margin: 0 0.25em 0 0;
-        float: left;
-        font-family: $font-header;
-        font-size: 3.25em;
-        // font-size: 3.375em;
-        // font-size: 2em;
-        font-size: 5.5em;
-        line-height: 0.9em;
-        color: $yellow;
-    }
-}
-
-/**
- * === TEXTURE EFFECTS ===
- */
-
-@mixin texture-grid() {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" viewBox="0 0 9 9" fill="#171409"><circle cx="2" cy="2" r="2" style="opacity:0.15" /></svg>') repeat;
-}
-
-@mixin image-overlay() {
-    @supports (background-blend-mode: multiply) {
-        z-index: 0;
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: transparent url("/wp-content/themes/onemohrtime/assets/img/img-texture.png") repeat center center;
-            background-blend-mode: multiply;
-            z-index: 1;
-        }
-    }
-}
-
-@mixin mask-texture() {
-    -webkit-mask-image: url("/wp-content/themes/onemohrtime/assets/img/rough-texture.png");
-            mask-image: url("/wp-content/themes/onemohrtime/assets/img/rough-texture.png");
-}
+// @mixin drop-cap() {
+//     &:first-letter {
+//         margin: 0 0.25em 0 0;
+//         float: left;
+//         font-family: $font-header;
+//         font-size: 5.5em;
+//         line-height: 0.9em;
+//         color: $yellow;
+//     }
+// }
 
 /**
  * === BUTTONS AND LINKS ===

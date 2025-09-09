@@ -69,10 +69,6 @@
         @include content-width();
         margin-bottom: 0;
         line-height: $line-height;
-
-        p, ul, ol {
-            margin-left: 0;
-        }
     }
 
     // Add to Calendar

@@ -7,8 +7,4 @@
     @include padding();
     padding-top: $gutter;
     padding-bottom: $gutter;
-
-    p, ul, ol {
-        margin-left: 0;
-    }
 }

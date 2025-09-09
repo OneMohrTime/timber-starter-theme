@@ -16,7 +16,7 @@
 
 {# Convert to TimberImage #}
 {% set renderedImage = get_image(this.src) %}
-{% set renderedAltText = renderedImage.alt %}
+{% set renderedAltText = this.alt ?? renderedImage.alt %}
 
 {# Frame can be set to relative/absolute image ratio-ing #}
 <picture class="c-media
@@ -30,7 +30,7 @@
     <img src="{{ renderedImage.src('thumbnail') }}"
 
         {# Alt text should never be empty, or contain tags, or be too long #}
-        alt="{{ this.alt ?? renderedAltText }}"
+        alt="{{ renderedAltText }}"
 
         {# Semantic HTML width & height values #}
         width="{{ renderedImage.sizes.thumbnail.width }}"
@@ -40,7 +40,7 @@
         class="c-media__image
 
         {# Additional custom classes #}
-        {% if this.classes %}{{ this.classes }}{% endif %}"
+        {% if this.classes %}{{ this.classes|trim }}{% endif %}"
 
         {# Media query sizes #}
         sizes="{{ this.sizes }}"
@@ -49,7 +49,7 @@
         srcset="{{ renderedImage.srcset }}"
 
         {# Lazyloaded by default #}
-        {% if this.lazy %}loading="lazy"{% endif %}
+        {% if this.lazy %}loading="lazy" decoding="async"{% endif %}
     />
 
 </picture>

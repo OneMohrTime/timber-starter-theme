@@ -30,3 +30,7 @@
 textarea {
     min-height: 4em;
 }
+
+label {
+    @include label();
+}

@@ -1,8 +1,8 @@
 // =============================================================================
 // Modules: Scroll
 // =============================================================================
-// Establishes custom scrolling functionality allowing for anything from smooth
-// scrolling to parallax elements right out of the box with use of 'Mighty Scroll'
+// Establishes custom scrolling functionality, allowing for anything from smooth
+// scrolling to parallax elements right out of the box
 
 // Import dependencies
 // =============================================================================
@@ -155,7 +155,6 @@ export default class extends es6Module {
     );
   }
 
-
   // Slide Right
   // ===========================================================================
   animateSlideRight(element) {
@@ -174,7 +173,6 @@ export default class extends es6Module {
       }
     );
   }
-
 
   // Blur In
   // ===========================================================================
