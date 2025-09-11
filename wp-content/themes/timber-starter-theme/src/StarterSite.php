@@ -44,9 +44,9 @@ class StarterSite extends Site {
 
     // /**
     //  * This is where you can register custom post types & taxonomies
+    //  * === CURRENTLY HANDLED BY ACF PRO ===
     //  * @link https://codex.wordpress.org/Function_Reference/register_post_type
     //  * @link https://codex.wordpress.org/Function_Reference/register_taxonomy
-    //  * === CURRENTLY HANDLED BY ACF PRO ===
     //  */
     // public function register_post_types() {}
     // public function register_taxonomies() {}
@@ -58,18 +58,18 @@ class StarterSite extends Site {
      */
     public function load_scripts() {
         // Main "screen" stylesheet
-        wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/app.css', array(), null, 'screen' );
+        wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/app.css', array(), null, 'screen');
 
         // Main script file
-        wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true );
+        wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
 
         // Filter to add defer attribute to the main script
-        add_filter( 'script_loader_tag', function( $tag, $handle ) {
-            if ( 'main' !== $handle ) {
+        add_filter('script_loader_tag', function($tag, $handle) {
+            if ('main' !== $handle) {
                 return $tag; // Only modify the 'main' script
             }
-            return str_replace( ' src', ' defer="defer" src', $tag );
-        }, 10, 2 );
+            return str_replace(' src', ' defer="defer" src', $tag);
+        }, 10, 2);
     }
 
     /**
@@ -172,16 +172,7 @@ class StarterSite extends Site {
         * to output valid HTML5.
         */
         add_theme_support(
-            'html5',
-            array(
-                'comment-form',
-                'comment-list',
-                'search-form',
-                'gallery',
-                'caption',
-                'style',
-                'script'
-            )
+            'html5', ['comment-form', 'comment-list', 'search-form', 'gallery', 'caption', 'style', 'script']
         );
 
         /*
@@ -190,20 +181,17 @@ class StarterSite extends Site {
         * See: https://codex.wordpress.org/Post_Formats
         */
         add_theme_support(
-            'post-formats',
-            array(
-                'aside',
-                'image',
-                'video',
-                'quote',
-                'link',
-                'gallery',
-                'audio',
-            )
+            'post-formats',['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio']
         );
 
+        /**
+         * Add theme support for navigation menus
+         */
         add_theme_support('menus');
 
+        /**
+         * Add support for core custom logo
+         */
         add_theme_support('custom-logo');
 
         /**
