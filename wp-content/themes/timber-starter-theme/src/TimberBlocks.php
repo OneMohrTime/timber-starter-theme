@@ -24,7 +24,7 @@ add_action('init', 'register_acf_blocks');
 /**
  * ACF Block template callback
  */
-function my_acf_block_render_callback($attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null) {
+function acf_block_render_callback($attributes, $content = '', $is_preview = false, $post_id = 0, $wp_block = null) {
     // Create the slug of the block using the name property in the block.json.
     $slug = str_replace( 'timber-starter-theme/', '', $attributes['name'] );
 

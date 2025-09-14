@@ -204,8 +204,8 @@ class StarterSite extends Site {
         /**
          * Enable support for Gutenberg/block editor features
          */
-        // add_theme_support('editor-styles');
         add_theme_support('wp-block-styles');
+        // add_theme_support('editor-styles');
         add_theme_support('align-wide');
         add_theme_support('custom-spacing');
         add_theme_support('custom-units');
