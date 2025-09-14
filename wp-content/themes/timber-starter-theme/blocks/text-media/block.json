@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter-theme/text-media",
+  "title": "Text + Media",
+  "description": "Create a block with text and media side by side.",
+  "style": [ "file:./text-media.css" ],
+  "category": "media",
+  "icon": "align-pull-left",
+  "keywords": ["onemohrtime", "text", "media", "content", "video", "image"],
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "textdomain": "timber-starter-theme",
+  "acf": {
+    "mode": "preview",
+    "post_types": ["page", "post"],
+    "renderCallback": "acf_block_render_callback",
+    "supports": {
+      "align": false
+    }
+  }
+}

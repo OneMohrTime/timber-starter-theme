@@ -7,6 +7,7 @@
     button: params.button ?? null,
     media: params.media|default(null),
     mediaType: params.mediaType|default(null),
+    aspectRatio: params.aspectRatio|default('1:1'),
     isReverse: params.alignment|default(false)
 } %}
 
@@ -44,7 +45,8 @@
                 {% include '_elements/embed.twig' with {
                     params: {
                         src: this.media.video,
-                        type: 'video'
+                        type: 'video',
+                        ratio: this.aspectRatio
                     }
                 } only %}
 
@@ -56,6 +58,7 @@
                                 {% include '_elements/picture.twig' with {
                                     params: {
                                         src: image,
+                                        ratio: this.aspectRatio
                                     }
                                 } only %}
                             </div>
@@ -76,7 +79,7 @@
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: this.media.image,
-                        ratio: '1:1'
+                        ratio: this.aspectRatio
                     }
                 } only %}
 
