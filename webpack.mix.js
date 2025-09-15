@@ -1,38 +1,3 @@
-let mix = require('laravel-mix');
-
-// require('laravel-mix-imagemin');
-
-let PATHS = {
-    node: './node_modules',
-    src: './wp-content/themes/timber-starter-theme/src',
-    dist: './wp-content/themes/timber-starter-theme/assets',
-    docs: './docs',
-    proxy: 'https://timber-wordpress.ddev.site'
-};
-
-// var themename = "website";
-// const themePath = 'wp-content/themes/' + themename + '';
-// const resources = themePath + '/src';
-// mix.setPublicPath(`${themePath}/assets`);
-
-mix.webpackConfig({
-    resolve: {
-        extensions: ['.js', '.jsx'],
-    },
-});
-
-// mix.sass(`${resources}/scss/app.scss`, `${themePath}/assets/css`).sourceMaps();
-// mix.js(`${resources}/js/app.js`, `${themePath}/assets/js`)
-
-// mix.browserSync({
-//     proxy: "https://mywebsite.test",
-//     files: [
-//         `${themePath}/**/*.php`,
-//         `${themePath}/**/*.js`,
-//         `${themePath}/**/*.css`,
-//     ]
-// });
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -44,26 +9,40 @@ mix.webpackConfig({
  |
  */
 
+const mix  = require('laravel-mix');
+const fs   = require('fs');
+const path = require('path');
+
+let PATHS = {
+    node: './node_modules',
+    src: './wp-content/themes/timber-starter-theme/src',
+    dist: './wp-content/themes/timber-starter-theme/assets',
+    blocks: './wp-content/themes/timber-starter-theme/blocks',
+    docs: './docs',
+    proxy: 'https://timber-wordpress.ddev.site'
+};
+
+mix.webpackConfig({
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+});
+
+// Dynamically compile block styles
+const blockDirs = fs.readdirSync(PATHS.blocks, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name);
+
+blockDirs.forEach(block => {
+    const scssPath = path.join(PATHS.blocks, block, `${block}.scss`);
+    const cssOutput = path.join(PATHS.blocks, block);
+    if (fs.existsSync(scssPath)) {
+        mix.sass(scssPath, cssOutput);
+    }
+});
+
 mix
     .sourceMaps(false, 'source-map')
-    // .imagemin(
-    //     'images/**.*',
-    //     {
-    //         context: 'src',
-    //     },
-    //     {
-    //         optipng: {
-    //             optimizationLevel: 5
-    //         },
-    //         jpegtran: null,
-    //         plugins: [
-    //             require('imagemin-mozjpeg')({
-    //                 quality: 100,
-    //                 progressive: true,
-    //             }),
-    //         ],
-    //     }
-    // )
     // .copyDirectory(`${PATHS.node}/@fortawesome/fontawesome-free/webfonts`, `${PATHS.dist}/fonts`)
     .copyDirectory(`${PATHS.src}/images`, `${PATHS.dist}/img`)
     // .copy(`${PATHS.src}/fonts/*`, `${PATHS.dist}/fonts`)
