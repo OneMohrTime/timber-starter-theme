@@ -18,6 +18,7 @@ let PATHS = {
     src:    './wp-content/themes/timber-starter-theme/src',
     dist:   './wp-content/themes/timber-starter-theme/assets',
     blocks: './wp-content/themes/timber-starter-theme/blocks',
+    docs:   './docs',
     proxy:  'https://timber-wordpress.ddev.site'
 };
 
@@ -34,7 +35,7 @@ const blockDirs = fs.readdirSync(PATHS.blocks, { withFileTypes: true })
 
 blockDirs.forEach(block => {
     const scssPath = path.join(PATHS.blocks, block, `${block}.scss`);
-    // Output to `blocks/name/name.css`
+    // Output to ./assets/css/blocks/name.css
     const cssOutput = path.join(PATHS.blocks, `${block}/${block}.css`);
     if (fs.existsSync(scssPath)) {
         mix.sass(scssPath, cssOutput);
@@ -49,6 +50,8 @@ mix
     // .copy(`${PATHS.node}/swiper/dist/js/swiper.js`, `${PATHS.dist}/js`)
     .js(path.join(PATHS.src, 'scripts/app.js'), path.join(PATHS.dist, 'js/app.js'))
     .sass(path.join(PATHS.src, 'styles/app.scss'), path.join(PATHS.dist, 'css/app.css'))
+    .copy(path.join(PATHS.dist, 'css/'), path.join(PATHS.docs, 'assets/css'))
+    .copy(path.join(PATHS.dist, 'js/'), path.join(PATHS.docs, 'assets/js'))
     .options({
         processCssUrls: false
     })
