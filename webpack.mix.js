@@ -14,12 +14,11 @@ const fs   = require('fs');
 const path = require('path');
 
 let PATHS = {
-    node: './node_modules',
-    src: './wp-content/themes/timber-starter-theme/src',
-    dist: './wp-content/themes/timber-starter-theme/assets',
+    node:   './node_modules',
+    src:    './wp-content/themes/timber-starter-theme/src',
+    dist:   './wp-content/themes/timber-starter-theme/assets',
     blocks: './wp-content/themes/timber-starter-theme/blocks',
-    docs: './docs',
-    proxy: 'https://timber-wordpress.ddev.site'
+    proxy:  'https://timber-wordpress.ddev.site'
 };
 
 mix.webpackConfig({
@@ -35,7 +34,8 @@ const blockDirs = fs.readdirSync(PATHS.blocks, { withFileTypes: true })
 
 blockDirs.forEach(block => {
     const scssPath = path.join(PATHS.blocks, block, `${block}.scss`);
-    const cssOutput = path.join(PATHS.blocks, block);
+    // Output to `blocks/name/name.css`
+    const cssOutput = path.join(PATHS.blocks, `${block}/${block}.css`);
     if (fs.existsSync(scssPath)) {
         mix.sass(scssPath, cssOutput);
     }
@@ -44,14 +44,12 @@ blockDirs.forEach(block => {
 mix
     .sourceMaps(false, 'source-map')
     // .copyDirectory(`${PATHS.node}/@fortawesome/fontawesome-free/webfonts`, `${PATHS.dist}/fonts`)
-    .copyDirectory(`${PATHS.src}/images`, `${PATHS.dist}/img`)
+    .copyDirectory(path.join(PATHS.src, 'images'), path.join(PATHS.dist, 'img'))
     // .copy(`${PATHS.src}/fonts/*`, `${PATHS.dist}/fonts`)
     // .copy(`${PATHS.node}/swiper/dist/js/swiper.js`, `${PATHS.dist}/js`)
-    .js(`${PATHS.src}/scripts/app.js`, `${PATHS.dist}/js/`)
-    .sass(`${PATHS.src}/styles/app.scss`, 'css')
-    .copy(`${PATHS.dist}/css/`, `${PATHS.docs}/assets/css`)
-    .copy(`${PATHS.dist}/js/`, `${PATHS.docs}/assets/js`)
+    .js(path.join(PATHS.src, 'scripts/app.js'), path.join(PATHS.dist, 'js/app.js'))
+    .sass(path.join(PATHS.src, 'styles/app.scss'), path.join(PATHS.dist, 'css/app.css'))
     .options({
         processCssUrls: false
     })
-    .setPublicPath(`${PATHS.dist}`);
+    .setPublicPath('.');
