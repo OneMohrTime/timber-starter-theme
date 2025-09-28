@@ -1,0 +1,32 @@
+/* ==========================================================================
+    Card
+========================================================================== */
+
+.c-card {
+    position: relative;
+
+    .c-media {
+        display: block;
+        margin-bottom: $small-spacing;
+        overflow: hidden;
+        border-radius: $border-radius;
+    }
+}
+
+.c-card__headline {
+    font-size: $font-h4;
+    margin-bottom: 0.2em;
+}
+
+.c-card__text {
+    font-size: $font-base-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        font-size: $font-base-md;
+    }
+}
+
+.c-card__button {
+    margin-top: 1em;
+}

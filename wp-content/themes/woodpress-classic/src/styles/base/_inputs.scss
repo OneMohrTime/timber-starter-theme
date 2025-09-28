@@ -1,0 +1,36 @@
+/* ==========================================================================
+    Inputs
+========================================================================== */
+
+#{$all-text-inputs} {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0.75em 1em;
+    border: $border-width solid $gray;
+    border-radius: $border-radius-sm;
+    background-color: $white;
+    color: $black--light;
+    // all: revert;
+
+    &::placeholder {
+        color: $gray--lightest;
+    }
+}
+
+[type=file], select {
+    display: block;
+    padding: $small-spacing;
+    border: $border-width solid $black;
+    border-radius: $border-radius;
+    background-color: transparent;
+    color: $black;
+}
+
+textarea {
+    min-height: 4em;
+}
+
+label {
+    @include label();
+}

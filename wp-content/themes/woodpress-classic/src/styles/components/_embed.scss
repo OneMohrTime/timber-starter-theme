@@ -1,0 +1,20 @@
+/* ==========================================================================
+    Section: Embeds
+========================================================================== */
+
+.c-embed {
+    position: relative;
+    overflow: hidden;
+}
+
+.c-embed__audio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: $small-spacing;
+}
+
+.c-embed__video {
+    overflow: hidden;
+    border-radius: $border-radius;
+}

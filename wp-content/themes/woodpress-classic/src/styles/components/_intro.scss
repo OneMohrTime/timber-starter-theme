@@ -1,0 +1,10 @@
+/* ==========================================================================
+    Intro Content
+========================================================================== */
+
+.c-intro {
+    @include content-width();
+    @include padding();
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+}

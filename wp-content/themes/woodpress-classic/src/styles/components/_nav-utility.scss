@@ -1,0 +1,52 @@
+/* ==========================================================================
+    Utility Navigation
+========================================================================== */
+
+.c-utility {
+    @include padding();
+    position: relative;
+    display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    padding-top: $gutter-xs;
+    padding-bottom: $gutter-xs;
+    background-color: $gray--darkest;
+    color: $white;
+}
+
+/**
+ * === MENU ===
+ */
+
+.c-utility__menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 1em;
+    font-size: $font-base-sm;
+}
+
+.c-utility__menu-item {
+    flex: 0 1 auto;
+
+    .u-link {
+        @include inline-link(true);
+        line-height: $line-height;
+    }
+}
+
+/**
+ * === SEARCH ===
+ */
+
+.c-utility__search {
+    font-size: $font-base-sm;
+
+    // Woocommerce Search
+    .woocommerce-product-search {
+        display: flex;
+    }
+}

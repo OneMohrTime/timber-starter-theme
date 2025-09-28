@@ -1,0 +1,64 @@
+{# -- Component Variables -- #}
+
+{# set in _components/banner.twig #}
+
+{# -- Component Template -- #}
+
+<div class="c-banner__text" data-scroll-trigger>
+
+    <h1 class="u-title">{{ this.headline }}</h1>
+
+    {% if this.subheadline %}
+        <strong class="u-subheadline">{{ this.subheadline }}</strong>
+    {% endif %}
+
+    {% if this.button %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.button.url,
+                text: this.button.title,
+                target: this.button.target
+            }
+        } only %}
+    {% endif %}
+</div>
+
+<figure class="c-banner__media">
+
+    <div class="swiper is-cards" data-module-swiper-cards data-swiper-id="{{ random() }}">
+
+        {# Additional required wrapper #}
+        <div class="swiper-wrapper">
+            {% for image in this.images %}
+
+                {# Slides #}
+                <div class="swiper-slide">
+                    {% set image = get_image(image) %}
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: image,
+                            ratio: '1:1'
+                        },
+                        lazyload: false
+                    } only %}
+                </div>
+
+            {% endfor %}
+        </div>
+
+        {# If we need pagination #}
+        <div class="swiper-pagination"></div>
+
+        {# If we need navigation buttons #}
+        <button class="c-button is-prev">
+            <span class="u-screen-reader-text">Previous</span>
+            {{ source('_elements/svg/arrow-left.svg') }}
+        </button>
+        <button class="c-button is-next">
+            <span class="u-screen-reader-text">Next</span>
+            {{ source('_elements/svg/arrow-right.svg') }}
+        </button>
+
+    </div>
+
+</figure>

@@ -1,0 +1,24 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    textSection: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.textSection %}
+<section class="o-section is-text">
+
+    {% include '_components/content.twig' with {
+        params: {
+            eyebrow: this.textSection.eyebrow ?? null,
+            headline: this.textSection.headline ?? null,
+            headlineSize: this.textSection.headline_size ?? null,
+            text: this.textSection.text ?? null,
+            textSize: this.textSection.text_size ?? null,
+            button: this.textSection.button ?? null
+        },
+    } only %}
+
+</section>
+{% endif %}

@@ -1,0 +1,44 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    image: params.image ?? null,
+    headline: params.headline ?? null,
+    text: params.text ?? null,
+    button: params.button ?? null
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-card">
+
+    {% if this.image %}
+        {% include '_elements/picture.twig' with {
+            params: {
+                src: this.image,
+                ratio: '16:9'
+            }
+        } only %}
+    {% endif %}
+
+    {% if this.headline %}
+        <h3 class="c-card__headline">{{ this.headline }}</h3>
+    {% endif %}
+
+    {% if this.text %}
+        <div class="c-card__text u-wysiwyg">
+            {{ this.text }}
+        </div>
+    {% endif %}
+
+    {% if this.button %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.button.url,
+                text: this.button.title,
+                target: this.button.target,
+                classes: 'c-card__button'
+            }
+        } only %}
+    {% endif %}
+
+</div>

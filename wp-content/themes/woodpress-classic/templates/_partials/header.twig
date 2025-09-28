@@ -1,0 +1,33 @@
+{# -- Partial Variables -- #}
+{# ----------------------------------------------------------------- #}
+
+{% set this = {
+    primary: params.menu ?? null,
+    utility: params.utility ?? null,
+    siteName: params.siteName ?? null,
+    siteLogo: params.siteLogo ?? null,
+    siteUrl: params.siteUrl ?? null
+} %}
+
+{# -- Partial Template -- #}
+{# ----------------------------------------------------------------- #}
+
+{% if this.utility %}
+    {% include '_components/nav-utility.twig' with {
+        params: {
+            menu: this.utility,
+            siteUrl: this.siteUrl
+        }
+    } %}
+{% endif %}
+
+{% if this.primary %}
+    {% include '_components/nav-primary.twig' with {
+        navMenu: this.primary,
+        params: {
+            siteName: this.siteName,
+            siteUrl: this.siteUrl,
+            logo: this.siteLogo
+        }
+    } %}
+{% endif %}

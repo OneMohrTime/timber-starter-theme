@@ -1,0 +1,134 @@
+/* ==========================================================================
+    Menus
+========================================================================== */
+
+/**
+ * === DEFAULT ===
+ */
+
+.c-menu {
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        align-items: baseline;
+        gap: 1em;
+    }
+}
+
+.c-menu-item {
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+    }
+}
+
+/**
+ * === DROPDOWNS ===
+ */
+
+.c-submenu {
+    padding-left: $gutter-sm;
+    padding-right: $gutter-sm;
+    opacity: 0;
+    transition: opacity 200ms $bezier-slide,
+                visibility 200ms $bezier-slide;
+    visibility: hidden;
+
+    &.is-visible {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    &.is-hidden {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        position: absolute;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/**
+ * === MEGA MENU ===
+ */
+
+.c-mega-menu {
+    @include padding();
+    position: absolute;
+    top: 76px; // manually set to navigation hieght
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $gutter-xs;
+    width: 100%;
+    padding-top: $gutter-xs;
+    padding-bottom: $gutter-xs;
+    opacity: 0;
+    transition: opacity 200ms $bezier-slide,
+                visibility 200ms $bezier-slide;
+    background-color: $black;
+    color: $white;
+    visibility: hidden;
+    z-index: 1000;
+    pointer-events: none;
+
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: $gutter-sm;
+    }
+}
+
+.c-mega-menu__card {}
+
+.c-mega-menu__columns {
+    display: flex;
+    flex-flow: row wrap;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        flex: 1 0 auto;
+    }
+}
+
+.c-mega-menu__column {
+    flex: 0 1 50%;
+    max-width: calc(50% - $gutter-xs);
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex-basis: percentage(1/3);
+        max-width: calc(percentage(1/3) - $gutter-xs);
+    }
+}
+
+.c-mega-menu__title {
+    @include heading();
+}

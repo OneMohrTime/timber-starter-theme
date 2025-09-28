@@ -1,0 +1,42 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    eyebrow: params.eyebrow|default(null),
+    headline: params.headline|default(null),
+    headlineSize: params.headlineSize|default('default'),
+    text: params.text|default(null),
+    textSize: params.textSize|default('base'),
+    button: params.button|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<div class="c-content" data-scroll-trigger>
+
+    {% if this.eyebrow %}
+        <strong class="u-eyebrow">{{ this.eyebrow }}</strong>
+    {% endif %}
+
+    {% if this.headline %}
+        <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-headline is-{{ this.headlineSize }}">{{ this.headline }}</h2>
+        {# <div class="c-fittext">
+            <h2 class="c-fittext__headline" data-module-fit-text>{{ this.headline }}</h2>
+        </div> #}
+    {% endif %}
+
+    <div class="u-wysiwyg is-{{ this.textSize }}">
+        {{ this.text }}
+    </div>
+
+    {% if this.button %}
+        {% include '_elements/button.twig' with {
+            params: {
+                url: this.button.url,
+                text: this.button.title,
+                target: this.button.target,
+                type: 'primary'
+            }
+        } only %}
+    {% endif %}
+
+</div>

@@ -1,0 +1,64 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    type: params.style|default('default'),
+    headline: params.headline|default(''),
+    subheadline: params.text|default(null),
+    button: params.button|default(null),
+    image: params.image|default(null),
+    images: params.images|default(null),
+    video: params.video|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-16:9{% endif %}">
+    {% switch this.type %}
+
+        {% case 'video' %}
+            {% include '_components/banner--video.twig' %}
+
+        {% case 'stacked' %}
+            {% include '_components/banner--stacked.twig' %}
+
+        {% case 'slides' %}
+            {% include '_components/banner--slides.twig' %}
+
+        {# Base Template #}
+        {% default %}
+            <div class="c-banner__text" data-scroll-trigger>
+
+                <h1 class="u-title">{{ this.headline }}</h1>
+
+                {% if this.subheadline %}
+                    <strong class="u-subheadline">{{ this.subheadline }}</strong>
+                {% endif %}
+
+                {% if this.button %}
+                    {% include '_elements/button.twig' with {
+                        params: {
+                            url: this.button.url,
+                            text: this.button.title,
+                            target: this.button.target
+                        }
+                    } only %}
+                {% endif %}
+            </div>
+
+            <figure class="c-banner__media">
+
+                {% if this.image is not empty %}
+                    {% set renderedImage = get_image(this.image) %}
+                    {% include '_elements/picture.twig' with {
+                        params: {
+                            src: renderedImage,
+                            ratio: '4:3'
+                        },
+                        lazyload: false
+                    } only %}
+                {% endif %}
+
+            </figure>
+
+    {% endswitch %}
+</section>

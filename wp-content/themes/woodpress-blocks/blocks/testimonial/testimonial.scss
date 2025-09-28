@@ -1,0 +1,40 @@
+/* ==========================================================================
+    WP Block: Text & Media
+========================================================================== */
+
+@use "sass:color";
+@use "sass:list";
+// @use "sass:map";
+@use "sass:math";
+// @use "sass:meta";
+@use "sass:selector";
+@use "sass:string";
+
+/* CSS Reset + Normalize */
+@import "../../../../../node_modules/css-reset-and-normalize/scss/reset-and-normalize";
+
+/* Custom tools like family, functions, and mixins are included here for reuse throughout the theme. */
+@import "../../src/styles/tools/family";
+@import "../../src/styles/tools/functions";
+@import "../../src/styles/tools/mixins";
+
+@import "../../../../../node_modules/bourbon/core/bourbon";
+@import "../../src/styles/helpers/variables";
+@import "../../src/styles/helpers/mixins";
+@import "../../src/styles/helpers/helpers";
+@import "../../src/styles/helpers/ratio";
+@import "../../src/styles/helpers/animations";
+
+/* Full vendor mixins + variables */
+@import "../../../../../node_modules/include-media/dist/include-media";
+// @import "../../node_modules/swiper/swiper";
+
+// .o-section.is-text-media {
+//   position: relative;
+
+//   .c-textMedia {
+//     display: flex;
+//   }
+// }
+
+@import "../../src/styles/components/quotes";

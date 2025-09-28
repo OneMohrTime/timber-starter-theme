@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter-theme/testimonial",
+  "title": "Testimonial",
+  "description": "Description for my block",
+  "style": [ "file:./testimonial.css" ],
+  "category": "text",
+  "icon": "testimonial",
+  "keywords": ["onemohrtime", "quote"],
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "textdomain": "timber-starter-theme",
+  "acf": {
+    "mode": "preview",
+    "post_types": ["page", "post"],
+    "renderCallback": "acf_block_render_callback",
+    "supports": {
+      "align": false
+    }
+  }
+}

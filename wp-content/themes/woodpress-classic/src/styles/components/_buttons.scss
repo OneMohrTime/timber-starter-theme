@@ -1,0 +1,127 @@
+/* ==========================================================================
+    Buttons
+========================================================================== */
+
+#{$all-buttons} {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    background-image: none;
+    border-radius: 0;
+    color: inherit;
+    font-size: 100%; // Corrects font size not being inherited in all browsers
+    margin: 0;
+    vertical-align: baseline; // Improves appearance and consistency in all browsers
+    white-space: nowrap;
+    overflow: hidden;
+    appearance: none;
+
+    &:focus {
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+    }
+}
+
+#{$all-buttons-focus} {
+    outline-color: fade-out($blue, 0.4);
+}
+
+#{$all-buttons-hover} {
+    background-color: transparent;
+    color: inherit;
+}
+
+/**
+ * === BOURBON MIXINS ===
+ */
+
+@mixin btn-style($bg: $black--lighter, $text: $white, $hover: $black) {
+    // @include btn-color();
+    display: inline-block;
+    padding: $small-spacing $base-spacing;
+    transition: background-color $speed $bezier-back,
+                color $speed $bezier-back;
+    font-family: $font-header;
+    font-size: $font-base;
+    font-weight: $font-bold;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    border-radius: $border-radius-sm;
+    background-color: $bg;
+    color: $text;
+    cursor: pointer;
+
+    // hover, focus
+    @include hocus {
+        background-color: $hover;
+        color: $text;
+    }
+
+    &:active {
+        background-color: $bg;
+        color: $text;
+    }
+
+    // disabled buttons
+    &.is-disabled,
+    &:disabled {
+        opacity: 1;
+        background-color: $gray--dark !important;
+        color: $white--darkest !important;
+        cursor: not-allowed !important;
+    }
+}
+
+/**
+ * === BUTTON (BTN) CLASS ===
+ */
+
+.c-button {
+    @include btn-style();
+
+    &.is-primary {
+        @include btn-style($black--lighter, $white);
+    }
+
+    // &.is-secondary {
+    //     @include btn-style($black, $white);
+    // }
+
+    // &.is-tertiary {
+    //     @include btn-style($black, $white);
+    // }
+
+    &.is-inverse {
+        @include btn-style($white, $black--light);
+    }
+
+    // &.is-outline {
+    //     @include btn-style($black, $white);
+    // }
+
+    /**
+     * === ICONS ===
+     */
+
+    &:has(.c-button__icon) {
+        display: flex;
+        display: inline-flex;
+        align-items: baseline;
+        column-gap: $small-spacing;
+    }
+
+    .c-media__svg {
+        position: relative;
+        display: block;
+        transition: all $speed $bezier-back;
+    }
+
+    /**
+     * === SMALL SIZING ===
+     */
+    &.is-small {
+        padding: math.div($small-spacing, 2) math.div($base-spacing, 2) !important;
+        font-size: $font-base-sm !important;
+    }
+}

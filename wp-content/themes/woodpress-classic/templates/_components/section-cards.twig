@@ -1,0 +1,36 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    grid: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.grid %}
+<section class="o-section is-cards">
+
+    <div class="c-grid has-{{ this.grid.row_count }}" data-scroll-trigger>
+
+        {% for item in this.grid.cards %}
+            {% set cardImage = get_image(item.card_image)|default(null) %}
+            {% set cardHeadline = item.card_headline|default(null) %}
+            {% set cardText = item.card_body|default(null) %}
+            {% set cardButton = item.card_button|default(null) %}
+
+            <div class="c-grid__item">
+                {% include '_components/card.twig' with {
+                    params: {
+                        image: cardImage,
+                        headline: cardHeadline,
+                        text: cardText,
+                        button: cardButton
+                    }
+                } only %}
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+{% endif %}

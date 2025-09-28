@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter-theme/media",
+  "title": "Media",
+  "description": "A block for displaying media content such as images or videos.",
+  "style": [ "file:./media.css" ],
+  "category": "image",
+  "icon": "media",
+  "keywords": ["onemohrtime", "media", "video", "image"],
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "textdomain": "timber-starter-theme",
+  "acf": {
+    "mode": "preview",
+    "post_types": ["page", "post"],
+    "renderCallback": "acf_block_render_callback",
+    "supports": {
+      "align": false
+    }
+  }
+}

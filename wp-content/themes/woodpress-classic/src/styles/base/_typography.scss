@@ -1,0 +1,310 @@
+/* ==========================================================================
+    Typography
+========================================================================== */
+
+/**
+ * === FONT IMPORT ===
+ */
+
+// @font-face {
+//     font-family: "BN Rockies";
+//     src: url("https://website.com/wp-content/uploads/BNRockies.woff2") format("woff2"),
+//          url("https://website.com/wp-content/uploads/BNRockies.woff") format("woff");
+//     font-display: swap;
+//     font-style: normal;
+//     font-weight: $font-regular;
+// }
+
+/**
+ * === USER SELECT ===
+ */
+
+::selection {
+    color: $white;
+    background-color: $blue;
+    text-shadow: none;
+}
+
+/**
+ * === HEADINGS ===
+ */
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        position: relative;
+        margin: 0;
+        font-family: $font-header;
+        font-weight: $font-bold;
+        line-height: $heading-height;
+        color: inherit;
+
+        @include first(1) {
+            margin-top: 0;
+        }
+
+        a {
+            line-height: inherit;
+            color: inherit;
+        }
+    }
+}
+
+.is-h1,
+h1 {
+    font-size: $font-h1;
+}
+.is-h2,
+h2 {
+    font-size: $font-h2;
+}
+.is-h3,
+h3 {
+    font-size: $font-h3;
+}
+.is-h4,
+h4 {
+    font-size: $font-h4;
+}
+.is-h5,
+h5 {
+    font-size: $font-h5;
+}
+.is-h6,
+h6 {
+    font-size: $font-h6;
+}
+
+.u-wysiwyg {
+    @include content-width();
+    @include fluid-body-copy();
+    line-height: $line-height;
+
+    h1, h2, h3, h4, h5, h6 {
+        display: block;
+        margin-bottom: 0.5em;
+        line-height: $heading-height;
+
+        a {
+            font-weight: inherit;
+            color: inherit;
+        }
+
+        // headers in a wysiwyg section only...hopefully
+        &:not([class]) {
+            margin-bottom: ($line-height / 2);
+        }
+        // remove top margin for first heading in sections
+        &:not(:first-child) {
+            margin-top: 0.5em;
+        }
+    }
+
+    p, ul, ol {
+        // margin-left: 0;
+        line-height: inherit;
+        & + p, ul, ol {
+            margin-top: $line-height;
+        }
+    }
+
+    // .c-button {
+    //     @include btn-color($navy, $yellow);
+    // }
+}
+
+/**
+ * === BODY COPY ===
+ */
+
+p {
+    @include type();
+    @include last(1) {
+        margin-bottom: 0;
+    }
+}
+
+b, strong {
+    font-weight: $font-bold;
+}
+
+sub, sup {
+    position: relative;
+    font-size: .75em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+small {
+    font-size: .75em;
+}
+
+/**
+* === LISTS ===
+*/
+
+ul, ol, dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .u-wysiwyg & {
+        @include type();
+        margin: 0 0 $line-height;
+        padding-left: $line-height;
+
+        // custom styled dots
+        li::marker {
+            color: $blue;
+        }
+
+        // child elements
+        & ul,
+        & ol,
+        & dl {
+            margin: 0;
+        }
+
+        // sibling elements
+        & + p,
+        & + ul,
+        & + ol,
+        & + .c-button {
+            margin-top: $line-height;
+        }
+    }
+}
+
+.u-wysiwyg ul {
+    list-style: disc;
+}
+
+.u-wysiwyg ol {
+    list-style: decimal;
+}
+
+/**
+* === UTILITY CLASSES ===
+*/
+
+.u-title {
+    @include title();
+
+    &.is-underlined {
+        @include title("underlined");
+    }
+}
+
+.u-headline {
+    @include headline();
+
+    &.is-underlined {
+        @include headline("underlined");
+    }
+}
+
+.u-subheadline {
+    @include subheadline();
+
+    &.is-underlined {
+        @include subheadline("underlined");
+    }
+}
+
+.u-heading {
+    @include heading();
+
+    &.is-underlined {
+        @include heading("underlined");
+    }
+}
+
+.u-eyebrow {
+    display: inline-block;
+    font-size: $font-base-sm;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    letter-spacing: rem(1px);
+    line-height: $heading-height;
+}
+
+/**
+ * === ADDITIONAL ADDITIONS ===
+ */
+
+i, cite, em, var, address, dfn {
+    margin: 0;
+    font-family: inherit;
+    font-style: italic;
+}
+
+abbr {
+    padding: 2px 4px;
+    text-decoration: none;
+    border-bottom: 1px $black dotted;
+    background-color: fade-out($black, 0.95);
+    cursor: help;
+
+    &:focus {
+        padding: 0;
+        font-size: 0;
+        line-height: initial;
+        outline: $focus-outline;
+        outline-offset: $focus-offset;
+        border-bottom: 0;
+        background-color: transparent;
+
+        &::after {
+            content: attr(title);
+            display: inline-block;
+            padding: 2px 4px;
+            text-decoration: none;
+            line-height: inherit;
+            border-bottom: 1px $black dotted;
+            background-color: fade-out($black, 0.95);
+        }
+    }
+}
+
+mark {
+    background-color: $blue;
+    color: $white;
+}
+
+blockquote {
+    border-left: 10px $blue solid;
+    margin: $base-spacing 0;
+    padding-left: 10px;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    footer {
+        position: relative;
+        font-size: .75em;
+        color: $black--light;
+
+        cite {
+            display: block;
+            margin-top: 1em;
+            padding-left: 1.5em;
+            font-style: normal;
+            font-weight: $font-bold;
+        }
+
+        &::before {
+            content: "\2014 \00A0";
+            position: absolute;
+        }
+    }
+}
+
+hr {
+    width: 50%;
+    height: $border-width;
+    margin: $base-spacing auto;
+    border: 0;
+    background-color: $blue;
+}

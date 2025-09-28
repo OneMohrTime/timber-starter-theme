@@ -1,0 +1,59 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    hasIntro: params.section.add_intro_content|default(null),
+    galleryType: params.section.gallery_type|default(null),
+    headline: params.section.headline|default(null),
+    text: params.section.text|default(null),
+    images: params.section.images|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.images %}
+<section class="o-section is-{{ this.galleryType }}-gallery">
+
+    {% if this.hasIntro %}
+        <div class="c-gallery__intro" data-scroll-trigger>
+        {% if this.headline %}
+            <h2 id="{{ this.headline|sanitize|slice(0, 24) }}" class="u-subheadline">{{ this.headline }}</h2>
+        {% endif %}
+        {% if this.text %}
+            <div class="u-wysiwyg">
+                {{ this.text }}
+            </div>
+        {% endif %}
+        </div>
+    {% endif %}
+
+    {% switch this.galleryType %}
+
+        {% case 'grid' %}
+            <ul class="c-grid is-gallery" data-module-fancybox data-scroll-trigger>
+                {% for image in this.images %}
+                <li class="c-grid__item">
+                    <a href="{{ image.sizes.large }}" class="c-grid__item-link" data-fancybox="gallery-of-{{ this.images|length }}">
+                        {% include '_elements/picture.twig' with {
+                            params: {
+                                src: image,
+                                sizes: '(min-width: 900px) 25vw, 50vw'
+                            }
+                        } only %}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% case 'slider' %}
+            {% include '_components/gallery.twig' with {
+                params: {
+                    images: this.images
+                }
+            } only %}
+
+        {% default %}
+        {# no default configured #}
+
+    {% endswitch %}
+</section>
+{% endif %}

@@ -1,0 +1,37 @@
+/* ==========================================================================
+    Blog
+========================================================================== */
+
+.c-blog {
+    @include padding();
+    display: block;
+    padding-top: $gutter-sm;
+    padding-bottom: $gutter;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $gutter;
+    }
+}
+
+.c-blog__post {
+    position: relative;
+
+    & + & {
+        margin-top: $gutter;
+    }
+
+    .c-media {
+        overflow: hidden;
+        border-radius: $border-radius;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex: 0 0 50%;
+        max-width: calc(50% - $gutter-sm);
+        margin-top: 0 !important;
+    }
+}

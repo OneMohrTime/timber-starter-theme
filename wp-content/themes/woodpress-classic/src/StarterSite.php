@@ -1,0 +1,255 @@
+<?php
+
+use Timber\Site;
+use buzzingpixel\twigswitch\SwitchTwigExtension;
+
+/**
+ * Class StarterSite
+ */
+class StarterSite extends Site {
+    public function __construct() {
+        // Actions
+        add_action('after_setup_theme', [$this, 'theme_supports']);
+        add_action('after_setup_theme', [$this, 'navigation_menus']);
+        add_action('after_setup_theme', [$this, 'theme_add_woocommerce_support']);
+        // add_action('after_setup_theme', [$this, 'timber_set_product']); // WooCommerce
+        // add_action('init', [$this, 'register_post_types']); // ACF handles this
+        // add_action('init', [$this, 'register_taxonomies']); // ACF handles this
+        add_action('wp_enqueue_scripts', [$this, 'load_scripts']);
+        add_action('widgets_init', [$this, 'create_sidebars']);
+        // Filters
+        add_filter('timber/context', [$this, 'add_to_context' ]);
+        add_filter('timber/twig', [$this, 'add_to_twig' ]);
+        add_filter('timber/twig/environment/options', [$this, 'update_twig_environment_options']);
+        add_filter('wpseo_metabox_prio', [$this, 'move_yoast_seo_metabox']);
+
+        parent::__construct();
+    }
+
+    /**
+     * The first step to get your WooCommerce project integrated with Timber is
+     * declaring WooCommerce support in your theme’s functions.php file like so.
+     */
+    // public function theme_add_woocommerce_support() {
+    //     add_theme_support('woocommerce');
+    // }
+
+    // public function timber_set_product($post) {
+    //     global $product;
+
+    //     if (is_woocommerce()) {
+    //         $product = wc_get_product($post->ID);
+    //     }
+    // }
+
+    // /**
+    //  * This is where you can register custom post types & taxonomies
+    //  * === CURRENTLY HANDLED BY ACF PRO ===
+    //  * @link https://codex.wordpress.org/Function_Reference/register_post_type
+    //  * @link https://codex.wordpress.org/Function_Reference/register_taxonomy
+    //  */
+    // public function register_post_types() {}
+    // public function register_taxonomies() {}
+
+    /**
+     * This is where you load the frontend CSS & JS files
+     *
+     * @link https://developer.wordpress.org/reference/functions/wp_enqueue_script/
+     */
+    public function load_scripts() {
+        // Main "screen" stylesheet
+        wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/app.css', array(), null, 'screen');
+
+        // Main script file
+        wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
+
+        // Filter to add defer attribute to the main script
+        add_filter('script_loader_tag', function($tag, $handle) {
+            if ('main' !== $handle) {
+                return $tag; // Only modify the 'main' script
+            }
+            return str_replace(' src', ' defer="defer" src', $tag);
+        }, 10, 2);
+    }
+
+    /**
+     * This is where you register & use WordPress menus
+     *
+     * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+     */
+    public function navigation_menus() {
+        register_nav_menus([
+            'primary' => 'Primary Navigation',
+            'utility' => 'Utility Navigation',
+            'footer' => 'Footer Navigation',
+        ]);
+    }
+
+    // /**
+    //  * Create a global site sidebar
+    //  */
+    // public function create_sidebars() {
+    //     register_sidebar( array(
+    //         'name' => 'Global Sidebar',
+    //         'id' => 'global-sidebar',
+    //         'before_widget' => '<div class="c-widget">',
+    //         'after_widget' => '</div>',
+    //         'before_title' => '<h3 class="u-heading">',
+    //         'after_title' => '</h3>',
+    //     ) );
+    // }
+
+    /**
+     * This is where you move SEO fields to the bottom of the page
+     *
+     * @link https://developer.yoast.com/customization/yoast-seo/filters/change-metabox-prio-filter/
+     */
+    public function move_yoast_seo_metabox() {
+        return 'low';
+    }
+
+    /**
+     * This is where you add some context
+     *
+     * @param string $context context['this'] Being the Twig's {{ this }}.
+     */
+    public function add_to_context( $context ) {
+        // Global vars
+        $context['site']          = $this;
+        $context['homePage']      = is_front_page();
+        $context['globals']       = get_fields('option');
+        $context['globalSidebar'] = dynamic_sidebar('global_sidebar');
+        // Site logo
+        $custom_logo_url     = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
+        $context['siteLogo'] = $custom_logo_url;
+        // Menus
+        $context['primaryMenu'] = Timber::get_menu('primary');
+        $context['utilityMenu'] = Timber::get_menu('utility');
+        $context['footerMenu']  = Timber::get_menu('footer');
+        // Taxonomies & archives
+        $context['categoryPage'] = is_category();
+        $context['tagPage']      = is_tag();
+        $context['blogArchives'] = wp_get_archives([
+            'type' => 'monthly',
+            'format' => 'option',
+            'echo' => false
+        ]);
+        $context['blogCategories'] = Timber::get_terms([
+            'taxonomy' => 'category',
+            'hide_empty' => true
+        ]);
+        $context['blogTags'] = Timber::get_terms([
+            'taxonomy' => 'post_tag',
+            'hide_empty' => true
+        ]);
+        // Check for Classic Editor plugin
+        $context['usingClassicEditor'] = is_plugin_active('classic-editor/classic-editor.php');
+
+        return $context;
+    }
+
+    public function theme_supports() {
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support('automatic-feed-links');
+
+        /*
+        * Let WordPress manage the document title.
+        * By adding theme support, we declare that this theme does not use a
+        * hard-coded <title> tag in the document head, and expect WordPress to
+        * provide it for us.
+        */
+        add_theme_support('title-tag');
+
+        /*
+        * Enable support for Post Thumbnails on posts and pages.
+        *
+        * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+        */
+        add_theme_support('post-thumbnails');
+
+        /*
+        * Switch default core markup for search form, comment form, and comments
+        * to output valid HTML5.
+        */
+        add_theme_support(
+            'html5', ['comment-form', 'comment-list', 'search-form', 'gallery', 'caption', 'style', 'script']
+        );
+
+        /*
+        * Enable support for Post Formats.
+        *
+        * See: https://codex.wordpress.org/Post_Formats
+        */
+        add_theme_support(
+            'post-formats',['aside', 'image', 'video', 'quote', 'link', 'gallery', 'audio']
+        );
+
+        /**
+         * Add theme support for navigation menus
+         */
+        add_theme_support('menus');
+
+        /**
+         * Add support for core custom logo
+         */
+        add_theme_support('custom-logo');
+
+        /**
+         * Allow excerpts for pages, not just posts
+         *
+         * @link https://codex.wordpress.org/Function_Reference/add_post_type_support
+         */
+        add_post_type_support('page', 'excerpt');
+
+        /**
+         * Enable support for Gutenberg/block editor features
+         */
+        add_theme_support('wp-block-styles');
+        // add_theme_support('editor-styles');
+        add_theme_support('align-wide');
+        add_theme_support('custom-spacing');
+        add_theme_support('custom-units');
+        // Optional: Add support for full site editing and block patterns (if desired)
+        add_theme_support('block-templates');
+        add_theme_support('block-patterns');
+
+        /**
+         * Queue editor styles for use
+         */
+        add_editor_style();
+    }
+
+    /**
+     * This is where you can add your own functions to twig.
+     *
+     * @param Twig\Environment $twig get extension.
+     */
+    public function add_to_twig( $twig ) {
+        /**
+         * Required when you want to use Twig’s template_from_string.
+         * @link https://twig.symfony.com/doc/3.x/functions/template_from_string.html
+         */
+        // $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
+        // $twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
+
+        // Provide a {% switch %} tag for Twig switch case statements
+        $twig->addExtension(new SwitchTwigExtension());
+
+        return $twig;
+    }
+
+    /**
+     * Updates Twig environment options.
+     *
+     * @link https://twig.symfony.com/doc/2.x/api.html#environment-options
+     *
+     * @param array $options An array of environment options.
+     *
+     * @return array
+     */
+    function update_twig_environment_options( $options ) {
+        // $options['autoescape'] = true;
+
+        return $options;
+    }
+}
