@@ -26,24 +26,9 @@
             }
         } only %}
 
-        {# Classic Editor Structure #}
-        {% if usingClassicEditor %}
-
-            {% if post.content is not empty %}
-                <section class="c-intro">
-                    <div class="u-wysiwyg" data-scroll-trigger>
-                        {{ post.content }}
-                    </div>
-                </section>
-            {% endif %}
-
-        {# Block Editor Structure #}
-        {% else %}
-            <section class="o-page__sections">
-                {{ post.content }}
-            </section>
-
-        {% endif %}
+        <section class="o-page__sections">
+            {{ post.content }}
+        </section>
 
         <section class="c-blog">
             {% for post in posts %}

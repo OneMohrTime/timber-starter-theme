@@ -31,30 +31,9 @@
             }
         } only %}
 
-        {# Classic Editor Structure #}
-        {% if usingClassicEditor %}
-
-            {% if post.content is not empty %}
-                <section class="c-intro">
-                    <div class="u-wysiwyg" data-scroll-trigger>
-                        {{ post.content }}
-                    </div>
-                </section>
-            {% endif %}
-
-            {% include '_partials/page-builder.twig' with {
-                params: {
-                    sections: pageBuilder
-                }
-            } only %}
-
-        {# Block Editor Structure #}
-        {% else %}
-            <section class="o-page__sections">
-                {{ post.content }}
-            </section>
-
-        {% endif %}
+        <section class="o-page__sections">
+            {{ post.content }}
+        </section>
 
     </article>
 

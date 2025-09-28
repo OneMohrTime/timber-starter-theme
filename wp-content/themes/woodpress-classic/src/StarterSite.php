@@ -142,8 +142,6 @@ class StarterSite extends Site {
             'taxonomy' => 'post_tag',
             'hide_empty' => true
         ]);
-        // Check for Classic Editor plugin
-        $context['usingClassicEditor'] = is_plugin_active('classic-editor/classic-editor.php');
 
         return $context;
     }
@@ -200,18 +198,6 @@ class StarterSite extends Site {
          * @link https://codex.wordpress.org/Function_Reference/add_post_type_support
          */
         add_post_type_support('page', 'excerpt');
-
-        /**
-         * Enable support for Gutenberg/block editor features
-         */
-        add_theme_support('wp-block-styles');
-        // add_theme_support('editor-styles');
-        add_theme_support('align-wide');
-        add_theme_support('custom-spacing');
-        add_theme_support('custom-units');
-        // Optional: Add support for full site editing and block patterns (if desired)
-        add_theme_support('block-templates');
-        add_theme_support('block-patterns');
 
         /**
          * Queue editor styles for use
