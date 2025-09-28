@@ -81,7 +81,7 @@ class StarterSite extends Site {
         register_nav_menus([
             'primary' => 'Primary Navigation',
             'utility' => 'Utility Navigation',
-            'footer' => 'Footer Navigation',
+            'footer'  => 'Footer Navigation',
         ]);
     }
 
@@ -142,8 +142,6 @@ class StarterSite extends Site {
             'taxonomy' => 'post_tag',
             'hide_empty' => true
         ]);
-        // Check for Classic Editor plugin
-        $context['usingClassicEditor'] = is_plugin_active('classic-editor/classic-editor.php');
 
         return $context;
     }
