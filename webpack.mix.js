@@ -13,11 +13,12 @@ const mix  = require('laravel-mix');
 const fs   = require('fs');
 const path = require('path');
 
+let WOODPRESS = process.env.THEME || 'woodpress-classic'; // theme comes from .env
 let PATHS = {
     node:   './node_modules',
-    src:    './wp-content/themes/timber-starter-theme/src',
-    dist:   './wp-content/themes/timber-starter-theme/assets',
-    blocks: './wp-content/themes/timber-starter-theme/blocks',
+    src:    './wp-content/themes/' + WOODPRESS + '/src',
+    dist:   './wp-content/themes/' + WOODPRESS + '/assets',
+    blocks: './wp-content/themes/' + WOODPRESS + '/blocks',
     docs:   './docs',
     proxy:  'https://timber-wordpress.ddev.site'
 };
