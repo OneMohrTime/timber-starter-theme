@@ -1,0 +1,26 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    images: params.section.images|default(null),
+} %}
+
+{# -- Component Template -- #}
+
+<section class="o-section is-gallery-grid has-{{ this.bgColor }}-background">
+
+    <ul class="c-grid is-gallery" data-module-fancybox data-scroll-trigger>
+        {% for image in this.images %}
+        <li class="c-grid__item">
+            <a href="{{ image.sizes.large }}" class="c-grid__item-link" data-fancybox="gallery-of-{{ this.images|length }}">
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: image,
+                        sizes: '(min-width: 900px) 25vw, 50vw'
+                    }
+                } only %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</section>

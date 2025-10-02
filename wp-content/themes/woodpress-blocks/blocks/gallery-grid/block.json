@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter-theme/gallery-grid",
+  "title": "Grid Gallery",
+  "description": "Gallery block organized as a grid of images",
+  "style": [ "file:./gallery.css" ],
+  "category": "image",
+  "icon": "media",
+  "keywords": ["onemohrtime", "media", "gallery", "images", "grid", "masonry"],
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "textdomain": "timber-starter-theme",
+  "acf": {
+    "mode": "preview",
+    "post_types": ["page", "post"],
+    "renderCallback": "acf_block_render_callback",
+    "supports": {
+      "align": false
+    }
+  }
+}
