@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter-theme/call-to-action",
+  "title": "Call to Action (CTA)",
+  "description": "Call to Action, Callout, or CTA block with customizable text and button",
+  "style": [ "file:./cta.css" ],
+  "category": "text",
+  "icon": "text",
+  "keywords": ["onemohrtime", "callout", "cta", "button", "call to action"],
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "textdomain": "timber-starter-theme",
+  "acf": {
+    "mode": "preview",
+    "post_types": ["page", "post"],
+    "renderCallback": "acf_block_render_callback",
+    "supports": {
+      "align": false
+    }
+  }
+}
