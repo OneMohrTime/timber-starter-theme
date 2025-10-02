@@ -1,7 +1,7 @@
 {
   "name": "timber-starter-theme/text-media",
   "title": "Text + Media",
-  "description": "Create a block with text and media side by side.",
+  "description": "Create a block with text and media side by side",
   "style": [ "file:./text-media.css" ],
   "category": "media",
   "icon": "align-pull-left",
