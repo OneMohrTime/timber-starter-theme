@@ -1,17 +1,12 @@
 {# -- Component Variables -- #}
 
 {% set this = {
-    eyebrow: fields.eyebrow|default(null),
-    headline: fields.headline|default(null),
-    text: fields.text|default(null),
-    button: fields.button|default(null),
-    mediaType: fields.media_type|default('image'),
-    aspectRatio: fields.aspect_ratio|default(null),
-    image: fields.image|default(null),
-    video: fields.video|default(null),
-    slider: fields.slider|default(null),
-    reverse: fields.reverse|default(false),
-    bgColor: fields.background_color|default('white')
+    eyebrow: params.eyebrow|default(null),
+    headline: params.headline|default(null),
+    headlineSize: params.headlineSize|default('default'),
+    text: params.text|default(null),
+    textSize: params.textSize|default('base'),
+    button: params.button|default(null),
 } %}
 
 {# -- Component Template -- #}

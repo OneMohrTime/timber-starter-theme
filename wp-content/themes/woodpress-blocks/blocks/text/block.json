@@ -1,7 +1,7 @@
 {
   "name": "timber-starter-theme/text",
   "title": "Text",
-  "description": "A simple text block with basic styling.",
+  "description": "A simple text block with basic styling",
   "style": [ "file:./text.css" ],
   "category": "text",
   "icon": "text",
