@@ -1,7 +1,7 @@
 {
   "name": "timber-starter-theme/media",
   "title": "Media",
-  "description": "A block for displaying media content such as images or videos.",
+  "description": "A block for displaying media content such as images or videos",
   "style": [ "file:./media.css" ],
   "category": "image",
   "icon": "media",
