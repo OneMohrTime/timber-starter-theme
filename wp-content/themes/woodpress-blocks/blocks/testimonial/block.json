@@ -1,7 +1,7 @@
 {
   "name": "timber-starter-theme/testimonial",
   "title": "Testimonial",
-  "description": "Description for my block",
+  "description": "Testimonial block with quote and author",
   "style": [ "file:./testimonial.css" ],
   "category": "text",
   "icon": "testimonial",
