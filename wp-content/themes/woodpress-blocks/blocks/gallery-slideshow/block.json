@@ -1,0 +1,22 @@
+{
+  "name": "timber-starter-theme/gallery-slideshow",
+  "title": "Slideshow Gallery",
+  "description": "Gallery block organized as a carousel, slider, or slideshow",
+  "style": [ "file:./gallery.css" ],
+  "category": "image",
+  "icon": "media",
+  "keywords": ["onemohrtime", "media", "gallery", "images", "slider", "slideshow", "carousel"],
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "textdomain": "timber-starter-theme",
+  "acf": {
+    "mode": "preview",
+    "post_types": ["page", "post"],
+    "renderCallback": "acf_block_render_callback",
+    "supports": {
+      "align": false
+    }
+  }
+}
