@@ -65,7 +65,12 @@ function timber_block_types( $allowed_block_types, $block_editor_context ) {
         'core/list',
         'core/list-item',
         'core/paragraph',
+        'timber-starter-theme/call-to-action',
+        'timber-starter-theme/gallery-grid',
+        'timber-starter-theme/gallery-slideshow',
+        'timber-starter-theme/media',
         'timber-starter-theme/testimonial',
+        'timber-starter-theme/text',
         'timber-starter-theme/text-media',
     );
 
